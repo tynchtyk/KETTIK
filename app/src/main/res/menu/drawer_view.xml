@@ -4,29 +4,42 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/my"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/my_trips"
+            android:icon="@drawable/check"
             android:title="Мои поездки" />
+    </group>
+
+    <group
+        android:id="@+id/options"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/drivers"
+            android:icon="@drawable/ic_directions_car_black_24dp"
             android:title="Водители" />
         <item
             android:id="@+id/passengers"
+            android:icon="@drawable/ic_people_black_24dp"
             android:title="Пассажиры" />
         <item
             android:id="@+id/parcels"
+            android:icon="@drawable/ic_card_giftcard_black_24dp"
             android:title="Посылки" />
+    </group>
+
+    <group
+        android:id="@+id/setting"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/settings"
+            android:icon="@drawable/ic_settings_black_24dp"
             android:title="Настройки" />
         <item
             android:id="@+id/help"
+            android:icon="@drawable/ic_help_black_24dp"
             android:title="Помощь" />
-        <item
-            android:id="@+id/log_out"
-            android:title="Выход" />
-
-
     </group>
 </menu>

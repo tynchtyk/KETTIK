@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 19">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #575454;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-3 {
+        stroke-linecap: square;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="календарь" transform="translate(-19 -279)">
+    <g id="Calendar" transform="translate(15 275)">
+      <g id="Group" transform="translate(5 5)">
+        <rect id="Rectangle-53" class="cls-1" width="16" height="13.049" transform="translate(0 3.951)"/>
+        <path id="Rectangle-53-Copy" class="cls-2" d="M0,0H16V3.951H0Z" transform="translate(0 0.878)"/>
+        <path id="Line" class="cls-3" d="M9,1.317V0" transform="translate(-5.211)"/>
+        <path id="Line-Copy-20" class="cls-3" d="M30,1.317V0" transform="translate(-17.368)"/>
+      </g>
+    </g>
+    <circle id="Ellipse_5" data-name="Ellipse 5" cx="1" cy="1" r="1" transform="translate(23 287)"/>
+    <circle id="Ellipse_6" data-name="Ellipse 6" cx="1" cy="1" r="1" transform="translate(27 287)"/>
+    <circle id="Ellipse_7" data-name="Ellipse 7" cx="1" cy="1" r="1" transform="translate(31 287)"/>
+    <circle id="Ellipse_8" data-name="Ellipse 8" cx="1" cy="1" r="1" transform="translate(31 290)"/>
+    <circle id="Ellipse_9" data-name="Ellipse 9" cx="1" cy="1" r="1" transform="translate(27 290)"/>
+    <circle id="Ellipse_10" data-name="Ellipse 10" cx="1" cy="1" r="1" transform="translate(23 290)"/>
+  </g>
+</svg>
