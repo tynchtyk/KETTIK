@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -23,7 +23,7 @@
             android:layout_marginRight="8dp"
             android:layout_weight="0"
             android:fontFamily="Roboto, Regular"
-            android:text="TEXT 1 HERE"
+            android:text="TEXT 2 HERE"
             android:textAlignment="center"
             android:textColor="#707070"
             android:textSize="20dp"
