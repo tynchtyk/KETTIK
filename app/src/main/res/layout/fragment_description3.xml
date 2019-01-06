@@ -2,38 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/walkthrough3"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="tynchtykbekkaldybaev.kettik.Description.Description1">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <TextView
+        android:layout_width="179dp"
+        android:layout_height="38dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="94dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="258dp"
+        android:text="Водителям:"
+        android:textAppearance="@style/for_passegers_style"
+        android:gravity="center_horizontal"
+        />
 
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="0"
-            android:fontFamily="Roboto, Regular"
-            android:text="TEXT 3 HERE"
-            android:textAlignment="center"
-            android:textColor="#707070"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="244dp"
+        android:layout_height="43dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="311dp"
+        android:text="Оплата топлива и приятные
+собеседники"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        />
 
-
-    </RelativeLayout>
 
 
 </FrameLayout>

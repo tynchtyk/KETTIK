@@ -26,7 +26,7 @@ import tynchtykbekkaldybaev.kettik.R;
 public class Description extends AppCompatActivity {
     private ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
-    private TextView next, back;
+    private TextView next, skip;
     Intent intent = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,10 @@ public class Description extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.appBarLayout);
 
         next = findViewById(R.id.next);
-        back = findViewById(R.id.back);
+        skip = findViewById(R.id.skip);
 
         next.setOnClickListener(mOnKeyClickListener);
-        back.setOnClickListener(mOnKeyClickListener);
+        skip.setOnClickListener(mOnKeyClickListener);
 
 
 
@@ -61,14 +61,9 @@ public class Description extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-            else if(v.equals(back)) {
-                if(currentFragment != 0) {
-                    viewPager.setCurrentItem(currentFragment - 1);
-                }
-                else {
-                    intent = new Intent(Description.this, Choose_Language.class);
-                    startActivity(intent);
-                }
+            else if(v.equals(skip)) {
+                intent = new Intent(Description.this, MainActivity.class);
+                startActivity(intent);
             }
         }
     };

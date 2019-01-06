@@ -38,8 +38,8 @@
         </activity>
 
         <activity
-            android:name=".Description.Description">
-
+            android:name=".Description.Description"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
 
         </activity>
 

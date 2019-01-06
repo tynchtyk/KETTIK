@@ -2,38 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/walkthrough1"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="tynchtykbekkaldybaev.kettik.Description.Description1">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="0"
-            android:fontFamily="Roboto, Regular"
-            android:text="TEXT 1 HERE"
-            android:textAlignment="center"
-            android:textColor="#707070"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </RelativeLayout>
-
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="273dp"
+        android:layout_height="86dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="44dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="311dp"
+        android:text="@string/kettik_eto"
+        android:textAppearance="@style/desc_style"
+        android:gravity="center_horizontal"
+        />
 
 </FrameLayout>

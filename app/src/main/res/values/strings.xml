@@ -4,4 +4,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="kettik_eto">КЕТТИК - это платформа
+    для поиска водителей или
+    пассажиров для совместных
+    поездок по всему Кыргызстану</string>
+
+
+
+
 </resources>
