@@ -1,51 +1,119 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Description.Description">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/appBarLayout"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="0"
+        android:fontFamily="Roboto, Regular"
+        android:text="TEXT 1 HERE"
+        android:textAlignment="center"
+        android:textColor="#707070"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="238dp"
+        android:layout_height="238dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:background="#58C710"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
-        <TextView
-            android:id="@+id/skip"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_marginLeft="33dp"
-            android:layout_marginBottom="33dp"
-            android:layout_marginTop="532dp"
-            android:text="Пропустить"
-            android:textSize="12sp"
-            android:textColor="@color/white"
+            android:layout_height="29dp"
             android:layout_gravity="left"
-            />
+            android:layout_marginLeft="8dp"
+            android:layout_marginVertical="14dp"
+            android:background="@drawable/ic_keyboard_arrow_left_black_24dp"
+            ></LinearLayout>
 
 
         <TextView
-            android:id="@+id/next"
             android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_marginRight="33dp"
-            android:layout_marginBottom="33dp"
-            android:layout_marginTop="532dp"
-            android:text="Далее"
-            android:textSize="12sp"
-            android:textColor="@color/white"
-            android:layout_gravity="right" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="roboto"
+            android:text="НАЗАД"
+
+            android:textColor="#FFFFFF"
+            android:textSize="19dp" />
+
+        <LinearLayout
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle1"
+            android:layout_marginRight="12dp"
+
+            ></LinearLayout>
+        <LinearLayout
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle2"
+
+            ></LinearLayout>
+        <LinearLayout
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle2"
+            android:layout_marginLeft="12dp"
+            ></LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginVertical="14dp"
+            android:layout_marginRight="29dp"
+            android:fontFamily="roboto"
+            android:text="ДАЛЕЕ"
+            android:textColor="#FFFFFF"
+            android:textSize="19dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_gravity="right"
+            android:layout_marginVertical="14dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
+            ></LinearLayout>
+
+
 
     </android.support.design.widget.BottomNavigationView>
 
-
-
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>
