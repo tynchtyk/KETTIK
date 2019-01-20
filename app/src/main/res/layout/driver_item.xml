@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_110sdp"
+    android:background="@drawable/shadow"
+    android:clickable="false"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:gravity="center"
+    android:elevation="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginHorizontal="@dimen/_16sdp"
+    android:padding="@dimen/_8sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="0.4">
+
+            <ImageView
+                android:layout_width="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/mapasset"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/from"
+                    android:gravity="top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_17ssp"
+                    android:fontFamily="@font/rubickregular"
+                    android:textColor="@color/text_color_light_green"
+                    android:text="Жалал - Абад"/>
+
+                <View
+                    android:id="@+id/divider_big"
+                    android:layout_width="@dimen/_182sdp"
+                    android:layout_marginVertical="@dimen/_4sdp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@drawable/divider_big"
+                    />
+
+                <TextView
+                    android:id="@+id/to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/from"
+                    android:textSize="@dimen/_17ssp"
+                    android:fontFamily="@font/rubickregular"
+                    android:textColor="@color/text_color_light_green"
+                    android:text="Ыссык - Кол"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/call"
+                    android:layout_width="@dimen/_59sdp"
+                    android:layout_height="@dimen/_59sdp"
+                    android:scaleType="center"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:background="@drawable/callbutton"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_weight="0.6">
+
+            <ImageView
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/clockicon"
+                android:layout_marginRight="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_10ssp"
+                    android:textColor="@color/text_color_grey"
+                    android:fontFamily="@font/rubiklight"
+                    android:text="Дата и время:"/>
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/text_color_light_green"
+                    android:fontFamily="@font/rubikbolditalic"
+                    android:layout_height="wrap_content"
+                    android:text="19/12/2018, 21:00"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider_sma"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:background="@drawable/divider_sma"
+                />
+
+            <ImageView
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/passengericon"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_10ssp"
+                    android:textColor="@color/text_color_grey"
+                    android:fontFamily="@font/rubiklight"
+                    android:text="Кол-во мест:"/>
+
+                <TextView
+                    android:id="@+id/available_space"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/text_color_light_green"
+                    android:fontFamily="@font/rubikbolditalic"
+                    android:layout_height="wrap_content"
+                    android:text="5/5 свободно"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

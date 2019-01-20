@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/list_background"
     tools:context="tynchtykbekkaldybaev.kettik.Fragment_SearchDriver">
 
     <!-- TODO: Update blank fragment layout -->

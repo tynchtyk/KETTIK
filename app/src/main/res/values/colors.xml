@@ -9,4 +9,8 @@
     <color name="white_selector_pf">#dfdfdf</color>
     <color name="black">#000000</color>
     <color name="green">#43A106</color>
+    <color name="text_color_light_green">#378243</color>
+    <color name="text_color_grey">#80000000</color>
+    <color name="list_background">#F1F0F2</color>
+
 </resources>
