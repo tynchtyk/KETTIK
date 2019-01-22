@@ -16,6 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +31,10 @@ public class Fragment_SearchDriver extends Fragment {
     private RecyclerView driverRecyclerView;
     private DriverListAdapter driverAdapter;
 
-    View addition;
+    LinearLayout addition;
     boolean isUp;
     Button add_trip;
+    TextView all_drivers,or;
 
 
     public Fragment_SearchDriver() {
@@ -51,7 +53,19 @@ public class Fragment_SearchDriver extends Fragment {
         driverRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewDrivers);
 
         addition = rootview.findViewById(R.id.addition_layout);
+//        slideUp(addition);
+        all_drivers = rootview.findViewById(R.id.all_drivers);
+
+        all_drivers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               // slideDown(addition);
+            }
+        });
         isUp = false;
+
+
 
         driver.add(new Driver("Ош", "Баткен", "19/12/2018, 21:00", 1, 5));
         driver.add(new Driver("Бишкек", "Талас", "19/12/2018, 21:00", 4, 5));
@@ -67,20 +81,22 @@ public class Fragment_SearchDriver extends Fragment {
         driverRecyclerView.setAdapter(driverAdapter);
         return rootview;
     }
-    public void slideUp(View view){
-        TranslateAnimation animate = new TranslateAnimation(
+    public void slideUp(LinearLayout view){
+        /*TranslateAnimation animate = new TranslateAnimation(
                 0,                 // fromXDelta
                 0,                 // toXDelta
-                view.getHeight(),  // fromYDelta
-                0);                // toYDelta
+                100,  // fromYDelta
+                view.getHeight()-400);                // toYDelta
         animate.setDuration(500);
         animate.setFillAfter(true);
-        view.startAnimation(animate);
+        view.startAnimation(animate);*/
+        or.setVisibility(View.GONE);
+        add_trip.setVisibility(View.GONE);
+
     }
 
     // slide the view from its current position to below itself
-    public void slideDown(View view){
-        view.setVisibility(View.VISIBLE);
+    public void slideDown(LinearLayout view){
         TranslateAnimation animate = new TranslateAnimation(
                 0,                 // fromXDelta
                 0,                 // toXDelta

@@ -27,8 +27,8 @@ public class Fragment_SearchParcel extends Fragment {
         // Inflate the layout for this fragment
         Log.i("DRIVER", "STARTED");
 
-        View rootview = inflater.inflate(R.layout.fragment_search_passenger, container, false);
-        parcelRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewDrivers);
+        View rootview = inflater.inflate(R.layout.fragment_search_parcels, container, false);
+        parcelRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewParcels);
 
         parcels.add(new Parcel("Ош", "Баткен", "19/12/2018, 21:00"));
         parcels.add(new Parcel("Бишкек", "Талас", "19/12/2018, 21:00"));

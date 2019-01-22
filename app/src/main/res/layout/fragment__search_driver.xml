@@ -18,9 +18,9 @@
         <LinearLayout
             android:id="@+id/addition_layout"
             android:layout_width="match_parent"
-            android:layout_height="185dp"
-            android:background="@drawable/header_backround"
+            android:layout_height="50dp"
             android:animateLayoutChanges="true"
+            android:background="@drawable/header_backround"
             android:orientation="vertical">
 
             <TextView
@@ -33,29 +33,31 @@
                 android:layout_marginTop="13dp"
                 android:text="Или"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/add_trip"
-                android:layout_width="258dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="48dp"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/rectangle"
                 android:text="Добавить новый маршрут"
                 android:textColor="@color/white"
-                android:background="@drawable/rectangle"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/all_drivers"
-                android:layout_width="108dp"
-                android:layout_height="19dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="126dp"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="13dp"
                 android:gravity="center_horizontal"
                 android:text="Все водители:"
                 android:textColor="@color/white"

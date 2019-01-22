@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/list_background"
-    tools:context="tynchtykbekkaldybaev.kettik.Fragment_SearchDriver">
+    tools:context="tynchtykbekkaldybaev.kettik.Fragment_SearchParcel">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -45,13 +45,13 @@
                 android:layout_marginLeft="48dp"
                 android:layout_marginTop="13dp"
                 android:background="@drawable/rectangle"
-                android:text="Добавить новый запрос"
+                android:text="Добавить новую посылку"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:visibility="gone" />
 
             <TextView
-                android:id="@+id/all_passengers"
+                android:id="@+id/all_drivers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -59,13 +59,13 @@
                 android:layout_marginLeft="126dp"
                 android:layout_marginTop="13dp"
                 android:gravity="center_horizontal"
-                android:text="Все пассажиры:"
+                android:text="Все посылки:"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerviewPassengers"
+            android:id="@+id/recyclerviewParcels"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical">
