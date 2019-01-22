@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
@@ -28,7 +29,7 @@ import android.widget.Toolbar;
 
 import static android.widget.Toast.*;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     final int DRIVERS_FRAGMENT = 0;
     final int PASSENGERS_FRAGMENT = 1;
     final int PARCELS_FRAGMENT = 2;
