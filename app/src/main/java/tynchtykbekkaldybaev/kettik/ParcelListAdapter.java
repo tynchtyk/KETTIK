@@ -1,12 +1,17 @@
 package tynchtykbekkaldybaev.kettik;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.shape.ShapePath;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,7 +36,7 @@ public class ParcelListAdapter extends RecyclerView.Adapter<ParcelListAdapter.Pa
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ParcelViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ParcelViewHolder holder, final int position) {
         Parcel item = parcels.get(position);
         holder.itemView.setTag(item);
 
@@ -42,7 +47,35 @@ public class ParcelListAdapter extends RecyclerView.Adapter<ParcelListAdapter.Pa
         holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // do something
+                final Dialog myDialog = new Dialog(mContext);
+                myDialog.setContentView(R.layout.pop_up_information);
+                ImageButton imageButton = (ImageButton) myDialog.findViewById(R.id.cancel);
+                imageButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        myDialog.dismiss();
+                    }
+                });
+                myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                myDialog.show();
+            }
+        });
+
+        holder.call.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        holder.call.setBackgroundResource(R.drawable.callbutton);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        holder.call.setBackgroundResource(R.drawable.call_button_unpressed);
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        holder.call.setBackgroundResource(R.drawable.call_button_unpressed);
+                        break;
+                }
+                return false;
             }
         });
     }

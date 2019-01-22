@@ -85,7 +85,7 @@
                     android:scaleType="center"
                     android:scaleX="1.5"
                     android:scaleY="1.5"
-                    android:background="@drawable/callbutton"/>
+                    android:background="@drawable/call_button_unpressed"/>
             </LinearLayout>
 
 
