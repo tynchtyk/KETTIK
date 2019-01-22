@@ -125,10 +125,10 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = Fragment_SearchDriver.class;
                 break;
             case R.id.passengers:
-                fragmentClass = BlankFragment.class;
+                fragmentClass = Fragment_SearchPassenger.class;
                 break;
             case R.id.parcels:
-                fragmentClass = BlankFragment.class;
+                fragmentClass = Fragment_SearchParcel.class;
                 break;
             case R.id.settings:
                 fragmentClass = BlankFragment.class;

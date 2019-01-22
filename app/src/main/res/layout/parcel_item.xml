@@ -94,21 +94,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:gravity="center|top"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_weight="0.6">
 
-            <ImageView
-                android:layout_marginTop="@dimen/_2sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/clockicon"
-                android:layout_marginRight="@dimen/_8sdp"/>
-
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/clockicon"
+                    android:layout_marginRight="@dimen/_8sdp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -118,57 +119,16 @@
                     android:fontFamily="@font/rubiklight"
                     android:text="Дата и время:"/>
 
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:textSize="@dimen/_12ssp"
-                    android:textColor="@color/text_color_light_green"
-                    android:fontFamily="@font/rubikbolditalic"
-                    android:layout_height="wrap_content"
-                    android:text="19/12/2018, 21:00"/>
-
-
             </LinearLayout>
 
-            <View
-                android:id="@+id/divider_sma"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_width="@dimen/_1sdp"
-                android:layout_height="@dimen/_32sdp"
-                android:background="@drawable/divider_sma"
-                />
-
-            <ImageView
-                android:layout_marginTop="@dimen/_2sdp"
+            <TextView
+                android:id="@+id/date"
                 android:layout_width="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/text_color_light_green"
+                android:fontFamily="@font/rubikbolditalic"
                 android:layout_height="wrap_content"
-                android:background="@drawable/passengericon"
-                android:layout_marginHorizontal="@dimen/_8sdp"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
-                    android:textColor="@color/text_color_grey"
-                    android:fontFamily="@font/rubiklight"
-                    android:text="Кол-во мест:"/>
-
-                <TextView
-                    android:id="@+id/available_space"
-                    android:layout_width="wrap_content"
-                    android:textSize="@dimen/_12ssp"
-                    android:textColor="@color/text_color_light_green"
-                    android:fontFamily="@font/rubikbolditalic"
-                    android:layout_height="wrap_content"
-                    android:text="5/5 свободно"/>
-
-            </LinearLayout>
-
+                android:text="19/12/2018, 21:00"/>
         </LinearLayout>
 
 
