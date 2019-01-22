@@ -7,6 +7,15 @@
     tools:context="tynchtykbekkaldybaev.kettik.Description.Description1">
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="143dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="142dp"
+        android:src="@drawable/car_walkthrough3"
+        />
 
     <TextView
         android:layout_width="179dp"

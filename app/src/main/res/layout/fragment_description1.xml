@@ -8,7 +8,15 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-
+    <ImageView
+        android:layout_width="218dp"
+        android:layout_height="64dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="71dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="179dp"
+        android:src="@drawable/kettik_walkthrough1"
+        />
     <TextView
         android:id="@+id/some_id"
         android:layout_width="273dp"
