@@ -70,8 +70,7 @@ public class MainActivity extends AppCompatActivity{
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.GRAY));
-        actionBar.setTitle("Poisk voditeley");
+        actionBar.setTitle("Поиск водителя");
 
 
         navigationView.setNavigationItemSelectedListener(

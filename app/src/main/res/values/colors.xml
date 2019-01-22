@@ -12,5 +12,6 @@
     <color name="text_color_light_green">#378243</color>
     <color name="text_color_grey">#80000000</color>
     <color name="list_background">#F1F0F2</color>
+    <color name="blue_gradient">#4ca2cd</color>
 
 </resources>
