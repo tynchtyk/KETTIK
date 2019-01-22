@@ -12,8 +12,9 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.Toolbar
+            android:layout_alignParentTop="true"
             android:id="@+id/toolbar"
-            android:layout_width="344dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
@@ -24,11 +25,114 @@
 
         <FrameLayout
             android:layout_below="@id/toolbar"
+            android:layout_above="@+id/buttons"
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/drivers_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/carfront"
+                    android:scaleType="fitXY"
+                    android:scaleY="0.5"
+                    android:scaleX="0.5"
+                    />
+
+                <Button
+                    android:id="@+id/drivers"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingTop="@dimen/_22sdp"
+                    android:textAllCaps="false"
+                    android:background="@null"
+                    style="@style/unpressed_button_text"
+                    android:text="Водители"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/passengers_image"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/passengersicon"
+                    android:scaleType="fitXY"
+                    android:scaleY="0.5"
+                    android:scaleX="0.5"
+                    />
+
+                <Button
+                    android:id="@+id/passengers"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingTop="@dimen/_22sdp"
+                    android:background="@null"
+                    android:textAllCaps="false"
+                    style="@style/unpressed_button_text"
+                    android:text="Пассажиры"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/parcels_image"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/parcel"
+                    android:scaleType="fitXY"
+                    android:scaleY="0.5"
+                    android:scaleX="0.5"
+                    />
+
+                <Button
+                    android:id="@+id/parcels"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingTop="@dimen/_22sdp"
+                    android:background="@null"
+                    android:textAllCaps="false"
+                    style="@style/unpressed_button_text"
+                    android:text="Посылки"
+                    />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 public class Fragment_SearchParcel extends Fragment {
-    private static ArrayList<Parcel> parcels = new ArrayList<>();
+    private ArrayList<Parcel> parcels = new ArrayList<>();
 
     private RecyclerView parcelRecyclerView;
     private ParcelListAdapter parcelAdapter;

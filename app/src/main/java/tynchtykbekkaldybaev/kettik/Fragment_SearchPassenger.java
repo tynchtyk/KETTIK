@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 public class Fragment_SearchPassenger extends Fragment {
-    private static ArrayList<Passenger> passengers = new ArrayList<>();
+    private ArrayList<Passenger> passengers = new ArrayList<>();
 
     private RecyclerView passengerRecyclerView;
     private PassengerListAdapter passengerAdapter;
@@ -30,10 +30,10 @@ public class Fragment_SearchPassenger extends Fragment {
         View rootview = inflater.inflate(R.layout.fragment_search_passenger, container, false);
         passengerRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewDrivers);
 
-        passengers.add(new Passenger("Ош", "Баткен", "19/12/2018, 21:00"));
-        passengers.add(new Passenger("Бишкек", "Талас", "19/12/2018, 21:00"));
-        passengers.add(new Passenger("Ыссык-Кол", "Баткен", "19/12/2018, 21:00"));
         passengers.add(new Passenger("Нарын", "Чуй", "19/12/2018, 21:00"));
+        passengers.add(new Passenger("Ыссык-Кол", "Баткен", "19/12/2018, 21:00"));
+        passengers.add(new Passenger("Бишкек", "Талас", "19/12/2018, 21:00"));
+        passengers.add(new Passenger("Ош", "Баткен", "19/12/2018, 21:00"));
 
         //Log.d("FragSub", String.valueOf(tmp.menuLayout.getMenuEntries().size()));
 

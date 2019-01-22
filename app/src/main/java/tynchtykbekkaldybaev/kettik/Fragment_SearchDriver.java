@@ -19,7 +19,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_SearchDriver extends Fragment {
-    private static ArrayList<Driver> driver = new ArrayList<>();
+    private ArrayList<Driver> driver = new ArrayList<>();
 
     private RecyclerView driverRecyclerView;
     private DriverListAdapter driverAdapter;

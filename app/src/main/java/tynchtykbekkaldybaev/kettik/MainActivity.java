@@ -19,6 +19,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,10 +29,19 @@ import android.widget.Toolbar;
 import static android.widget.Toast.*;
 
 public class MainActivity extends AppCompatActivity {
+    final int DRIVERS_FRAGMENT = 0;
+    final int PASSENGERS_FRAGMENT = 1;
+    final int PARCELS_FRAGMENT = 2;
+
     private DrawerLayout mDrawerLayout;
     public NavigationView navigationView;
     public ActionBar actionBar = null;
     public SearchView searchView;
+
+    Menu globalMenu;
+    Button driversButton;
+    Button passengerButton;
+    Button parcelsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +84,45 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        driversButton = (Button) findViewById(R.id.drivers);
+        driversButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+                Fragment_SearchDriver fragment_searchDriver = new Fragment_SearchDriver();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchDriver).commit();
+                MenuItem menuItem = navigationView.getMenu().getItem(1);
+                navigationView.setCheckedItem(menuItem);
+                updateNavigationButtons(DRIVERS_FRAGMENT);
+            }
+        });
+
+        passengerButton = (Button) findViewById(R.id.passengers);
+        passengerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+                Fragment_SearchPassenger fragment_searchPassenger = new Fragment_SearchPassenger();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchPassenger).commit();
+                MenuItem menuItem = navigationView.getMenu().getItem(2);
+                navigationView.setCheckedItem(menuItem);
+                updateNavigationButtons(PASSENGERS_FRAGMENT);
+            }
+        });
+
+        parcelsButton = (Button) findViewById(R.id.parcels);
+        parcelsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+                Fragment_SearchParcel fragment_searchParcel = new Fragment_SearchParcel();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchParcel).commit();
+                MenuItem menuItem = navigationView.getMenu().getItem(3);
+                navigationView.setCheckedItem(menuItem);
+                updateNavigationButtons(PARCELS_FRAGMENT);
+            }
+        });
+
     }
 
 
@@ -92,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate(R.menu.action_bar_menu, menu);
         MenuCompat.setGroupDividerEnabled(menu, true);
-
+        globalMenu = menu;
 
 ///        MenuInflater menuInflater = getMenuInflater();
    //     menuInflater.inflate(R.menu.action_bar_menu, menu);
@@ -123,12 +173,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.drivers:
                 fragmentClass = Fragment_SearchDriver.class;
+                updateNavigationButtons(DRIVERS_FRAGMENT);
                 break;
             case R.id.passengers:
                 fragmentClass = Fragment_SearchPassenger.class;
+                updateNavigationButtons(PASSENGERS_FRAGMENT);
                 break;
             case R.id.parcels:
                 fragmentClass = Fragment_SearchParcel.class;
+                updateNavigationButtons(PARCELS_FRAGMENT);
                 break;
             case R.id.settings:
                 fragmentClass = BlankFragment.class;
@@ -163,5 +216,59 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    void updateNavigationButtons (int fragment) {
+        Button button;
+        ImageView imageView;
 
+        switch (fragment) {
+            case DRIVERS_FRAGMENT:
+                button = (Button) findViewById(R.id.drivers);
+                imageView = (ImageView) findViewById(R.id.drivers_image);
+                imageView.setImageResource(R.drawable.drivericonpressed);
+                button.setTextColor(Color.parseColor("#4CA2CD"));
+
+                button = (Button) findViewById(R.id.passengers);
+                imageView = (ImageView) findViewById(R.id.passengers_image);
+                imageView.setImageResource(R.drawable.passengersicon);
+                button.setTextColor(Color.parseColor("#378243"));
+
+                button = (Button) findViewById(R.id.parcels);
+                imageView = (ImageView) findViewById(R.id.parcels_image);
+                imageView.setImageResource(R.drawable.parcel);
+                button.setTextColor(Color.parseColor("#378243"));
+                break;
+            case PASSENGERS_FRAGMENT:
+                button = (Button) findViewById(R.id.drivers);
+                imageView = (ImageView) findViewById(R.id.drivers_image);
+                imageView.setImageResource(R.drawable.carfront);
+                button.setTextColor(Color.parseColor("#378243"));
+
+                button = (Button) findViewById(R.id.passengers);
+                imageView = (ImageView) findViewById(R.id.passengers_image);
+                imageView.setImageResource(R.drawable.passengersiconpressed);
+                button.setTextColor(Color.parseColor("#4CA2CD"));
+
+                button = (Button) findViewById(R.id.parcels);
+                imageView = (ImageView) findViewById(R.id.parcels_image);
+                imageView.setImageResource(R.drawable.parcel);
+                button.setTextColor(Color.parseColor("#378243"));
+                break;
+            case PARCELS_FRAGMENT:
+                button = (Button) findViewById(R.id.drivers);
+                imageView = (ImageView) findViewById(R.id.drivers_image);
+                imageView.setImageResource(R.drawable.carfront);
+                button.setTextColor(Color.parseColor("#378243"));
+
+                button = (Button) findViewById(R.id.passengers);
+                imageView = (ImageView) findViewById(R.id.passengers_image);
+                imageView.setImageResource(R.drawable.passengersicon);
+                button.setTextColor(Color.parseColor("#378243"));
+
+                button = (Button) findViewById(R.id.parcels);
+                imageView = (ImageView) findViewById(R.id.parcels_image);
+                imageView.setImageResource(R.drawable.parceliconpressed);
+                button.setTextColor(Color.parseColor("#4CA2CD"));
+                break;
+        }
+    }
 }
