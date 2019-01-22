@@ -1,75 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/language"
     android:id="@+id/container"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <Button
         android:id="@+id/kyrgyz"
-        android:layout_width="0dp"
+        android:text="Кыргызча"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:layout_width="258dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:fontFamily="Roboto"
-        android:text="КЫРГЫЗЧА"
-        android:textAlignment="center"
-        android:textColor="#58C710"
-        android:textFontWeight="medium"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="51dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginTop="118dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rectangle"
+        />
 
-    <TextView
+
+    <Button
         android:id="@+id/russian"
-        android:layout_width="0dp"
+        android:text="Русский"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:layout_width="258dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:fontFamily="Roboto"
-        android:text="РУССКИЙ"
-        android:textAlignment="center"
-        android:textColor="#58C710"
-        android:textFontWeight="medium"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kyrgyz" />
+        android:layout_marginLeft="51dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginTop="44dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rectangle"
+        />
 
-    <TextView
+    <Button
         android:id="@+id/english"
-        android:layout_width="0dp"
+        android:text="English"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:layout_width="258dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:fontFamily="Roboto"
-        android:text="ENGLISH"
-        android:textAlignment="center"
-        android:textColor="#58C710"
-        android:textFontWeight="medium"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/russian" />
+        android:layout_marginLeft="51dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginTop="44dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rectangle"
+        />
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/green"
-        android:visibility="visible"
-        app:itemBackground="@color/green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

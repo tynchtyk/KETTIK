@@ -15,18 +15,17 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_gravity="bottom">
 
         <TextView
             android:id="@+id/skip"
             android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_marginLeft="33dp"
-            android:layout_marginBottom="33dp"
-            android:layout_marginTop="532dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="32dp"
             android:text="Пропустить"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textColor="@color/white"
             android:layout_gravity="left"
             />
@@ -35,14 +34,14 @@
         <TextView
             android:id="@+id/next"
             android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_marginRight="33dp"
-            android:layout_marginBottom="33dp"
-            android:layout_marginTop="532dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="16dp"
             android:text="Далее"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textColor="@color/white"
             android:layout_gravity="right" />
+
 
     </android.support.design.widget.BottomNavigationView>
 

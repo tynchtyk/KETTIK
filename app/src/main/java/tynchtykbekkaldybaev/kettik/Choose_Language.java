@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import tynchtykbekkaldybaev.kettik.Description.Description;
@@ -13,7 +14,7 @@ import tynchtykbekkaldybaev.kettik.Description.Description;
  */
 
 public class Choose_Language extends AppCompatActivity {
-    private TextView kg,ru,en;
+    private Button kg,ru,en;
     Intent intent = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

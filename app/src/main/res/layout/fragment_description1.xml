@@ -14,12 +14,11 @@
         android:layout_width="273dp"
         android:layout_height="86dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="44dp"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="44dp"
         android:layout_marginTop="311dp"
-        android:text="@string/kettik_eto"
-        android:textAppearance="@style/desc_style"
         android:gravity="center_horizontal"
-        />
+        android:text="@string/kettik_eto"
+        android:textAppearance="@style/desc_style" />
 
 </FrameLayout>
