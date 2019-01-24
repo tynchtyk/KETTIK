@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:background="#4CA2CD"
+    tools:context=".EditProfile"
+    android:layout_width="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/toolbar"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/ellipse"/>
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/rubickregular"
+            android:textStyle="bold"
+            android:textColor="#4CA2CD"
+            android:text="Редактировать профиль"/>
+
+        <ImageButton
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back"
+            android:scaleType="center"
+            android:scaleY="0.5"
+            android:scaleX="0.5"/>
+
+        <ImageButton
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/accept_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/check"
+            android:scaleType="center"
+            android:scaleY="0.5"
+            android:scaleX="0.5"/>
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:fontFamily="@font/rubickregular"
+            android:textSize="18sp"
+            android:text="Персональная информация"/>
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/info"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pop_up_photo_shape"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/photo"
+            android:layout_alignEnd="@+id/photo"
+            android:background="@null"
+            android:elevation="5dp"
+            android:src="@drawable/addphoto"/>
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:singleLine="true"
+            android:fontFamily="@font/rubickregular"
+            android:hint="Имя"
+            android:textSize="15sp"
+            android:textColor="#4CA2CD"
+            android:background="@drawable/edit_text_shape"/>
+
+        <EditText
+            android:id="@+id/surname"
+            android:layout_toEndOf="@+id/name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_below="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:fontFamily="@font/rubickregular"
+            android:paddingLeft="30dp"
+            android:hint="Фамилия"
+            android:textSize="15sp"
+            android:textColor="#4CA2CD"
+            android:background="@drawable/edit_text_shape"/>
+
+        <TextView
+            android:id="@+id/birthday_text"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:fontFamily="@font/rubickregular"
+            android:hint="Дата рождения"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:textColor="#4CA2CD"
+            android:background="@drawable/edit_text_shape"/>
+
+        <ImageButton
+            android:id="@+id/calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/birthday_text"
+            android:layout_alignEnd="@+id/birthday_text"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:scaleY="0.6"
+            android:scaleX="0.6"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="showTimePickerDialog"
+            android:src="@drawable/calendar"/>
+
+        <Spinner
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/surname"
+            android:layout_alignEnd="@id/surname"
+            android:layout_toEndOf="@id/calendar"
+            android:id="@+id/gender_selection"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/genderlist"
+            android:paddingLeft="10dp"
+            android:background="@drawable/spinner_shape">
+        </Spinner>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/birthday_text"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:fontFamily="@font/rubickregular"
+            android:singleLine="true"
+            android:hint="Пароль"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:textColor="#4CA2CD"
+            android:background="@drawable/edit_text_shape"/>
+
+        <ImageButton
+            android:id="@+id/eye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/password"
+            android:layout_alignEnd="@+id/password"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:scaleY="0.6"
+            android:scaleX="0.6"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="showPassword"
+            android:src="@drawable/showpassword"/>
+
+        <EditText
+            android:id="@+id/carnumber"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/password"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:singleLine="true"
+            android:fontFamily="@font/rubickregular"
+            android:hint="Номер автомобиля"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:textColor="#4CA2CD"
+            android:background="@drawable/edit_text_shape"/>
+
+        <TextView
+            android:id="@+id/primer"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:fontFamily="@font/rubickregular"
+            android:textColor="#ffffff"
+            android:text="*Например"
+            android:layout_toEndOf="@+id/carnumber"/>
+
+        <TextView
+            android:id="@+id/nomer"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/primer"
+            android:fontFamily="@font/rubickregular"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:text="02KG 547AAC"
+            android:layout_toEndOf="@+id/carnumber"/>
+
+        <EditText
+            android:id="@+id/cartype"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/carnumber"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:fontFamily="@font/rubickregular"
+            android:hint="Марка автомобиля"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:singleLine="true"
+            android:textColor="#4CA2CD"
+            android:background="@drawable/edit_text_shape"/>
+
+        <TextView
+            android:id="@+id/primer2"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/carnumber"
+            android:fontFamily="@font/rubickregular"
+            android:textColor="#ffffff"
+            android:text="*Например"
+            android:layout_toEndOf="@+id/carnumber"/>
+
+        <TextView
+            android:id="@+id/nomer2"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/primer2"
+            android:fontFamily="@font/rubickregular"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:text="BMW X5"
+            android:layout_toEndOf="@+id/carnumber"/>
+
+        <EditText
+            android:id="@+id/drivers_licence"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/cartype"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:fontFamily="@font/rubickregular"
+            android:hint="Фото водт. прав"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:textColor="#4CA2CD"
+            android:background="@drawable/edit_text_shape"/>
+
+        <ImageButton
+            android:id="@+id/add_licence_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/drivers_licence"
+            android:layout_alignEnd="@+id/drivers_licence"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:scaleY="0.4"
+            android:scaleX="0.4"
+            android:layout_marginEnd="9dp"
+            android:onClick="addLicencePic"
+            android:src="@drawable/clip"/>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:background="@drawable/save_button_shape"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/drivers_licence"
+            android:fontFamily="@font/rubickregular"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="false"
+            android:text="Сохранить"/>
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

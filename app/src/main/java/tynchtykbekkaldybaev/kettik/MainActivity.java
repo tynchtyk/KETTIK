@@ -2,6 +2,7 @@ package tynchtykbekkaldybaev.kettik;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -21,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -73,7 +75,15 @@ public class MainActivity extends AppCompatActivity{
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
 
-
+        View headView = navigationView.getHeaderView(0);
+        ImageButton imageButton = (ImageButton) headView.findViewById(R.id.edit_button);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, EditProfile.class);
+                startActivity(intent);
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {

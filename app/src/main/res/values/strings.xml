@@ -9,8 +9,12 @@
     для поиска водителей или
     пассажиров для совместных
     поездок по всему Кыргызстану</string>
+    <string name="title_activity_edit_profile">EditProfile</string>
 
-
-
+    <string-array name="genderlist">
+        <item>Пол</item>
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
 
 </resources>
