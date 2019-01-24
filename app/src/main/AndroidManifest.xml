@@ -16,12 +16,7 @@
             android:theme="@style/Theme.Design.Light.NoActionBar"
             android:screenOrientation="portrait">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"
-                    android:screenOrientation="portrait" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
-            </intent-filter>
 
 
 
@@ -72,6 +67,13 @@
         <activity
             android:name=".Description.Description"
             android:theme="@style/Theme.Design.Light.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
 
         </activity>
 
