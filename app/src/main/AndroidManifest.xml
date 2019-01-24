@@ -40,6 +40,11 @@
         </activity>
 
         <activity
+            android:name=".EditProfile"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
+
+        <activity
             android:name=".Pop_Up_Search_Driver"
             android:theme="@style/Theme.Design.Light.NoActionBar">
         </activity>
