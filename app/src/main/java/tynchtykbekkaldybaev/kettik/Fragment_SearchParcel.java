@@ -1,5 +1,6 @@
 package tynchtykbekkaldybaev.kettik;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,7 +31,21 @@ public class Fragment_SearchParcel extends Fragment {
 
         View rootview = inflater.inflate(R.layout.fragment_search_parcels, container, false);
 
-        MainActivity tmp = (MainActivity) getActivity();
+        final MainActivity tmp = (MainActivity) getActivity();
+        View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
+
+        TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
+        search_in_action_bar.setText("Поиск маршрута");
+        search_in_action_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(tmp, Pop_Up_Search_Parcel.class);
+                startActivity(intent);
+
+            }
+        });
+        tmp.actionBar.setCustomView(cView);
 
         parcelRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewParcels);
 

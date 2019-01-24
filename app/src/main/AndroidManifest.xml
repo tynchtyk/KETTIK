@@ -40,9 +40,18 @@
         </activity>
 
         <activity
-            android:name=".Pop_Up_Search_Driver">
+            android:name=".Pop_Up_Search_Driver"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
 
+        <activity
+            android:name=".Pop_Up_Search_Passenger"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
 
+        <activity
+            android:name=".Pop_Up_Search_Parcel"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
         </activity>
 
         <activity

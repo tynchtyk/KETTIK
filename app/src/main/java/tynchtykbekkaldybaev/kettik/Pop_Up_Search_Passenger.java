@@ -1,12 +1,9 @@
 package tynchtykbekkaldybaev.kettik;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +19,7 @@ import java.util.List;
  * Created by tynchtykbekkaldybaev on 24/01/2019.
  */
 
-public class Pop_Up_Search_Driver extends AppCompatActivity {
+public class Pop_Up_Search_Passenger extends AppCompatActivity {
     private TextView date;
     private ImageView back;
     private ImageView cal;

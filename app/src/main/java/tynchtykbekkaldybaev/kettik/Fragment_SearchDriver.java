@@ -65,6 +65,7 @@ public class Fragment_SearchDriver extends Fragment {
 
         final MainActivity tmp = (MainActivity) getActivity();
         View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
+
         TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
         search_in_action_bar.setText("Поиск водителя");
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
