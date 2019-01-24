@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.4"
+        android:layout_weight="0.3"
         android:orientation="vertical"
         android:background="@drawable/header_backround">
 
@@ -170,7 +170,34 @@
 
                     />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/some_id"
+                        android:layout_width="115dp"
+                        android:layout_height="34dp"
+                        android:layout_marginRight="26dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="6dp"
+                        android:text="Могу подобрать посылку"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        />
+
+
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -186,7 +213,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.6">
+        android:layout_weight="0.7">
 
         <Button
             android:id="@+id/add"
