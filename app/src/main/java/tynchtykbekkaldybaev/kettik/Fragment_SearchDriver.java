@@ -79,7 +79,15 @@ public class Fragment_SearchDriver extends Fragment {
         });
         tmp.actionBar.setCustomView(cView);
 
-
+        add_trip = rootview.findViewById(R.id.add_trip);
+        add_trip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(tmp, Driver_Trip_Add.class);
+                startActivity(intent);
+            }
+        });
         driverRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewDrivers);
 
         addition = rootview.findViewById(R.id.addition_layout);

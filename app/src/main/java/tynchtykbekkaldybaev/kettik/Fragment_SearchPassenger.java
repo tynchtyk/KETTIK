@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ public class Fragment_SearchPassenger extends Fragment {
 
     private RecyclerView passengerRecyclerView;
     private PassengerListAdapter passengerAdapter;
+
+    private Button add_request;
 
     public Fragment_SearchPassenger() {
         // Required empty public constructor
@@ -46,6 +49,16 @@ public class Fragment_SearchPassenger extends Fragment {
             }
         });
         tmp.actionBar.setCustomView(cView);
+
+        add_request = rootview.findViewById(R.id.add_request);
+        add_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(tmp, Passenger_Request_Add.class);
+                startActivity(intent);
+            }
+        });
 
         passengerRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewPassengers);
 

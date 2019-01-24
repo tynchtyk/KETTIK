@@ -60,6 +60,16 @@
         </activity>
 
         <activity
+            android:name=".Driver_Trip_Add"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".Passenger_Request_Add"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
+
+        <activity
             android:name=".Description.Description"
             android:theme="@style/Theme.Design.Light.NoActionBar">
 
