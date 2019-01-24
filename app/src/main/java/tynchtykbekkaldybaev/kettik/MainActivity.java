@@ -69,8 +69,10 @@ public class MainActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-        actionBar.setTitle("Поиск водителя");
+
 
 
         navigationView.setNavigationItemSelectedListener(

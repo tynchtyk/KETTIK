@@ -29,15 +29,15 @@
             android:id="@+id/coordinator"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="0.4">
+            android:layout_weight="0.4"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:background="@drawable/mapasset"/>
+                android:background="@drawable/mapasset" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -47,45 +47,45 @@
 
                 <TextView
                     android:id="@+id/from"
-                    android:gravity="top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_17ssp"
                     android:fontFamily="@font/rubickregular"
+                    android:gravity="top"
+                    android:text="Жалал - Абад"
                     android:textColor="@color/text_color_light_green"
-                    android:text="Жалал - Абад"/>
+                    android:textSize="@dimen/_17ssp" />
 
                 <View
                     android:id="@+id/divider_big"
                     android:layout_width="@dimen/_182sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
                     android:layout_height="@dimen/_1sdp"
-                    android:background="@drawable/divider_big"
-                    />
+                    android:layout_marginVertical="@dimen/_4sdp"
+                    android:background="@drawable/divider_big" />
 
                 <TextView
                     android:id="@+id/to"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/from"
-                    android:textSize="@dimen/_17ssp"
                     android:fontFamily="@font/rubickregular"
+                    android:text="Ыссык - Кол"
                     android:textColor="@color/text_color_light_green"
-                    android:text="Ыссык - Кол"/>
+                    android:textSize="@dimen/_17ssp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center">
+
                 <ImageView
                     android:id="@+id/call"
                     android:layout_width="@dimen/_59sdp"
                     android:layout_height="@dimen/_59sdp"
+                    android:background="@drawable/call_button_unpressed"
                     android:scaleType="center"
                     android:scaleX="1.5"
-                    android:scaleY="1.5"
-                    android:background="@drawable/call_button_unpressed"/>
+                    android:scaleY="1.5" />
             </LinearLayout>
 
 

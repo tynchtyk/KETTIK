@@ -28,6 +28,9 @@ public class Fragment_SearchParcel extends Fragment {
         Log.i("DRIVER", "STARTED");
 
         View rootview = inflater.inflate(R.layout.fragment_search_parcels, container, false);
+
+        MainActivity tmp = (MainActivity) getActivity();
+
         parcelRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewParcels);
 
         parcels.add(new Parcel("Ош", "Баткен", "19/12/2018, 21:00"));

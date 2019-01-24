@@ -1,25 +1,37 @@
 package tynchtykbekkaldybaev.kettik;
 
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import tynchtykbekkaldybaev.kettik.Description.Description;
 
 
 /**
@@ -50,6 +62,23 @@ public class Fragment_SearchDriver extends Fragment {
 
 
         View rootview = inflater.inflate(R.layout.fragment__search_driver, container, false);
+
+        final MainActivity tmp = (MainActivity) getActivity();
+        View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
+        TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
+        search_in_action_bar.setText("Поиск водителя");
+        search_in_action_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(tmp, Pop_Up_Search_Driver.class);
+                startActivity(intent);
+
+            }
+        });
+        tmp.actionBar.setCustomView(cView);
+
+
         driverRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewDrivers);
 
         addition = rootview.findViewById(R.id.addition_layout);

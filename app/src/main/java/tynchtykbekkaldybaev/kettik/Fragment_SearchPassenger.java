@@ -28,6 +28,9 @@ public class Fragment_SearchPassenger extends Fragment {
         Log.i("DRIVER", "STARTED");
 
         View rootview = inflater.inflate(R.layout.fragment_search_passenger, container, false);
+
+        MainActivity tmp = (MainActivity) getActivity();
+
         passengerRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewPassengers);
 
         passengers.add(new Passenger("Нарын", "Чуй", "19/12/2018, 21:00"));
