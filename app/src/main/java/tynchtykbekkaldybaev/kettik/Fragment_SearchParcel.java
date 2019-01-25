@@ -53,6 +53,10 @@ public class Fragment_SearchParcel extends Fragment {
         parcels.add(new Parcel("Бишкек", "Талас", "19/12/2018, 21:00"));
         parcels.add(new Parcel("Ыссык-Кол", "Баткен", "19/12/2018, 21:00"));
         parcels.add(new Parcel("Нарын", "Чуй", "19/12/2018, 21:00"));
+        parcels.add(new Parcel("Ош", "Баткен", "19/12/2018, 21:00"));
+        parcels.add(new Parcel("Бишкек", "Талас", "19/12/2018, 21:00"));
+        parcels.add(new Parcel("Ыссык-Кол", "Баткен", "19/12/2018, 21:00"));
+        parcels.add(new Parcel("Нарын", "Чуй", "19/12/2018, 21:00"));
 
         //Log.d("FragSub", String.valueOf(tmp.menuLayout.getMenuEntries().size()));
 

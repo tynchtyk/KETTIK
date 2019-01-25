@@ -109,6 +109,10 @@ public class Fragment_SearchDriver extends Fragment {
         driver.add(new Driver("Бишкек", "Талас", "19/12/2018, 21:00", 4, 5));
         driver.add(new Driver("Ыссык-Кол", "Баткен", "19/12/2018, 21:00", 2, 5));
         driver.add(new Driver("Нарын", "Чуй", "19/12/2018, 21:00", 2, 5));
+        driver.add(new Driver("Ош", "Баткен", "19/12/2018, 21:00", 1, 5));
+        driver.add(new Driver("Бишкек", "Талас", "19/12/2018, 21:00", 4, 5));
+        driver.add(new Driver("Ыссык-Кол", "Баткен", "19/12/2018, 21:00", 2, 5));
+        driver.add(new Driver("Нарын", "Чуй", "19/12/2018, 21:00", 2, 5));
 
         //Log.d("FragSub", String.valueOf(tmp.menuLayout.getMenuEntries().size()));
 
