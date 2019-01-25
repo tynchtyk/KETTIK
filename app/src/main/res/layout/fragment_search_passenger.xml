@@ -27,10 +27,10 @@
                 android:id="@+id/add_request"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rectangle"
                 android:text="Добавить новый запрос"
+                android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -38,8 +38,6 @@
                 android:id="@+id/all_passengers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginLeft="126dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
