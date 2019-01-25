@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tynchtykbekkaldybaev.kettik">
 
+    <uses-permission android:name="android.permission.CAMERA2"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"></uses-permission>
+
     <application
         android:screenOrientation="portrait"
         android:allowBackup="true"
@@ -80,5 +85,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
+
 
 </manifest>

@@ -173,6 +173,7 @@
             android:fontFamily="@font/rubickregular"
             android:singleLine="true"
             android:hint="Пароль"
+            android:inputType="textPassword"
             android:gravity="center_vertical"
             android:textSize="15sp"
             android:textColor="#4CA2CD"
@@ -303,6 +304,15 @@
             android:onClick="addLicencePic"
             android:src="@drawable/clip"/>
 
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:id="@+id/licence_pic"
+            android:layout_below="@id/add_licence_pic"
+            android:layout_width="350dp"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_height="200dp" />
+
         <Button
             android:id="@+id/save"
             android:layout_marginTop="30dp"
@@ -312,7 +322,7 @@
             android:textSize="16sp"
             android:background="@drawable/save_button_shape"
             android:textColor="#ffffff"
-            android:layout_below="@+id/drivers_licence"
+            android:layout_below="@+id/licence_pic"
             android:fontFamily="@font/rubickregular"
             android:layout_centerHorizontal="true"
             android:textAllCaps="false"
