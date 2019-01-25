@@ -66,6 +66,10 @@ public class Fragment_SearchPassenger extends Fragment {
         passengers.add(new Passenger("Ыссык-Кол", "Баткен", "19/12/2018, 21:00"));
         passengers.add(new Passenger("Бишкек", "Талас", "19/12/2018, 21:00"));
         passengers.add(new Passenger("Ош", "Баткен", "19/12/2018, 21:00"));
+        passengers.add(new Passenger("Нарын", "Чуй", "19/12/2018, 21:00"));
+        passengers.add(new Passenger("Ыссык-Кол", "Баткен", "19/12/2018, 21:00"));
+        passengers.add(new Passenger("Бишкек", "Талас", "19/12/2018, 21:00"));
+        passengers.add(new Passenger("Ош", "Баткен", "19/12/2018, 21:00"));
 
         //Log.d("FragSub", String.valueOf(tmp.menuLayout.getMenuEntries().size()));
 

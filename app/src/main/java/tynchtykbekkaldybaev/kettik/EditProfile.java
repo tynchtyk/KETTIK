@@ -32,11 +32,14 @@ import com.applandeo.materialcalendarview.listeners.OnSelectDateListener;
 import java.util.Calendar;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class EditProfile extends AppCompatActivity {
 
     TextView date;
     EditText password;
     ImageView licencePic;
+    CircleImageView profilePic;
     Boolean isPasswordShowing = false;
     DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -81,6 +84,7 @@ public class EditProfile extends AppCompatActivity {
         };
 
         licencePic = (ImageView) findViewById(R.id.licence_pic);
+        profilePic = (CircleImageView) findViewById(R.id.photo);
         password = (EditText)findViewById(R.id.password);
         password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
     }
@@ -142,6 +146,36 @@ public class EditProfile extends AppCompatActivity {
         builder.show();
     }
 
+    public void addProfilePic(View view) {
+        final CharSequence[] items={"Запустить камеру","Выбрать из галереи", "Отмена"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(EditProfile.this);
+        builder.setTitle("Сменить фото профиля");
+
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (items[i].equals("Запустить камеру")) {
+
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, 3);
+
+                } else if (items[i].equals("Выбрать из галереи")) {
+
+                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    intent.setType("image/*");
+                    //startActivityForResult(intent.createChooser(intent, "Select File"), SELECT_FILE);
+                    startActivityForResult(intent, 4);
+
+                } else if (items[i].equals("Отмена")) {
+                    dialogInterface.dismiss();
+                }
+            }
+        });
+        builder.show();
+    }
+
     @Override
     public  void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode,data);
@@ -155,11 +189,24 @@ public class EditProfile extends AppCompatActivity {
                 licencePic.setImageBitmap(bmp);
                 licencePic.setVisibility(View.VISIBLE);
 
-            }else if(requestCode==1){
+            }
+            else if(requestCode==1){
 
                 Uri selectedImageUri = data.getData();
                 licencePic.setImageURI(selectedImageUri);
                 licencePic.setVisibility(View.VISIBLE);
+            }
+
+            else if(requestCode==3){
+
+                Bundle bundle = data.getExtras();
+                final Bitmap bmp = (Bitmap) bundle.get("data");
+                profilePic.setImageBitmap(bmp);
+
+            }else if(requestCode==4){
+
+                Uri selectedImageUri = data.getData();
+                profilePic.setImageURI(selectedImageUri);
             }
 
         }
