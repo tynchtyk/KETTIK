@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Registration"
+    android:layout_width="match_parent">
+
+
+    <ImageView
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/ellipse_blue"/>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/rubickregular"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="Помощь"/>
+
+    <ImageButton
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backwhite"
+        android:scaleType="center"
+        android:scaleY="0.5"
+        android:scaleX="0.5"/>
+
+
+    <TextView
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:fontFamily="@font/rubickregular"
+        android:textAlignment="viewStart"
+        android:textStyle="bold"
+        android:text="Напишите нам и мы ответим в ближайшее время:"
+        android:textColor="#4CA2CD"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_below="@+id/info"
+        android:paddingLeft="25dp"
+        android:textSize="14sp"
+        android:hint="Введите свой e-mail"
+        android:background="@drawable/empty_ellipse_blue"
+        />
+
+    <EditText
+        android:id="@+id/question"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_below="@+id/email"
+        android:paddingLeft="25dp"
+        android:textSize="14sp"
+        android:hint="Свой вопрос..."
+        android:background="@drawable/empty_ellipse_blue_small"
+        />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/send_question"
+        android:layout_below="@id/question"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/empty_ellipse_blue"
+        android:textColor="#4CA2CD"
+        android:text="Отправить сообщение"/>
+
+
+
+</RelativeLayout>

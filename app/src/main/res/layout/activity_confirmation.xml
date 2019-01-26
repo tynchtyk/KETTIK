@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:background="#4CA2CD"
+    tools:context=".Registration"
+    android:layout_width="match_parent">
+
+
+    <ImageView
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/ellipse"/>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/rubickregular"
+        android:textStyle="bold"
+        android:textColor="#4CA2CD"
+        android:text="Код подтверждения"/>
+
+    <ImageButton
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back"
+        android:scaleType="center"
+        android:scaleY="0.5"
+        android:scaleX="0.5"/>
+
+    <EditText
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/code"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@drawable/ellipse_shape"
+        android:fontFamily="@font/rubickregular"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:hint="Код"
+        android:textColor="#4CA2CD"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/code"
+        android:fontFamily="@font/rubickregular"
+        android:textAlignment="center"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:text="Мы отправили SMS с кодом проверки на Ваш телефон: +996 555 000000"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:background="@drawable/save_button_shape"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/info"
+        android:fontFamily="@font/rubickregular"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:text="Регистрация"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubickregular"
+        android:textColor="#ffffff"
+        android:layout_marginTop="5dp"
+        android:layout_alignEnd="@+id/register"
+        android:layout_marginBottom="60dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_below="@+id/register"
+        android:text="Не получили?"/>
+
+</RelativeLayout>

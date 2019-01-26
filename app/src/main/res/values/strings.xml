@@ -17,4 +17,10 @@
         <item>Женский</item>
     </string-array>
 
+    <string-array name="countryList">
+        <item>Кыргызстан</item>
+        <item>Россия</item>
+        <item>Казакстан</item>
+    </string-array>
+
 </resources>
