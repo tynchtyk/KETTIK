@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Fragment_SearchParcel extends Fragment {
 
     private RecyclerView parcelRecyclerView;
     private ParcelListAdapter parcelAdapter;
-
+    private Button add_parcel;
     public Fragment_SearchParcel() {
         // Required empty public constructor
     }
@@ -30,9 +31,21 @@ public class Fragment_SearchParcel extends Fragment {
         Log.i("DRIVER", "STARTED");
 
         View rootview = inflater.inflate(R.layout.fragment_search_parcels, container, false);
-
         final MainActivity tmp = (MainActivity) getActivity();
-        View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
+
+        add_parcel = rootview.findViewById(R.id.add_parcel);
+        add_parcel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(tmp, Parcel_Request_Add.class);
+                startActivity(intent);
+            }
+        });
+
+         View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
+
+
 
         TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
         search_in_action_bar.setText("Поиск маршрута");

@@ -23,7 +23,7 @@ import java.util.List;
  * Created by tynchtykbekkaldybaev on 24/01/2019.
  */
 
-public class Passenger_Request_Add extends AppCompatActivity {
+public class Parcel_Request_Add extends AppCompatActivity {
     private ImageView back;
     private TextView date;
     private ImageView cal;
@@ -35,7 +35,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.passenger_request_add);
+        setContentView(R.layout.parcel_request_add);
 
         back = findViewById(R.id.back);
 
@@ -105,12 +105,12 @@ public class Passenger_Request_Add extends AppCompatActivity {
         int minute = calendar.get(Calendar.MINUTE);
 
         TimePickerDialog dialog = new TimePickerDialog(
-                Passenger_Request_Add.this,
+                Parcel_Request_Add.this,
                 android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 mTimeSetListener,
                 hour,
                 minute,
-                DateFormat.is24HourFormat(Passenger_Request_Add.this)
+                DateFormat.is24HourFormat(Parcel_Request_Add.this)
         );
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

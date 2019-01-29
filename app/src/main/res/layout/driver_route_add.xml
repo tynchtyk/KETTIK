@@ -161,12 +161,13 @@
                     android:background="@drawable/rectangle2"
 
                     />
-                <TextView
+                <EditText
                     android:id="@+id/price"
                     android:layout_width="156dp"
                     android:layout_height="48dp"
                     android:singleLine="true"
                     android:hint="Цена..."
+                    android:inputType="number"
                     android:textSize="16sp"
                     android:textColor="@color/blue_gradient"
                     android:gravity="center"
@@ -177,11 +178,12 @@
 
                     />
 
-                <TextView
+                <EditText
                     android:id="@+id/quantity"
                     android:layout_width="82dp"
                     android:layout_height="48dp"
                     android:singleLine="true"
+                    android:inputType="number"
                     android:hint="1"
                     android:textSize="16sp"
                     android:textColor="@color/blue_gradient"

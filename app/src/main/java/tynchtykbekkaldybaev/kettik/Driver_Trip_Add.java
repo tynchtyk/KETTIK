@@ -75,7 +75,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
         datePicker = builder1.build();
 
         cal = findViewById(R.id.calendar);
-        cal.setOnClickListener(new View.OnClickListener() {
+        date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 datePicker.show();
@@ -94,7 +94,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
             }
         };
 
-        timeImage.setOnClickListener(new View.OnClickListener() {
+        time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showTimePickerDialog(view);

@@ -29,6 +29,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import tynchtykbekkaldybaev.kettik.Description.Description;
+
 import static android.widget.Toast.*;
 
 public class MainActivity extends AppCompatActivity{
@@ -199,8 +201,9 @@ public class MainActivity extends AppCompatActivity{
                 fragmentClass = BlankFragment.class;
                 break;
             case R.id.help:
-                fragmentClass = BlankFragment.class;
-                break;
+                Intent intent = new Intent(MainActivity.this, Help.class);
+                startActivity(intent);
+                return ;
             default:
                 fragmentClass = BlankFragment.class;
                 break;

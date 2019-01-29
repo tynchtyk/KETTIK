@@ -22,7 +22,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/add_trip"
+                android:id="@+id/add_parcel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

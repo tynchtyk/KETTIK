@@ -67,7 +67,7 @@ public class Pop_Up_Search_Passenger extends AppCompatActivity {
         datePicker = builder1.build();
 
         cal = findViewById(R.id.calendar);
-        cal.setOnClickListener(new View.OnClickListener() {
+        date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 datePicker.show();

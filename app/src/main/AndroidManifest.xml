@@ -19,8 +19,6 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Choose_Language" />
         <activity
             android:name=".EditProfile"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
@@ -40,6 +38,9 @@
             android:name=".Passenger_Request_Add"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
+            android:name=".Parcel_Request_Add"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
             android:name=".Description.Description"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
@@ -50,9 +51,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SignupActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Registration"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
