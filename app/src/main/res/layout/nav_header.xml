@@ -40,11 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:scaleType="fitXY"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="35dp"
         android:background="@null"
-        android:src="@drawable/edit"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/edit" />
 
     <TextView
         android:id="@+id/userName"
@@ -71,6 +69,14 @@
         android:text="Водитель"
         android:textColor="@color/white"
         android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="регистрация" />
 
 
 </RelativeLayout>

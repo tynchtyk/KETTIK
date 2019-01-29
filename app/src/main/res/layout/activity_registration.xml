@@ -30,15 +30,15 @@
         android:text="Добавить аккаунт"/>
 
     <ImageButton
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/country_selection_shape"
         android:background="@drawable/back"
         android:scaleType="center"
-        android:scaleY="0.5"
-        android:scaleX="0.5"/>
+        android:scaleX="0.5"
+        android:scaleY="0.5" />
 
     <View
         android:id="@+id/country_selection_shape"

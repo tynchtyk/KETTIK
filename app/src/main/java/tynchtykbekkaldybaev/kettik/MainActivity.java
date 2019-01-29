@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity{
     Button driversButton;
     Button passengerButton;
     Button parcelsButton;
+    Button signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +84,15 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, EditProfile.class);
+                startActivity(intent);
+            }
+        });
+        signup = headView.findViewById(R.id.signup);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(MainActivity.this, Registration.class);
                 startActivity(intent);
             }
         });
@@ -136,6 +146,8 @@ public class MainActivity extends AppCompatActivity{
                 updateNavigationButtons(PARCELS_FRAGMENT);
             }
         });
+
+
 
     }
 
