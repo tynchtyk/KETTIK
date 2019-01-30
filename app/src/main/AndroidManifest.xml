@@ -56,10 +56,12 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Confirmation"
-            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Help"
-            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity android:name=".Settings" />
+        <activity android:name=".LanguageSelection"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Settings"
+    android:layout_width="match_parent">
+
+
+    <ImageView
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/ellipse_blue"/>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/rubickregular"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="Настройки"/>
+
+    <ImageView
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backwhite"
+        android:scaleType="center"
+        android:onClick="Back"
+        android:scaleY="0.5"
+        android:scaleX="0.5"/>
+
+    <LinearLayout
+        android:id="@+id/language_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:onClick="languageSettings"
+        android:layout_below="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/language_info"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Язык / Тил / Language"
+            android:textStyle="bold"
+            android:textColor="#4CA2CD"
+            android:textSize="18sp"
+            android:fontFamily="@font/rubickregular"/>
+        <TextView
+            android:layout_marginLeft="25dp"
+            android:id="@+id/language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4CA2CD"
+            android:textSize="14sp"
+            android:fontFamily="@font/rubiklight"
+            android:text="Русский"/>
+
+        <View
+            android:id="@+id/line"
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/setttings_list_line"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:scaleY="0.5"
+        android:scaleX="0.5"
+        android:src="@drawable/vector"/>
+
+    <LinearLayout
+        android:id="@+id/location_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:onClick="locationSettings"
+        android:layout_below="@+id/language_settings">
+
+        <TextView
+            android:id="@+id/location_info"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Местоположение"
+            android:textStyle="bold"
+            android:textColor="#4CA2CD"
+            android:textSize="18sp"
+            android:fontFamily="@font/rubickregular"/>
+        <TextView
+            android:layout_marginLeft="25dp"
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4CA2CD"
+            android:textSize="14sp"
+            android:fontFamily="@font/rubiklight"
+            android:text="Кыргызстан, Бишкек"/>
+
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/setttings_list_line"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_below="@+id/language_settings"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:scaleY="0.5"
+        android:scaleX="0.5"
+        android:src="@drawable/vector"/>
+
+    <LinearLayout
+        android:id="@+id/my_trips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:onClick="myTrips"
+        android:layout_below="@+id/location_settings">
+
+        <TextView
+            android:id="@+id/trips"
+            android:layout_marginTop="21dp"
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Мои поездки"
+            android:textStyle="bold"
+            android:textColor="#4CA2CD"
+            android:textSize="18sp"
+            android:fontFamily="@font/rubickregular"/>
+
+        <View
+            android:layout_marginTop="25dp"
+            android:layout_marginHorizontal="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/setttings_list_line"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_below="@+id/location_settings"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:scaleY="0.5"
+        android:scaleX="0.5"
+        android:src="@drawable/vector"/>
+
+    <TextView
+        android:id="@+id/log_out"
+        android:onClick="logOut"
+        android:layout_below="@+id/my_trips"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выйти из аккаунта"
+        android:textStyle="bold"
+        android:textColor="#4CA2CD"
+        android:textSize="18sp"
+        android:fontFamily="@font/rubickregular"/>
+
+</RelativeLayout>
