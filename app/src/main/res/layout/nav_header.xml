@@ -42,7 +42,8 @@
         android:layout_alignParentEnd="true"
         android:background="@null"
         android:scaleType="fitXY"
-        android:src="@drawable/edit" />
+        android:src="@drawable/edit"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/userName"
@@ -55,6 +56,7 @@
         android:lineSpacingExtra="1sp"
         android:text="Асанбек Ташов"
         android:textColor="@color/white"
+        android:visibility="gone"
         android:textSize="16sp" />
 
     <TextView
@@ -68,15 +70,36 @@
         android:lineSpacingExtra="6sp"
         android:text="Водитель"
         android:textColor="@color/white"
+        android:visibility="gone"
         android:textSize="12sp" />
 
-    <Button
-        android:id="@+id/signup"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:text="регистрация" />
+        android:layout_marginLeft="120dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/rectangle2"
+            android:text="Войти"
+            android:textColor="@color/blue_gradient"/>
+
+        <TextView
+            android:id="@+id/guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Вы вошли как гость"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 
 
 </RelativeLayout>
