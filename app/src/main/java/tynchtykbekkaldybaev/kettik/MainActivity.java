@@ -210,10 +210,11 @@ public class MainActivity extends AppCompatActivity{
                 updateNavigationButtons(PARCELS_FRAGMENT);
                 break;
             case R.id.settings:
-                fragmentClass = BlankFragment.class;
-                break;
+                Intent intent = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent);
+                return;
             case R.id.help:
-                Intent intent = new Intent(MainActivity.this, Help.class);
+                intent = new Intent(MainActivity.this, Help.class);
                 startActivity(intent);
                 return ;
             default:

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".LanguageSelection"
+    android:layout_width="match_parent">
+
+
+    <ImageView
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/ellipse_blue"/>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/rubickregular"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="Язык"/>
+
+    <ImageView
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backwhite"
+        android:onClick="Back"
+        android:scaleType="center"
+        android:scaleY="0.5"
+        android:scaleX="0.5"/>
+
+
+    <TextView
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/russian"
+        android:onClick="Russian"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Русский"
+        android:textColor="#4CA2CD"
+        android:textSize="18sp"
+        android:fontFamily="@font/rubickregular"/>
+
+    <ImageView
+        android:id="@+id/russian_check"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="26dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:scaleY="0.5"
+        android:scaleX="0.5"
+        android:src="@drawable/check"/>
+
+    <TextView
+        android:layout_below="@+id/russian"
+        android:id="@+id/kyrgyz"
+        android:onClick="Kyrgyz"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Кыргызча"
+        android:textColor="#4CA2CD"
+        android:textSize="18sp"
+        android:fontFamily="@font/rubickregular"/>
+
+    <ImageView
+        android:id="@+id/kyrgyz_check"
+        android:layout_below="@+id/russian"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="26dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:scaleY="0.5"
+        android:visibility="invisible"
+        android:scaleX="0.5"
+        android:src="@drawable/check"/>
+
+    <TextView
+        android:layout_below="@+id/kyrgyz"
+        android:id="@+id/english"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:onClick="English"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="English (US)"
+        android:textColor="#4CA2CD"
+        android:textSize="18sp"
+        android:fontFamily="@font/rubickregular"/>
+
+    <ImageView
+        android:id="@+id/english_check"
+        android:layout_below="@+id/kyrgyz"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="26dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:scaleY="0.5"
+        android:visibility="invisible"
+        android:scaleX="0.5"
+        android:src="@drawable/check"/>
+
+
+</RelativeLayout>
