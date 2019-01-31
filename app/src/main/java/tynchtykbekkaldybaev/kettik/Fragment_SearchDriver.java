@@ -2,9 +2,14 @@ package tynchtykbekkaldybaev.kettik;
 
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -28,6 +33,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,8 +81,13 @@ public class Fragment_SearchDriver extends Fragment {
         View rootview = inflater.inflate(R.layout.fragment__search_driver, container, false);
 
         final MainActivity tmp = (MainActivity) getActivity();
-        View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
+        add_trip = rootview.findViewById(R.id.add_trip);
+        driverRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewDrivers);
+        addition = rootview.findViewById(R.id.addition_layout);
+        all_drivers = rootview.findViewById(R.id.all_drivers);
 
+
+        View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
         TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
         search_in_action_bar.setText("Поиск водителя");
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +101,6 @@ public class Fragment_SearchDriver extends Fragment {
         });
         tmp.actionBar.setCustomView(cView);
 
-        add_trip = rootview.findViewById(R.id.add_trip);
         add_trip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,11 +109,8 @@ public class Fragment_SearchDriver extends Fragment {
                 startActivity(intent);
             }
         });
-        driverRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewDrivers);
 
-        addition = rootview.findViewById(R.id.addition_layout);
 //        slideUp(addition);
-        all_drivers = rootview.findViewById(R.id.all_drivers);
 
         all_drivers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,25 +121,17 @@ public class Fragment_SearchDriver extends Fragment {
         });
         isUp = false;
 
-
-
-        driver.add(new Driver("Ош", "Баткен", "19/12/2018, 21:00", 1, 5));
-        driver.add(new Driver("Бишкек", "Талас", "19/12/2018, 21:00", 4, 5));
-        driver.add(new Driver("Ыссык-Кол", "Баткен", "19/12/2018, 21:00", 2, 5));
-        driver.add(new Driver("Нарын", "Чуй", "19/12/2018, 21:00", 2, 5));
-        driver.add(new Driver("Ош", "Баткен", "19/12/2018, 21:00", 1, 5));
-        driver.add(new Driver("Бишкек", "Талас", "19/12/2018, 21:00", 4, 5));
-        driver.add(new Driver("Ыссык-Кол", "Баткен", "19/12/2018, 21:00", 2, 5));
-        driver.add(new Driver("Нарын", "Чуй", "19/12/2018, 21:00", 2, 5));
-
-        //Log.d("FragSub", String.valueOf(tmp.menuLayout.getMenuEntries().size()));
-
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         driverRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        driverAdapter = new DriverListAdapter(getActivity(), driver);
-        driverRecyclerView.setAdapter(driverAdapter);
-        return rootview;
+
+        requestThread task = new requestThread();
+        task.execute();
+
+
+
+
+       return rootview;
     }
     public void slideUp(LinearLayout view){
         /*TranslateAnimation animate = new TranslateAnimation(
@@ -157,6 +167,126 @@ public class Fragment_SearchDriver extends Fragment {
             slideUp(addition);
         }
         isUp = !isUp;
+    }
+
+    public class requestThread extends AsyncTask<String,Void,String> {
+        ProgressDialog progressDialog;
+
+        private String submitURL =
+                "http://81.214.24.77:7777/api/trips";
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            String JsonResponse = getData();
+
+            try {
+                parce_data(JsonResponse);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return JsonResponse;
+
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (progressDialog.isShowing())
+                progressDialog.dismiss();
+            driverAdapter = new DriverListAdapter(getActivity(), driver);
+            driverRecyclerView.setAdapter(driverAdapter);
+
+            Log.e("RESULT", result);
+            // this is expecting a response code to be sent from your server upon receiving the POST data
+
+        }
+        public void parce_data(String JsonResponse) throws JSONException {
+            JSONArray jsonArray = new JSONArray(JsonResponse);
+            for(int i=0; i<jsonArray.length(); i++) {
+                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+                String from, to, tripDate, tripTime;
+                int price, seats;
+                from = jsonObject.getString("from");
+                to = jsonObject.getString("to");
+                tripDate= jsonObject.getString("tripDate");
+                tripTime = jsonObject.getString("tripTime");
+                price = jsonObject.getInt("price");
+                seats = jsonObject.getInt("seats");
+
+                driver.add(new Driver(from, to, tripDate + ", " + tripTime, seats, 5));
+
+
+            }
+
+        }
+        public String getData(){
+            if ( checkConnection() ) {
+                String JsonResponse = null;
+                HttpURLConnection urlConnection = null;
+                BufferedReader reader = null;
+                StringBuilder sb = new StringBuilder();
+                try {
+                    URL url = new URL(submitURL);
+
+                    urlConnection = (HttpURLConnection) url.openConnection();
+
+                    urlConnection.connect();
+
+                    InputStream is = urlConnection.getInputStream();
+                    BufferedReader breader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+
+
+                    String line = null;
+
+                    // Read Server Response
+                    while ((line = breader.readLine()) != null) {
+                        // Append server response in string
+                        sb.append(line + "\n");
+                    }
+
+                    urlConnection.connect();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+
+                return sb.toString();
+            } else {
+                return "";
+            }
+        }
+    }
+
+    public boolean checkConnection(){
+        boolean haveConnectedWifi = false;
+        boolean haveConnectedMobile = false;
+        try
+        {
+            ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+            for (NetworkInfo ni : netInfo) {
+                if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+                    if (ni.isConnected())
+                        haveConnectedWifi = true;
+                if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                    if (ni.isConnected())
+                        haveConnectedMobile = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return (haveConnectedWifi || haveConnectedMobile);
     }
 
 }

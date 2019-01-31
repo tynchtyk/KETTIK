@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
@@ -143,11 +144,14 @@ public class Driver_Trip_Add extends AppCompatActivity {
     public void collect_data() throws JSONException {
         JSONObject data = new JSONObject();
         data.put("from", from.getText().toString());
-        data.put("where", where.getText().toString());
-        data.put("date", date.getText().toString());
-        data.put("time", time.getText().toString());
-        data.put("price", price.getText().toString());
-        data.put("quantity", quantity.getText().toString());
+        data.put("to", where.getText().toString());
+        data.put("tripDate", date.getText().toString());
+        data.put("tripTime", time.getText().toString());
+        data.put("price", Integer.valueOf(price.getText().toString()));
+        data.put("seats", Integer.valueOf(quantity.getText().toString()));
+        data.put("userId", 2);
+        data.put("note", "smth");
+
 
         requestThread task = new requestThread();
         task.execute(String.valueOf(data.toString()));
