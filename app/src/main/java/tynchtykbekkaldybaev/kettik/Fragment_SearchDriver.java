@@ -56,6 +56,7 @@ import tynchtykbekkaldybaev.kettik.Description.Description;
  */
 public class Fragment_SearchDriver extends Fragment {
     private ArrayList<Driver> driver = new ArrayList<>();
+    private ArrayList<Driver_Info> driver_info = new ArrayList<>();
 
     private RecyclerView driverRecyclerView;
     private DriverListAdapter driverAdapter;
@@ -116,7 +117,7 @@ public class Fragment_SearchDriver extends Fragment {
             @Override
             public void onClick(View view) {
 
-               // slideDown(addition);
+                // slideDown(addition);
             }
         });
         isUp = false;
@@ -131,7 +132,7 @@ public class Fragment_SearchDriver extends Fragment {
 
 
 
-       return rootview;
+        return rootview;
     }
     public void slideUp(LinearLayout view){
         /*TranslateAnimation animate = new TranslateAnimation(
@@ -203,7 +204,7 @@ public class Fragment_SearchDriver extends Fragment {
         protected void onPostExecute(String result) {
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
-            driverAdapter = new DriverListAdapter(getActivity(), driver);
+            driverAdapter = new DriverListAdapter(getActivity(), driver, driver_info);
             driverRecyclerView.setAdapter(driverAdapter);
 
             Log.e("RESULT", result);
@@ -223,7 +224,21 @@ public class Fragment_SearchDriver extends Fragment {
                 price = jsonObject.getInt("price");
                 seats = jsonObject.getInt("seats");
 
+                JSONObject info = jsonObject.getJSONObject("user");
+
+                int Id = info.getInt("id");
+                String name = info.getString("name");
+                String surname = info.getString("surname");
+                String birthDate = info.getString("birthDate");
+                String gender = info.getString("gender");
+
+                String vehicleModel = info.getString("vehicleModel");
+                String vehicleNumber = info.getString("vehicleNumber");
+                String phoneNumber = info.getString("phoneNumber");
+
                 driver.add(new Driver(from, to, tripDate + ", " + tripTime, seats, 5));
+
+                driver_info.add(new Driver_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
 
 
             }

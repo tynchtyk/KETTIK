@@ -28,24 +28,22 @@
             android:text="Водитель"/>
 
         <TextView
-            android:layout_marginTop="@dimen/_10sdp"
             android:id="@+id/driver_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Акылбек Токон уулу"
-            android:textSize="@dimen/_17ssp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/rubickregular"
-            android:textStyle="bold"
-            android:textColor="#378243"/>
+            android:textColor="#378243"
+            android:textSize="@dimen/_17ssp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/driver_age_and_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="22 лет, Мужчина"
-            android:textSize="@dimen/_13ssp"
             android:fontFamily="@font/rubiklight"
-            android:textColor="#378243"/>
+            android:textColor="#378243"
+            android:textSize="@dimen/_13ssp" />
 
         <LinearLayout
             android:layout_marginTop="@dimen/_10sdp"
@@ -65,16 +63,15 @@
                 android:textColor="#378243"/>
 
             <TextView
-                android:textAlignment="viewStart"
-                android:layout_weight="6"
                 android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="500 сом"
-                android:textSize="@dimen/_13ssp"
+                android:layout_weight="6"
                 android:fontFamily="@font/rubickregular"
-                android:textStyle="bold"
-                android:textColor="#378243"/>
+                android:textAlignment="viewStart"
+                android:textColor="#378243"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -95,16 +92,15 @@
                 android:textColor="#378243"/>
 
             <TextView
-                android:layout_weight="6"
-                android:textAlignment="viewStart"
                 android:id="@+id/autonumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="06KG 835DCA"
-                android:textSize="@dimen/_13ssp"
+                android:layout_weight="6"
                 android:fontFamily="@font/rubickregular"
-                android:textStyle="bold"
-                android:textColor="#378243"/>
+                android:textAlignment="viewStart"
+                android:textColor="#378243"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

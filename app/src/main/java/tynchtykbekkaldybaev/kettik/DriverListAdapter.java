@@ -27,12 +27,14 @@ import java.util.ArrayList;
 
 public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.DriverViewHolder>{
     private ArrayList<Driver> driverList;
+    private ArrayList<Driver_Info> driverInfoList;
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public DriverListAdapter(Context context, ArrayList<Driver> list) {
+    public DriverListAdapter(Context context, ArrayList<Driver> driverlist, ArrayList<Driver_Info> driverinfolist) {
         mInflater = LayoutInflater.from(context);
-        driverList = list;
+        driverList = driverlist;
+        driverInfoList = driverinfolist;
         mContext = context;
     }
 
@@ -46,7 +48,7 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
 
     @Override
     public void onBindViewHolder(@NonNull final DriverViewHolder holder, final int position) {
-        Driver item = driverList.get(position);
+        final Driver item = driverList.get(position);
         holder.itemView.setTag(item);
 
         holder.from.setText(item.from);
@@ -57,8 +59,27 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
         holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Driver_Info item_info = driverInfoList.get(position);
                 final Dialog myDialog = new Dialog(mContext);
                 myDialog.setContentView(R.layout.pop_up_information);
+
+                TextView name_surname = myDialog.findViewById(R.id.driver_name);
+                name_surname.setText(item_info.name + " " + item_info.surname);
+
+                TextView driver_age_and_gender = myDialog.findViewById(R.id.driver_age_and_gender);
+                driver_age_and_gender.setText(item_info.birthDate + ", " + item_info.gender);
+
+                TextView price = myDialog.findViewById(R.id.price);
+                price.setText(item_info.price + " сом");
+
+                TextView autonumber = myDialog.findViewById(R.id.autonumber);
+                autonumber.setText(item_info.vehicleNumber);
+
+                TextView autotype = myDialog.findViewById(R.id.autotype);
+                autotype.setText(item_info.vehicleModel);
+
+
+
                 ImageButton imageButton = (ImageButton) myDialog.findViewById(R.id.cancel);
                 imageButton.setOnClickListener(new View.OnClickListener() {
                     @Override
