@@ -95,6 +95,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
                     strD = "0"+d;
                 }
                 date.setText(strD+"/"+strM+"/"+y);
+                Log.e("Date", date.getText().toString());
             }
         })
                 .selectionColor(R.color.blue_gradient)
