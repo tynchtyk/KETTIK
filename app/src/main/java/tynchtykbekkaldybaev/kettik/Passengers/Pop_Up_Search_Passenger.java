@@ -1,15 +1,11 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Passengers;
 
-import android.app.TimePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.DatePicker;
@@ -19,23 +15,22 @@ import com.applandeo.materialcalendarview.listeners.OnSelectDateListener;
 import java.util.Calendar;
 import java.util.List;
 
+import tynchtykbekkaldybaev.kettik.R;
+
 /**
  * Created by tynchtykbekkaldybaev on 24/01/2019.
  */
 
-public class Passenger_Request_Add extends AppCompatActivity {
-    private ImageView back;
+public class Pop_Up_Search_Passenger extends AppCompatActivity {
     private TextView date;
+    private ImageView back;
     private ImageView cal;
+    private Button search;
     DatePicker datePicker;
-
-    private TextView time;
-    private ImageView timeImage;
-    TimePickerDialog.OnTimeSetListener mTimeSetListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.passenger_request_add);
+        setContentView(R.layout.pop_up_driver_search);
 
         back = findViewById(R.id.back);
 
@@ -73,6 +68,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
                 .pickerType(CalendarView.ONE_DAY_PICKER);
         datePicker = builder1.build();
 
+        cal = findViewById(R.id.calendar);
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,40 +76,12 @@ public class Passenger_Request_Add extends AppCompatActivity {
             }
         });
 
-        time = findViewById(R.id.time);
-        timeImage = findViewById(R.id.timeimage);
-
-        mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                String d = i + ":" + (i1+1);
-                time.setText(d);
-            }
-        };
-
-        time.setOnClickListener(new View.OnClickListener() {
+        search = findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showTimePickerDialog(view);
+                finish();
             }
         });
-    }
-
-    public void showTimePickerDialog(View view) {
-        Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minute = calendar.get(Calendar.MINUTE);
-
-        TimePickerDialog dialog = new TimePickerDialog(
-                Passenger_Request_Add.this,
-                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                mTimeSetListener,
-                hour,
-                minute,
-                DateFormat.is24HourFormat(Passenger_Request_Add.this)
-        );
-
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
     }
 }

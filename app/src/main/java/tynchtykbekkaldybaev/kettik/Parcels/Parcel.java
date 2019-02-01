@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Parcels;
 
 public class Parcel {
     String from;

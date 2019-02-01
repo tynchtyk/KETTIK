@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/list_background"
     android:animateLayoutChanges="true"
-    tools:context="tynchtykbekkaldybaev.kettik.Fragment_SearchDriver">
+    tools:context="tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout

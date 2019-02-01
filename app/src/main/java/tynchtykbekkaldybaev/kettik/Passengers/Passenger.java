@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Passengers;
 
 public class Passenger {
     String from;

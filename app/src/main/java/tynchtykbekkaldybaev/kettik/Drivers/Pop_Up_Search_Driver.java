@@ -1,9 +1,12 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Drivers;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,11 +18,13 @@ import com.applandeo.materialcalendarview.listeners.OnSelectDateListener;
 import java.util.Calendar;
 import java.util.List;
 
+import tynchtykbekkaldybaev.kettik.R;
+
 /**
  * Created by tynchtykbekkaldybaev on 24/01/2019.
  */
 
-public class Pop_Up_Search_Parcel extends AppCompatActivity {
+public class Pop_Up_Search_Driver extends AppCompatActivity {
     private TextView date;
     private ImageView back;
     private ImageView cal;

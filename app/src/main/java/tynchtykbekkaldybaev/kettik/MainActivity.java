@@ -1,37 +1,25 @@
 package tynchtykbekkaldybaev.kettik;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Handler;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
-import tynchtykbekkaldybaev.kettik.Description.Description;
-
-import static android.widget.Toast.*;
+import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
+import tynchtykbekkaldybaev.kettik.Parcels.Fragment_SearchParcel;
+import tynchtykbekkaldybaev.kettik.Passengers.Fragment_SearchPassenger;
 
 public class MainActivity extends AppCompatActivity{
     final int DRIVERS_FRAGMENT = 0;

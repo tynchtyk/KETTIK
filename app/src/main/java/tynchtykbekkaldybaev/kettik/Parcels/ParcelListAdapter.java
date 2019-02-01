@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Parcels;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -16,28 +16,29 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdapter.PassengerViewHolder>{
-    private ArrayList<Passenger> passengerList;
+import tynchtykbekkaldybaev.kettik.R;
+
+public class ParcelListAdapter extends RecyclerView.Adapter<ParcelListAdapter.ParcelViewHolder>{
+    private ArrayList<Parcel> parcels;
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public PassengerListAdapter(Context context, ArrayList<Passenger> list) {
+    public ParcelListAdapter(Context context, ArrayList<Parcel> list) {
         mInflater = LayoutInflater.from(context);
-        passengerList = list;
+        parcels = list;
         mContext = context;
     }
 
-
     @NonNull
     @Override
-    public PassengerListAdapter.PassengerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.passenger_item, parent, false);
-        return new PassengerViewHolder(mItemView, this);
+    public ParcelListAdapter.ParcelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View mItemView = mInflater.inflate(R.layout.parcel_item, parent, false);
+        return new ParcelViewHolder(mItemView, this);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final PassengerListAdapter.PassengerViewHolder holder, final int position) {
-        Passenger item = passengerList.get(position);
+    public void onBindViewHolder(@NonNull final ParcelViewHolder holder, final int position) {
+        Parcel item = parcels.get(position);
         holder.itemView.setTag(item);
 
         holder.from.setText(item.from);
@@ -82,18 +83,18 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
 
     @Override
     public int getItemCount() {
-        return passengerList.size();
+        return parcels.size();
     }
 
 
-    public class PassengerViewHolder extends RecyclerView.ViewHolder{
-        final PassengerListAdapter passengerAdapter;
+    public class ParcelViewHolder extends RecyclerView.ViewHolder{
+        final ParcelListAdapter parcelAdapter;
         public final ImageView call;
         public final TextView from;
         public final TextView to;
         public final TextView date;
 
-        public PassengerViewHolder(View itemView, PassengerListAdapter adapter) {
+        public ParcelViewHolder(View itemView, ParcelListAdapter adapter) {
 
             super(itemView);
 
@@ -102,7 +103,7 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
             to = (TextView) itemView.findViewById(R.id.to);
             date = (TextView) itemView.findViewById(R.id.date);
 
-            this.passengerAdapter = adapter;
+            this.parcelAdapter = adapter;
         }
     }
 }

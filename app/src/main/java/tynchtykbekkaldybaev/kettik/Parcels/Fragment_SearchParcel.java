@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Parcels;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import tynchtykbekkaldybaev.kettik.MainActivity;
+import tynchtykbekkaldybaev.kettik.Parcels.Parcel;
+import tynchtykbekkaldybaev.kettik.Parcels.ParcelListAdapter;
+import tynchtykbekkaldybaev.kettik.Parcels.Parcel_Request_Add;
+import tynchtykbekkaldybaev.kettik.Parcels.Pop_Up_Search_Parcel;
+import tynchtykbekkaldybaev.kettik.R;
 
 public class Fragment_SearchParcel extends Fragment {
     private ArrayList<Parcel> parcels = new ArrayList<>();

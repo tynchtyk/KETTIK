@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Passengers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import tynchtykbekkaldybaev.kettik.MainActivity;
+import tynchtykbekkaldybaev.kettik.R;
 
 public class Fragment_SearchPassenger extends Fragment {
     private ArrayList<Passenger> passengers = new ArrayList<>();
