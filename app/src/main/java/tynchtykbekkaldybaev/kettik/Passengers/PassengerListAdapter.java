@@ -16,16 +16,19 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import tynchtykbekkaldybaev.kettik.Drivers.Driver_Info;
 import tynchtykbekkaldybaev.kettik.R;
 
 public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdapter.PassengerViewHolder>{
     private ArrayList<Passenger> passengerList;
+    private ArrayList<Passenger_Info> passengerInfoList;
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public PassengerListAdapter(Context context, ArrayList<Passenger> list) {
+    public PassengerListAdapter(Context context, ArrayList<Passenger> list, ArrayList<Passenger_Info> passengerinfolist) {
         mInflater = LayoutInflater.from(context);
         passengerList = list;
+        passengerInfoList = passengerinfolist;
         mContext = context;
     }
 
@@ -49,8 +52,27 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
         holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Passenger_Info item_info = passengerInfoList.get(position);
                 final Dialog myDialog = new Dialog(mContext);
                 myDialog.setContentView(R.layout.pop_up_information);
+
+                TextView name_surname = myDialog.findViewById(R.id.driver_name);
+                name_surname.setText(item_info.name + " " + item_info.surname);
+
+                TextView driver_age_and_gender = myDialog.findViewById(R.id.driver_age_and_gender);
+                driver_age_and_gender.setText(item_info.birthDate + ", " + item_info.gender);
+
+                TextView price = myDialog.findViewById(R.id.price);
+                price.setText(item_info.price + " сом");
+
+                TextView autonumber = myDialog.findViewById(R.id.autonumber);
+                autonumber.setText(item_info.vehicleNumber);
+
+                TextView autotype = myDialog.findViewById(R.id.autotype);
+                autotype.setText(item_info.vehicleModel);
+
+
+
                 ImageButton imageButton = (ImageButton) myDialog.findViewById(R.id.cancel);
                 imageButton.setOnClickListener(new View.OnClickListener() {
                     @Override
