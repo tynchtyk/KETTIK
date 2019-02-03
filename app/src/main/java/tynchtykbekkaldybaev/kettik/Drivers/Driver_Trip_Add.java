@@ -151,6 +151,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
         data.put("userId", 2);
         data.put("note", "smth");
 
+        Log.e("Driver_Tripp_add_send", data.toString());
 
         requestThread task = new requestThread();
         task.execute(String.valueOf(data.toString()));

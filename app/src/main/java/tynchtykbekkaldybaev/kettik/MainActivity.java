@@ -20,6 +20,8 @@ import android.widget.SearchView;
 import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
 import tynchtykbekkaldybaev.kettik.Parcels.Fragment_SearchParcel;
 import tynchtykbekkaldybaev.kettik.Passengers.Fragment_SearchPassenger;
+import tynchtykbekkaldybaev.kettik.Registr.EditProfile;
+import tynchtykbekkaldybaev.kettik.Registr.Registration;
 
 public class MainActivity extends AppCompatActivity{
     final int DRIVERS_FRAGMENT = 0;

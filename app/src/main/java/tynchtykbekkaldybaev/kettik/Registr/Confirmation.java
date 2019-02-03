@@ -1,9 +1,11 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Registr;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import tynchtykbekkaldybaev.kettik.R;
 
 public class Confirmation extends AppCompatActivity {
     private ImageButton back;

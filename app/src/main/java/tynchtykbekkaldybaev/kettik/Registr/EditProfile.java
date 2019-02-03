@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.Registr;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,42 +11,51 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.applandeo.materialcalendarview.CalendarView;
-import com.applandeo.materialcalendarview.builders.DatePickerBuilder;
-import com.applandeo.materialcalendarview.listeners.OnSelectDateListener;
-
 import java.util.Calendar;
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import tynchtykbekkaldybaev.kettik.AsteriskPasswordTransformationMethod;
+import tynchtykbekkaldybaev.kettik.DoNothingTransformation;
+import tynchtykbekkaldybaev.kettik.R;
 
 public class EditProfile extends AppCompatActivity {
-
-    TextView date;
+    EditText name;
+    EditText surname;
+    TextView birthdate;
     EditText password;
+    EditText carnumber;
+    EditText cartype;
+    Spinner gender;
+
+
     ImageView licencePic;
     CircleImageView profilePic;
     Boolean isPasswordShowing = false;
     DatePickerDialog.OnDateSetListener mDateSetListener;
+    Button save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+        name = findViewById(R.id.name);
+        surname = findViewById(R.id.surname);
+        carnumber = findViewById(R.id.carnumber);
+        cartype = findViewById(R.id.cartype);
+        gender = findViewById(R.id.gender_selection);
+
+        save = findViewById(R.id.save);
+
 
         ImageButton accept = (ImageButton) findViewById(R.id.accept_button);
         accept.setOnClickListener(new View.OnClickListener() {
@@ -74,12 +83,18 @@ public class EditProfile extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
 
-        date = (TextView) findViewById(R.id.birthday_text);
+        birthdate = (TextView) findViewById(R.id.birthday_text);
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                String d = i2 + "/" + (i1+1) + "/" + i;
-                date.setText(d);
+                String d = "";
+                if(i2 < 10)
+                    d += "0";
+                d += i2 + "/";
+                if(i1+1 < 10)
+                    d+="0";
+                d+=(i1+1) + "/" + i;
+                birthdate.setText(d);
             }
         };
 
@@ -87,6 +102,24 @@ public class EditProfile extends AppCompatActivity {
         profilePic = (CircleImageView) findViewById(R.id.photo);
         password = (EditText)findViewById(R.id.password);
         password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                check_for_correctness();
+                Intent intent;
+                intent = new Intent(EditProfile.this,Registration.class);
+                intent.putExtra("name", name.getText().toString());
+                intent.putExtra("surname", surname.getText().toString());
+                intent.putExtra("carnumber", carnumber.getText().toString());
+                intent.putExtra("cartype", cartype.getText().toString());
+                intent.putExtra("birthdate", birthdate.getText().toString());
+                intent.putExtra("password", password.getText().toString());
+                intent.putExtra("gender", gender.getSelectedItem().toString());
+
+                startActivity(intent);
+            }
+        });
     }
 
     public void showTimePickerDialog(View view) {

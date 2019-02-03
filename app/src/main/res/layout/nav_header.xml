@@ -43,7 +43,7 @@
         android:background="@null"
         android:scaleType="fitXY"
         android:src="@drawable/edit"
-        android:visibility="gone"/>
+        />
 
     <TextView
         android:id="@+id/userName"
@@ -56,7 +56,6 @@
         android:lineSpacingExtra="1sp"
         android:text="Асанбек Ташов"
         android:textColor="@color/white"
-        android:visibility="gone"
         android:textSize="16sp" />
 
     <TextView
@@ -70,7 +69,6 @@
         android:lineSpacingExtra="6sp"
         android:text="Водитель"
         android:textColor="@color/white"
-        android:visibility="gone"
         android:textSize="12sp" />
 
 
@@ -88,6 +86,7 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/rectangle2"
             android:text="Войти"
+            android:visibility="gone"
             android:textColor="@color/blue_gradient"/>
 
         <TextView
@@ -97,6 +96,7 @@
             android:layout_marginStart="8dp"
             android:text="Вы вошли как гость"
             android:textColor="@color/white"
+            android:visibility="gone"
             android:textSize="18sp" />
     </LinearLayout>
 

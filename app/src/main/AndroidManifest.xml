@@ -27,7 +27,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
-            android:name=".EditProfile"
+            android:name=".Registr.EditProfile"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Drivers.Pop_Up_Search_Driver"
@@ -59,10 +59,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Registration"
+            android:name=".Registr.Registration"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
-            android:name=".Confirmation"
+            android:name=".Registr.Confirmation"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Help"
