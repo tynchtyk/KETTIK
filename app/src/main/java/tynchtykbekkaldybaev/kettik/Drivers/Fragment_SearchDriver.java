@@ -34,6 +34,8 @@ import java.util.ArrayList;
 import tynchtykbekkaldybaev.kettik.MainActivity;
 import tynchtykbekkaldybaev.kettik.R;
 
+import static android.app.Activity.RESULT_OK;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,7 +82,7 @@ public class Fragment_SearchDriver extends Fragment {
             public void onClick(View v) {
                 Intent intent;
                 intent = new Intent(tmp, Pop_Up_Search_Driver.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
 
             }
         });
@@ -106,17 +108,34 @@ public class Fragment_SearchDriver extends Fragment {
         });
         isUp = false;
 
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        driverRecyclerView.setLayoutManager(mLinearLayoutManager);
-
-
-        requestThread task = new requestThread();
-        task.execute();
-
 
 
 
         return rootview;
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                String submitURL;
+                String from = data.getStringExtra("from");
+                String to = data.getStringExtra("to");
+                String tripDate = data.getStringExtra("tripDate");
+                submitURL = "http://81.214.24.77:7777/api/trips?";
+                if(!from.equals(""))
+                        submitURL += "&from=" + from;
+                if(!to.equals(""))
+                    submitURL += "&to=" + to;
+                if(!tripDate.equals(""))
+                    submitURL += "&tripDate=" + tripDate;
+                Log.e("SUBMIT", submitURL);
+                requestThread task = new requestThread();
+                task.execute(submitURL);
+            }
+        }
+
     }
     public void slideUp(LinearLayout view){
         /*TranslateAnimation animate = new TranslateAnimation(
@@ -157,13 +176,12 @@ public class Fragment_SearchDriver extends Fragment {
     public class requestThread extends AsyncTask<String,Void,String> {
         ProgressDialog progressDialog;
 
-        private String submitURL =
-                "http://81.214.24.77:7777/api/trips";
+
 
         @Override
         protected String doInBackground(String... strings) {
 
-            String JsonResponse = getData();
+            String JsonResponse = getData(strings[0]);
 
             try {
                 parce_data(JsonResponse);
@@ -188,6 +206,8 @@ public class Fragment_SearchDriver extends Fragment {
         protected void onPostExecute(String result) {
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
+            LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
+            driverRecyclerView.setLayoutManager(mLinearLayoutManager);
             driverAdapter = new DriverListAdapter(getActivity(), driver, driver_info);
             driverRecyclerView.setAdapter(driverAdapter);
 
@@ -228,7 +248,7 @@ public class Fragment_SearchDriver extends Fragment {
             }
 
         }
-        public String getData(){
+        public String getData(String submitURL){
             if ( checkConnection() ) {
                 String JsonResponse = null;
                 HttpURLConnection urlConnection = null;

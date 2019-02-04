@@ -1,6 +1,8 @@
 package tynchtykbekkaldybaev.kettik;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -142,7 +145,6 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -177,7 +179,7 @@ public class MainActivity extends AppCompatActivity{
 
 
     }
-
+    
 
     public void selectFragment(MenuItem menuItem) {
         android.support.v4.app.Fragment fragment = new android.support.v4.app.Fragment();
