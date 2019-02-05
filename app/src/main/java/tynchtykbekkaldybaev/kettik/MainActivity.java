@@ -11,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,12 +18,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
 import tynchtykbekkaldybaev.kettik.Parcels.Fragment_SearchParcel;
 import tynchtykbekkaldybaev.kettik.Passengers.Fragment_SearchPassenger;
 import tynchtykbekkaldybaev.kettik.Registr.EditProfile;
-import tynchtykbekkaldybaev.kettik.Registr.Registration;
+import tynchtykbekkaldybaev.kettik.Registr.Profile_Registration;
 
 public class MainActivity extends AppCompatActivity{
     final int DRIVERS_FRAGMENT = 0;
@@ -41,28 +41,20 @@ public class MainActivity extends AppCompatActivity{
     Button passengerButton;
     Button parcelsButton;
     Button signup;
+    ImageButton editButton;
+    TextView userName, userProf, userGuest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
         mDrawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        // set item as selected to persist highlight
-                        menuItem.setChecked(true);
-                        // close drawer when item is tapped
-                        mDrawerLayout.closeDrawers();
 
-                        // Add code here to update the UI based on the item selected
-                        // For example, swap UI fragments here
-
-                        return true;
-                    }
-                });
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
@@ -72,20 +64,39 @@ public class MainActivity extends AppCompatActivity{
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
 
         View headView = navigationView.getHeaderView(0);
-        ImageButton imageButton = (ImageButton) headView.findViewById(R.id.edit_button);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+
+        SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+        Boolean islogin = userInfo.getBoolean("islogin", false);
+
+        editButton = (ImageButton) headView.findViewById(R.id.edit_button);
+        signup = headView.findViewById(R.id.signup);
+        userName = headView.findViewById(R.id.userName);
+        userGuest = headView.findViewById(R.id.guest);
+        userProf = headView.findViewById(R.id.userProf);
+
+        if(!islogin) {
+            editButton.setVisibility(View.GONE);
+            userName.setVisibility(View.GONE);
+            userProf.setVisibility(View.GONE);
+        }
+        else{
+            userGuest.setVisibility(View.GONE);
+            signup.setVisibility(View.GONE);
+        }
+
+        editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, EditProfile.class);
                 startActivity(intent);
             }
         });
-        signup = headView.findViewById(R.id.signup);
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(MainActivity.this, Registration.class);
+                intent = new Intent(MainActivity.this, Profile_Registration.class);
                 startActivity(intent);
             }
         });
@@ -185,10 +196,6 @@ public class MainActivity extends AppCompatActivity{
         android.support.v4.app.Fragment fragment = new android.support.v4.app.Fragment();
         Class fragmentClass;
         switch(menuItem.getItemId()) {
-            case R.id.my_trips:
-                fragmentClass = BlankFragment.class;
-
-                break;
             case R.id.drivers:
                 fragmentClass = Fragment_SearchDriver.class;
                 updateNavigationButtons(DRIVERS_FRAGMENT);
@@ -201,8 +208,12 @@ public class MainActivity extends AppCompatActivity{
                 fragmentClass = Fragment_SearchParcel.class;
                 updateNavigationButtons(PARCELS_FRAGMENT);
                 break;
+            case R.id.my_trips:
+                Intent intent = new Intent(MainActivity.this, My_Trips.class);
+                startActivity(intent);
+                return;
             case R.id.settings:
-                Intent intent = new Intent(MainActivity.this, Settings.class);
+                intent = new Intent(MainActivity.this, Settings.class);
                 startActivity(intent);
                 return;
             case R.id.help:

@@ -20,12 +20,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import tynchtykbekkaldybaev.kettik.AsteriskPasswordTransformationMethod;
 import tynchtykbekkaldybaev.kettik.DoNothingTransformation;
+import tynchtykbekkaldybaev.kettik.Drivers.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.R;
 
 public class Profile_Registration extends AppCompatActivity {
@@ -47,7 +49,7 @@ public class Profile_Registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile);
+        setContentView(R.layout.activity_profile_registration);
         name = findViewById(R.id.name);
         surname = findViewById(R.id.surname);
         carnumber = findViewById(R.id.carnumber);
@@ -106,20 +108,37 @@ public class Profile_Registration extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                check_for_correctness();
-                Intent intent;
-                intent = new Intent(Profile_Registration.this,Registration.class);
-                intent.putExtra("name", name.getText().toString());
-                intent.putExtra("surname", surname.getText().toString());
-                intent.putExtra("carnumber", carnumber.getText().toString());
-                intent.putExtra("cartype", cartype.getText().toString());
-                intent.putExtra("birthdate", birthdate.getText().toString());
-                intent.putExtra("password", password.getText().toString());
-                intent.putExtra("gender", gender.getSelectedItem().toString());
+                if(check()) {
+                    Intent intent;
+                    intent = new Intent(Profile_Registration.this, Phone_Registration.class);
+                    intent.putExtra("name", name.getText().toString());
+                    intent.putExtra("surname", surname.getText().toString());
+                    intent.putExtra("carnumber", carnumber.getText().toString());
+                    intent.putExtra("cartype", cartype.getText().toString());
+                    intent.putExtra("birthdate", birthdate.getText().toString());
+                    intent.putExtra("password", password.getText().toString());
+                    intent.putExtra("gender", gender.getSelectedItem().toString());
 
-                startActivity(intent);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(Profile_Registration.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    public boolean check(){
+        if(name.getText().toString().equals("")
+                || surname.getText().toString().equals("")
+                || carnumber.getText().toString().equals("")
+                || cartype.getText().toString().equals("")
+                || birthdate.getText().toString().equals("")
+                || password.getText().toString().equals("")
+                || gender.getSelectedItem().toString().equals("")
+                )
+            return false;
+        return true;
     }
 
     public void showTimePickerDialog(View view) {

@@ -54,7 +54,6 @@
         android:layout_marginLeft="118dp"
         android:layout_marginTop="76dp"
         android:lineSpacingExtra="1sp"
-        android:text="Асанбек Ташов"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -67,7 +66,6 @@
         android:layout_marginLeft="117dp"
         android:layout_marginTop="100dp"
         android:lineSpacingExtra="6sp"
-        android:text="Водитель"
         android:textColor="@color/white"
         android:textSize="12sp" />
 
@@ -86,7 +84,6 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/rectangle2"
             android:text="Войти"
-            android:visibility="gone"
             android:textColor="@color/blue_gradient"/>
 
         <TextView
@@ -96,7 +93,6 @@
             android:layout_marginStart="8dp"
             android:text="Вы вошли как гость"
             android:textColor="@color/white"
-            android:visibility="gone"
             android:textSize="18sp" />
     </LinearLayout>
 

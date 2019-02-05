@@ -108,7 +108,7 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View view) {
 //                check_for_correctness();
                 Intent intent;
-                intent = new Intent(EditProfile.this,Registration.class);
+                intent = new Intent(EditProfile.this,Profile_Registration.class);
                 intent.putExtra("name", name.getText().toString());
                 intent.putExtra("surname", surname.getText().toString());
                 intent.putExtra("carnumber", carnumber.getText().toString());

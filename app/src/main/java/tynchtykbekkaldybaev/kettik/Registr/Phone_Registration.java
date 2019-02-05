@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,10 +26,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import tynchtykbekkaldybaev.kettik.Drivers.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.R;
 
-public class Registration extends AppCompatActivity {
+public class Phone_Registration extends AppCompatActivity {
     private ImageButton back;
     private Button register;
     private EditText number;
@@ -38,7 +37,7 @@ public class Registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_phone_registration);
 
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
@@ -114,7 +113,7 @@ public class Registration extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog = new ProgressDialog(Registration.this);
+            progressDialog = new ProgressDialog(Phone_Registration.this);
             progressDialog.setMessage("Отправка данных...");
             progressDialog.setCancelable(false);
             progressDialog.show();
@@ -217,7 +216,7 @@ public class Registration extends AppCompatActivity {
         boolean haveConnectedMobile = false;
         try
         {
-            ConnectivityManager cm = (ConnectivityManager) Registration.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = (ConnectivityManager) Phone_Registration.this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo[] netInfo = cm.getAllNetworkInfo();
             for (NetworkInfo ni : netInfo) {
                 if (ni.getTypeName().equalsIgnoreCase("WIFI"))

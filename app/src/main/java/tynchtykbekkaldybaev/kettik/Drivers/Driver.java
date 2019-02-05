@@ -16,7 +16,7 @@ public class Driver {
         free = maxspace = 0;
     }
 
-    Driver (String f, String t, String d, int fr, int mx) {
+    public Driver(String f, String t, String d, int fr, int mx) {
         from = f;
         to = t;
         date = d;

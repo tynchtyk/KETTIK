@@ -30,6 +30,15 @@
             android:name=".Registr.EditProfile"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
+            android:name=".Registr.Profile_Registration"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
+            android:name=".Registr.Phone_Registration"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
+            android:name=".Registr.Confirmation"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
             android:name=".Drivers.Pop_Up_Search_Driver"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
@@ -59,10 +68,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Registr.Registration"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".Registr.Confirmation"
+            android:name=".My_Trips"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Help"

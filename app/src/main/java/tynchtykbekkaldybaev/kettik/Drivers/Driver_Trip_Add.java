@@ -167,7 +167,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
         data.put("tripTime", time.getText().toString());
         data.put("price", Integer.valueOf(price.getText().toString()));
         data.put("seats", Integer.valueOf(quantity.getText().toString()));
-        data.put("userId", 2);
+        data.put("userId", 7);
         data.put("note", "smth");
 
         Log.e("Driver_Tripp_add_send", data.toString());

@@ -19,7 +19,7 @@ public class Driver_Info {
 
     }
 
-    Driver_Info(String nm, String snm, String bD, String gen, String pr, String vM, String vN, String pN, int id) {
+    public Driver_Info(String nm, String snm, String bD, String gen, String pr, String vM, String vN, String pN, int id) {
         name = nm;
         surname = snm;
         birthDate = bD;
