@@ -41,7 +41,7 @@ import tynchtykbekkaldybaev.kettik.R;
 
 public class Login extends AppCompatActivity {
     private ImageButton back;
-    private Button register;
+    private Button login, signup;
     private EditText number, password;
 
     private String name, surname, cartype, carnumber, birthdate, gender;
@@ -67,9 +67,9 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        register = findViewById(R.id.register);
+        login = findViewById(R.id.login);
 
-        register.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(check()) {
@@ -86,6 +86,14 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+        signup = findViewById(R.id.signup);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
     public boolean check(){

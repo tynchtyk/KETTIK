@@ -114,7 +114,7 @@
 
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/login"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -126,6 +126,20 @@
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
         android:text="Логин"/>
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:background="@drawable/save_button_shape"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/login"
+        android:fontFamily="@font/rubickregular"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:text="Создать новый аккаунт"/>
 
 
 </RelativeLayout>
