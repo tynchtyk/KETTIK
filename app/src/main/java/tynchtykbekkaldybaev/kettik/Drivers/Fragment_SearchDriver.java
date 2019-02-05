@@ -47,6 +47,9 @@ public class Fragment_SearchDriver extends Fragment {
     private RecyclerView driverRecyclerView;
     private DriverListAdapter driverAdapter;
 
+    public String submitURL;
+    public requestThread task;
+
     LinearLayout addition;
     boolean isUp;
     Button add_trip;
@@ -93,7 +96,7 @@ public class Fragment_SearchDriver extends Fragment {
             public void onClick(View view) {
                 Intent intent;
                 intent = new Intent(tmp, Driver_Trip_Add.class);
-                startActivity(intent);
+                startActivityForResult(intent,2);
             }
         });
 
@@ -108,6 +111,12 @@ public class Fragment_SearchDriver extends Fragment {
         });
         isUp = false;
 
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        driverRecyclerView.setLayoutManager(mLinearLayoutManager);
+        if(submitURL == null)
+            submitURL = "http://81.214.24.77:7777/api/trips";
+        task = new requestThread();
+        task.execute(submitURL);
 
 
 
@@ -119,25 +128,49 @@ public class Fragment_SearchDriver extends Fragment {
 
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                String submitURL;
+                String URL;
                 String from = data.getStringExtra("from");
                 String to = data.getStringExtra("to");
                 String tripDate = data.getStringExtra("tripDate");
-                submitURL = "http://81.214.24.77:7777/api/trips?";
+                URL = "http://81.214.24.77:7777/api/trips?";
                 if(!from.equals(""))
-                        submitURL += "&from=" + from;
+                        URL += "&from=" + from;
                 if(!to.equals(""))
-                    submitURL += "&to=" + to;
+                    URL += "&to=" + to;
                 if(!tripDate.equals(""))
-                    submitURL += "&tripDate=" + tripDate;
-                Log.e("SUBMIT", submitURL);
-                requestThread task = new requestThread();
-                task.execute(submitURL);
+                    URL += "&tripDate=" + tripDate;
+                Fragment_SearchDriver fragment = (Fragment_SearchDriver)
+                        getFragmentManager().findFragmentById(R.id.content_frame);
+                fragment.submitURL = URL;
+
+                getFragmentManager().beginTransaction()
+                        .detach(fragment)
+                        .attach(fragment)
+                        .commit();
+                Log.e("FROMTOTRIPDATE", from + to + tripDate);
+                Log.e("SUBMIT1", submitURL);
+
+            }
+        }
+        if (requestCode == 2) {
+            if(resultCode == RESULT_OK) {
+
+                String URL = "http://81.214.24.77:7777/api/trips";
+                Fragment_SearchDriver fragment = (Fragment_SearchDriver)
+                        getFragmentManager().findFragmentById(R.id.content_frame);
+                fragment.submitURL = URL;
+
+                getFragmentManager().beginTransaction()
+                        .detach(fragment)
+                        .attach(fragment)
+                        .commit();
+                Log.e("SUBMIT2", submitURL);
+
             }
         }
 
     }
-    public void slideUp(LinearLayout view){
+     public void slideUp(LinearLayout view){
         /*TranslateAnimation animate = new TranslateAnimation(
                 0,                 // fromXDelta
                 0,                 // toXDelta
@@ -181,7 +214,7 @@ public class Fragment_SearchDriver extends Fragment {
         @Override
         protected String doInBackground(String... strings) {
 
-            String JsonResponse = getData(strings[0]);
+            String JsonResponse = getData();
 
             try {
                 parce_data(JsonResponse);
@@ -200,14 +233,17 @@ public class Fragment_SearchDriver extends Fragment {
             progressDialog.setMessage("Отправка данных...");
             progressDialog.setCancelable(false);
             progressDialog.show();
+
+            driver.clear();
+            driver_info.clear();
+
         }
 
         @Override
         protected void onPostExecute(String result) {
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
-            LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
-            driverRecyclerView.setLayoutManager(mLinearLayoutManager);
+
             driverAdapter = new DriverListAdapter(getActivity(), driver, driver_info);
             driverRecyclerView.setAdapter(driverAdapter);
 
@@ -248,7 +284,7 @@ public class Fragment_SearchDriver extends Fragment {
             }
 
         }
-        public String getData(String submitURL){
+        public String getData(){
             if ( checkConnection() ) {
                 String JsonResponse = null;
                 HttpURLConnection urlConnection = null;

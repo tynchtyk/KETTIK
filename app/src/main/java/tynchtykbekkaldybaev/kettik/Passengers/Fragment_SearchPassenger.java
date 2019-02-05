@@ -35,6 +35,8 @@ import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
 import tynchtykbekkaldybaev.kettik.MainActivity;
 import tynchtykbekkaldybaev.kettik.R;
 
+import static android.app.Activity.RESULT_OK;
+
 public class Fragment_SearchPassenger extends Fragment {
     private ArrayList<Passenger> passengers = new ArrayList<>();
     private ArrayList<Passenger_Info> passengers_info = new ArrayList<>();
@@ -43,6 +45,9 @@ public class Fragment_SearchPassenger extends Fragment {
     private PassengerListAdapter passengerAdapter;
 
     private Button add_request;
+
+    public String submitURL;
+    public requestThread task;
 
     public Fragment_SearchPassenger() {
         // Required empty public constructor
@@ -66,7 +71,7 @@ public class Fragment_SearchPassenger extends Fragment {
             public void onClick(View v) {
                 Intent intent;
                 intent = new Intent(tmp, Pop_Up_Search_Passenger.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
 
             }
         });
@@ -78,7 +83,7 @@ public class Fragment_SearchPassenger extends Fragment {
             public void onClick(View view) {
                 Intent intent;
                 intent = new Intent(tmp, Passenger_Request_Add.class);
-                startActivity(intent);
+                startActivityForResult(intent,2);
             }
         });
 
@@ -90,20 +95,66 @@ public class Fragment_SearchPassenger extends Fragment {
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         passengerRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        requestThread task = new requestThread();
-        task.execute();
-
+        if(submitURL == null)
+            submitURL = "http://81.214.24.77:7777/api/passengers";
+        task = new requestThread();
+        task.execute(submitURL);
 
         return rootview;
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                String URL;
+                String from = data.getStringExtra("from");
+                String to = data.getStringExtra("to");
+                String tripDate = data.getStringExtra("tripDate");
+                URL = "http://81.214.24.77:7777/api/passengers?";
+                if(!from.equals(""))
+                    URL += "&from=" + from;
+                if(!to.equals(""))
+                    URL += "&to=" + to;
+                if(!tripDate.equals(""))
+                    URL += "&tripDate=" + tripDate;
+                Fragment_SearchPassenger fragment = (Fragment_SearchPassenger)
+                        getFragmentManager().findFragmentById(R.id.content_frame);
+                fragment.submitURL = URL;
+
+                getFragmentManager().beginTransaction()
+                        .detach(fragment)
+                        .attach(fragment)
+                        .commit();
+                Log.e("FROMTOTRIPDATE", from + to + tripDate);
+                Log.e("SUBMIT1", submitURL);
+
+            }
+        }
+        if (requestCode == 2) {
+            if(resultCode == RESULT_OK) {
+
+                String URL = "http://81.214.24.77:7777/api/passengers";
+                Fragment_SearchPassenger fragment = (Fragment_SearchPassenger)
+                        getFragmentManager().findFragmentById(R.id.content_frame);
+                fragment.submitURL = URL;
+
+                getFragmentManager().beginTransaction()
+                        .detach(fragment)
+                        .attach(fragment)
+                        .commit();
+                Log.e("SUBMIT2", submitURL);
+
+            }
+        }
+
     }
 
     public class requestThread extends AsyncTask<String,Void,String> {
         ProgressDialog progressDialog;
 
-        private String submitURL =
-                "http://81.214.24.77:7777/api/passengers";
-
-        @Override
+          @Override
         protected String doInBackground(String... strings) {
 
             String JsonResponse = getData();
@@ -125,6 +176,8 @@ public class Fragment_SearchPassenger extends Fragment {
             progressDialog.setMessage("Отправка данных...");
             progressDialog.setCancelable(false);
             progressDialog.show();
+            passengers.clear();
+            passengers_info.clear();
         }
 
         @Override

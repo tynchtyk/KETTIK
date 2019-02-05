@@ -3,6 +3,7 @@ package tynchtykbekkaldybaev.kettik.Drivers;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
@@ -18,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.DatePicker;
@@ -130,14 +132,31 @@ public class Driver_Trip_Add extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    collect_data();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if(check()) {
+                    try {
+                        collect_data();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    Toast.makeText(Driver_Trip_Add.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+    }
+
+    public boolean check(){
+        if(from.getText().toString().equals("")
+                || where.getText().toString().equals("")
+                || date.getText().toString().equals("")
+                || time.getText().toString().equals("")
+                || price.getText().toString().equals("")
+                || quantity.getText().toString().equals("")
+                )
+            return false;
+        return true;
     }
 
     public void collect_data() throws JSONException {
@@ -199,7 +218,8 @@ public class Driver_Trip_Add extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
-
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
             finish();
             // this is expecting a response code to be sent from your server upon receiving the POST data
 
