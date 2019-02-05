@@ -99,8 +99,6 @@ public class Fragment_SearchPassenger extends Fragment {
 
         //Log.d("FragSub", String.valueOf(tmp.menuLayout.getMenuEntries().size()));
 
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        passengerRecyclerView.setLayoutManager(mLinearLayoutManager);
 
         if(submitURL == null)
             submitURL = "http://81.214.24.77:7777/api/passengers";
@@ -191,6 +189,10 @@ public class Fragment_SearchPassenger extends Fragment {
         protected void onPostExecute(String result) {
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
+
+            LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
+            passengerRecyclerView.setLayoutManager(mLinearLayoutManager);
+
             passengerAdapter = new PassengerListAdapter(getActivity(), passengers, passengers_info);
             passengerRecyclerView.setAdapter(passengerAdapter);
 

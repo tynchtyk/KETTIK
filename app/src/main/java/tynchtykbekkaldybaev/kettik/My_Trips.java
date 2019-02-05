@@ -46,13 +46,12 @@ public class My_Trips extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mytrips);
 
+        driverRecyclerView = findViewById(R.id.recyclerviewTrips);
+
         Intent intent = getIntent();
         Id = intent.getIntExtra("Id", -1);
 
-        driverRecyclerView = findViewById(R.id.recyclerviewTrips);
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(My_Trips.this);
-        driverRecyclerView.setLayoutManager(mLinearLayoutManager);
-        if(submitURL == null)
+           if(submitURL == null)
             submitURL = "http://81.214.24.77:7777/api/trips?userId=" + String.valueOf(Id);
         task = new requestThread();
         task.execute(submitURL);
@@ -99,6 +98,10 @@ public class My_Trips extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
+
+            LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(My_Trips.this);
+            driverRecyclerView.setLayoutManager(mLinearLayoutManager);
+
 
             driverAdapter = new DriverListAdapter(My_Trips.this, driver, driver_info);
             driverRecyclerView.setAdapter(driverAdapter);

@@ -119,12 +119,13 @@ public class Fragment_SearchDriver extends Fragment {
         });
         isUp = false;
 
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        driverRecyclerView.setLayoutManager(mLinearLayoutManager);
         if(submitURL == null)
             submitURL = "http://81.214.24.77:7777/api/trips";
+
+
         task = new requestThread();
         task.execute(submitURL);
+
 
 
 
@@ -251,6 +252,10 @@ public class Fragment_SearchDriver extends Fragment {
         protected void onPostExecute(String result) {
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
+
+            LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
+            driverRecyclerView.setLayoutManager(mLinearLayoutManager);
+
 
             driverAdapter = new DriverListAdapter(getActivity(), driver, driver_info);
             driverRecyclerView.setAdapter(driverAdapter);
