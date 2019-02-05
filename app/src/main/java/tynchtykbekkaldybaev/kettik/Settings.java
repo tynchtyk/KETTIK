@@ -1,6 +1,10 @@
 package tynchtykbekkaldybaev.kettik;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +31,9 @@ public class Settings extends AppCompatActivity {
     }
 
     public void logOut(View view) {
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     public void Back(View view) {

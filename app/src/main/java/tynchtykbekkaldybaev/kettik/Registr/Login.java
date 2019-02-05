@@ -3,6 +3,7 @@ package tynchtykbekkaldybaev.kettik.Registr;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,31 +28,32 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import tynchtykbekkaldybaev.kettik.Drivers.Driver;
+import tynchtykbekkaldybaev.kettik.Drivers.DriverListAdapter;
+import tynchtykbekkaldybaev.kettik.Drivers.Driver_Info;
+import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
 import tynchtykbekkaldybaev.kettik.R;
 
-public class Phone_Registration extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     private ImageButton back;
     private Button register;
-    private EditText number;
-    private String name, surname, cartype, carnumber, birthdate, password, gender;
+    private EditText number, password;
+
+    private String name, surname, cartype, carnumber, birthdate, gender;
+
+
+
+    public String submitURL;
+    public requestThread task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone_registration);
-
-        Intent intent = getIntent();
-        name = intent.getStringExtra("name");
-        surname = intent.getStringExtra("surname");
-        carnumber = intent.getStringExtra("carnumber");
-        cartype = intent.getStringExtra("cartype");
-        birthdate = intent.getStringExtra("birthdate");
-        password = intent.getStringExtra("password");
-        gender = intent.getStringExtra("gender");
-
+        setContentView(R.layout.activity_login);
 
         back = findViewById(R.id.back_button);
         number = findViewById(R.id.number);
+        password = findViewById(R.id.password);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,114 +67,89 @@ public class Phone_Registration extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent;
-                intent = new Intent(Registration.this,Confirmation.class);
-                startActivity(intent);*/
-
-                try {
-                    collect_data();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if(submitURL == null) {
+                    submitURL = "http://81.214.24.77:7777/api/users/params?countryCode=%2B996";
+                    submitURL += "&phoneNumber=" + number.getText().toString() + "&password=" + password.getText().toString();
                 }
+                Log.e("SUBMITLOGIN", submitURL);
+                task = new requestThread();
+                task.execute(submitURL);
             }
         });
-    }
-    public void collect_data() throws JSONException {
-        JSONObject data = new JSONObject();
-        data.put("name", name);
-        data.put("surname", surname);
-        data.put("birthDate", birthdate);
-        data.put("gender", gender);
-        data.put("profilePicture", "url");
-        data.put("country", "kyrgyzstan");
-        data.put("countryCode", "+996");
-        data.put("phoneNumber", number.getText().toString());
-        data.put("password", password);
-        data.put("driverFlag", true);
-        data.put("vehicleModel", cartype);
-        data.put("vehicleNumber", carnumber);
-        data.put( "driverLicense","url");
-
-        Log.e("SURNAME", surname);
-
-        requestThread task = new requestThread();
-        task.execute(String.valueOf(data.toString()));
     }
 
     public class requestThread extends AsyncTask<String,Void,String> {
         ProgressDialog progressDialog;
 
-        private String submitURL =
-                "http://81.214.24.77:7777/api/users";
+
 
         @Override
         protected String doInBackground(String... strings) {
 
-            return sendData(strings[0]);
-//            return getData();
+            String JsonResponse = getData();
+
+
+
+            return JsonResponse;
+
+
         }
 
         @Override
         protected void onPreExecute() {
-            progressDialog = new ProgressDialog(Phone_Registration.this);
+            progressDialog = new ProgressDialog(Login.this);
             progressDialog.setMessage("Отправка данных...");
             progressDialog.setCancelable(false);
             progressDialog.show();
+
         }
 
         @Override
         protected void onPostExecute(String result) {
-//            Log.e("RESULT", result);
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
 
-            finish();
+            try {
+                parce_data(result);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            Log.e("LOGINRESULT", result);
             // this is expecting a response code to be sent from your server upon receiving the POST data
 
         }
+        public void parce_data(String JsonResponse) throws JSONException {
+            JSONObject info = new JSONObject(JsonResponse);
+            int Id = info.getInt("id");
+            String name = info.getString("name");
+            String surname = info.getString("surname");
+            String birthDate = info.getString("birthDate");
+            String gender = info.getString("gender");
+            String profilePicture = info.getString("profilePicture");
 
-        public String sendData(String data){
-            if ( checkConnection() ) {
-                String JsonResponse = null;
-                Log.e("SEND", data);
-                HttpURLConnection urlConnection = null;
-                BufferedReader reader = null;
-                try {
-                    URL url = new URL(submitURL);
+            //country
+            //countrycode
 
-                    urlConnection = (HttpURLConnection) url.openConnection();
-                    urlConnection.setDoOutput(true);
-                    urlConnection.setRequestMethod("POST");
-                    urlConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+            String phoneNumber = info.getString("phoneNumber");
+            String getPassword = info.getString("password");
+            boolean driverFlag = info.getBoolean("driverFlag");
+            String vehicleModel = info.getString("vehicleModel");
+            String vehicleNumber = info.getString("vehicleNumber");
+            String driverLicence = info.getString("driverLicense");
 
-                    OutputStream os = urlConnection.getOutputStream();
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                    writer.write(data);
-                    writer.flush();
 
-                    reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                    StringBuilder sb = new StringBuilder();
-                    String line = null;
-
-                    // Read Server Response
-                    while ((line = reader.readLine()) != null) {
-                        // Append server response in string
-                        sb.append(line + "\n");
-                    }
-
-                    Log.e("PHONEREGISTROTVET", sb.toString());
-                    writer.close();
-                    os.close();
-                    urlConnection.connect();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-
-                return JsonResponse;
-            } else {
-                return "";
-            }
+            SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+            userInfo.edit()
+                    .putInt("Id", Id)
+                    .putString("name", name)
+                    .putString("surname", surname)
+                    .putBoolean("islogin", true)
+                    .commit();
+            Intent intent = new Intent();
+            setResult(RESULT_OK,intent);
+            finish();
         }
         public String getData(){
             if ( checkConnection() ) {
@@ -216,7 +194,7 @@ public class Phone_Registration extends AppCompatActivity {
         boolean haveConnectedMobile = false;
         try
         {
-            ConnectivityManager cm = (ConnectivityManager) Phone_Registration.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = (ConnectivityManager) Login.this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo[] netInfo = cm.getAllNetworkInfo();
             for (NetworkInfo ni : netInfo) {
                 if (ni.getTypeName().equalsIgnoreCase("WIFI"))

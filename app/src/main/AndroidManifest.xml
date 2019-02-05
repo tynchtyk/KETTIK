@@ -25,7 +25,18 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
         <activity
             android:name=".Registr.EditProfile"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
@@ -37,6 +48,9 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Registr.Confirmation"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
+            android:name=".Registr.Login"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Drivers.Pop_Up_Search_Driver"
@@ -59,13 +73,7 @@
         <activity
             android:name=".Description.Description"
             android:theme="@style/Theme.Design.Light.NoActionBar">
-            <intent-filter>
-                <action
-                    android:name="android.intent.action.MAIN"
-                    android:screenOrientation="portrait" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".My_Trips"
