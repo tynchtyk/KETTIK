@@ -22,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import tynchtykbekkaldybaev.kettik.Description.Description;
 import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity{
     ImageButton editButton;
     TextView userName, userProf, userGuest;
 
+    public int Id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +75,7 @@ public class MainActivity extends AppCompatActivity{
 
         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
         Boolean islogin = userInfo.getBoolean("islogin", false);
+        Id = userInfo.getInt("Id", -1);
         Log.e("ISLOGIN", String.valueOf(islogin));
 
         editButton = (ImageButton) headView.findViewById(R.id.edit_button);
@@ -222,7 +226,13 @@ public class MainActivity extends AppCompatActivity{
                 break;
             case R.id.my_trips:
                 Intent intent = new Intent(MainActivity.this, My_Trips.class);
-                startActivity(intent);
+                if(Id == -1) {
+                    Toast.makeText(MainActivity.this, "Чтобы увидеть ваши поездки, маршрут войдите в систему", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    intent.putExtra("Id", Id);
+                    startActivity(intent);
+                }
                 return;
             case R.id.settings:
                 intent = new Intent(MainActivity.this, Settings.class);
@@ -323,6 +333,7 @@ public class MainActivity extends AppCompatActivity{
                 SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
                 String name = userInfo.getString("name", null);
                 String surname = userInfo.getString("surname", null);
+                Id = userInfo.getInt("Id", -1);
                 Log.e("LOGINSHAREDRESULT", name + " " + surname);
                 userName.setText(name + " " + surname);
                 userProf.setText("Водитель");

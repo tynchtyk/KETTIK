@@ -4,6 +4,7 @@ package tynchtykbekkaldybaev.kettik.Drivers;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -19,6 +20,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -94,9 +96,15 @@ public class Fragment_SearchDriver extends Fragment {
         add_trip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
-                intent = new Intent(tmp, Driver_Trip_Add.class);
-                startActivityForResult(intent,2);
+                if(tmp.Id == -1){
+                    Toast.makeText(tmp, "Чтобы добавить маршрут, войдите в систему", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent;
+                    intent = new Intent(tmp, Driver_Trip_Add.class);
+                    intent.putExtra("Id", tmp.Id);
+                    startActivityForResult(intent, 2);
+                }
             }
         });
 

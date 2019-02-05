@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -81,9 +82,15 @@ public class Fragment_SearchPassenger extends Fragment {
         add_request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
-                intent = new Intent(tmp, Passenger_Request_Add.class);
-                startActivityForResult(intent,2);
+                if(tmp.Id == -1){
+                    Toast.makeText(tmp, "Чтобы добавить запрос, войдите в систему", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent;
+                    intent = new Intent(tmp, Passenger_Request_Add.class);
+                    intent.putExtra("Id", tmp.Id);
+                    startActivityForResult(intent, 2);
+                }
             }
         });
 

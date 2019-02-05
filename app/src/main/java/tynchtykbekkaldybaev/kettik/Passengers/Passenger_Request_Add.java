@@ -58,10 +58,16 @@ public class Passenger_Request_Add extends AppCompatActivity {
     private ImageView timeImage;
     TimePickerDialog.OnTimeSetListener mTimeSetListener;
 
+    public int Id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.passenger_request_add);
+
+        Intent intent = getIntent();
+        Id = intent.getIntExtra("Id", -1);
+
 
         back = findViewById(R.id.back);
         date = findViewById(R.id.date);
@@ -163,7 +169,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
         data.put("tripDate", date.getText().toString());
         data.put("tripTime", time.getText().toString());
         data.put("price", Integer.valueOf(price.getText().toString()));
-        data.put("userId", 2);
+        data.put("userId", Id);
         data.put("note", "smth");
 
 

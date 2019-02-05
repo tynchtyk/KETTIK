@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
@@ -56,10 +57,14 @@ public class Driver_Trip_Add extends AppCompatActivity {
     private ImageView back;
     private DatePicker datePicker;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
+    public int Id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.driver_route_add);
+
+        Intent intent = getIntent();
+        Id = intent.getIntExtra("Id", -1);
 
         back = findViewById(R.id.back);
         date = findViewById(R.id.date);
@@ -167,7 +172,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
         data.put("tripTime", time.getText().toString());
         data.put("price", Integer.valueOf(price.getText().toString()));
         data.put("seats", Integer.valueOf(quantity.getText().toString()));
-        data.put("userId", 7);
+         data.put("userId", Id);
         data.put("note", "smth");
 
         Log.e("Driver_Tripp_add_send", data.toString());

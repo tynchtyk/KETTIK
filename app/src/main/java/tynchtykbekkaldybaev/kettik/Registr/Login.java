@@ -8,12 +8,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +23,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -31,7 +34,9 @@ import java.net.URL;
 import tynchtykbekkaldybaev.kettik.Drivers.Driver;
 import tynchtykbekkaldybaev.kettik.Drivers.DriverListAdapter;
 import tynchtykbekkaldybaev.kettik.Drivers.Driver_Info;
+import tynchtykbekkaldybaev.kettik.Drivers.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
+import tynchtykbekkaldybaev.kettik.MainActivity;
 import tynchtykbekkaldybaev.kettik.R;
 
 public class Login extends AppCompatActivity {
@@ -67,15 +72,28 @@ public class Login extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(submitURL == null) {
-                    submitURL = "http://81.214.24.77:7777/api/users/params?countryCode=%2B996";
-                    submitURL += "&phoneNumber=" + number.getText().toString() + "&password=" + password.getText().toString();
+                if(check()) {
+                    if (submitURL == null) {
+                        submitURL = "http://81.214.24.77:7777/api/users/params?countryCode=%2B996";
+                        submitURL += "&phoneNumber=" + number.getText().toString() + "&password=" + password.getText().toString();
+                    }
+                    Log.e("SUBMITLOGIN", submitURL);
+                    task = new requestThread();
+                    task.execute(submitURL);
                 }
-                Log.e("SUBMITLOGIN", submitURL);
-                task = new requestThread();
-                task.execute(submitURL);
+                else {
+                    Toast.makeText(Login.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    public boolean check(){
+        if(number.getText().toString().equals("")
+                || password.getText().toString().equals("")
+                )
+            return false;
+        return true;
     }
 
     public class requestThread extends AsyncTask<String,Void,String> {
@@ -90,6 +108,8 @@ public class Login extends AppCompatActivity {
 
 
 
+
+
             return JsonResponse;
 
 
@@ -101,13 +121,23 @@ public class Login extends AppCompatActivity {
             progressDialog.setMessage("Отправка данных...");
             progressDialog.setCancelable(false);
             progressDialog.show();
-
         }
 
         @Override
         protected void onPostExecute(String result) {
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
+
+            if(result.equals("")) {
+                Toast.makeText(Login.this, "Неверный номер или пароль",Toast.LENGTH_SHORT).show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        Login.this.recreate();
+                    }
+                }, 1000);
+                return ;
+            }
 
             try {
                 parce_data(result);
@@ -116,7 +146,6 @@ public class Login extends AppCompatActivity {
             }
 
 
-            Log.e("LOGINRESULT", result);
             // this is expecting a response code to be sent from your server upon receiving the POST data
 
         }
@@ -178,7 +207,6 @@ public class Login extends AppCompatActivity {
 
                     urlConnection.connect();
                 } catch (Exception e) {
-                    e.printStackTrace();
                     return "";
                 }
 

@@ -39,15 +39,21 @@ public class My_Trips extends AppCompatActivity {
     public String submitURL;
     public requestThread task;
 
+    public int Id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mytrips);
+
+        Intent intent = getIntent();
+        Id = intent.getIntExtra("Id", -1);
+
         driverRecyclerView = findViewById(R.id.recyclerviewTrips);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(My_Trips.this);
         driverRecyclerView.setLayoutManager(mLinearLayoutManager);
         if(submitURL == null)
-            submitURL = "http://81.214.24.77:7777/api/trips?userId=7";
+            submitURL = "http://81.214.24.77:7777/api/trips?userId=" + String.valueOf(Id);
         task = new requestThread();
         task.execute(submitURL);
     }
