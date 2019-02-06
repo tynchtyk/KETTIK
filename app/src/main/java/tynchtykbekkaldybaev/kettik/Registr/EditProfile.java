@@ -118,7 +118,7 @@ public class EditProfile extends AppCompatActivity {
                     intent.putExtra("Id",Id);
 
                     startActivity(intent);
-                    setResult(3, intent);
+                    setResult(RESULT_OK, intent);
                     finish();
                 }
                 else {
