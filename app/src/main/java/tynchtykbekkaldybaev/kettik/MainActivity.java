@@ -104,7 +104,8 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                // Intent intent = new Intent(MainActivity.this, EditProfile.class);
-                //startActivity(intent);
+               // intent.putExtra("Id", Id);
+               // startActivityForResult(intent, 3);
             }
         });
 
@@ -226,7 +227,7 @@ public class MainActivity extends AppCompatActivity{
             case R.id.my_trips:
                 Intent intent = new Intent(MainActivity.this, My_Trips.class);
                 if(Id == -1) {
-                    Toast.makeText(MainActivity.this, "Чтобы увидеть ваши поездки, маршрут войдите в систему", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Чтобы увидеть ваши поездки, войдите в систему", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     intent.putExtra("Id", Id);
@@ -327,7 +328,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1) {
+        if (requestCode == 1) { // Login intent
             if (resultCode == RESULT_OK) {
                 SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
                 String name = userInfo.getString("name", null);
@@ -339,8 +340,13 @@ public class MainActivity extends AppCompatActivity{
 
                 set_login();
             }
+            else if(resultCode == RESULT_CANCELED){
+                Intent intent = new Intent(MainActivity.this, Profile_Registration.class);
+                startActivityForResult(intent,4);
+
+            }
         }
-        if (requestCode == 2) {
+        if (requestCode == 2) { //Log out
             if (resultCode == RESULT_OK) {
                 SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
                 userInfo.edit().clear().commit();
@@ -362,6 +368,33 @@ public class MainActivity extends AppCompatActivity{
                         MainActivity.this.recreate();
                     }
                 }, 2000);
+            }
+        }
+        if (requestCode == 3) { // Edit intent
+            if (resultCode == RESULT_OK) {
+                SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+                String name = userInfo.getString("name", null);
+                String surname = userInfo.getString("surname", null);
+                Id = userInfo.getInt("Id", -1);
+                Log.e("EDITSHAREDRESULT", name + " " + surname);
+                userName.setText(name + " " + surname);
+                userProf.setText("Водитель");
+
+                set_login();
+            }
+        }
+
+        if (requestCode == 4) { // Registration intent
+            if (resultCode == RESULT_OK) {
+                SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+                String name = userInfo.getString("name", null);
+                String surname = userInfo.getString("surname", null);
+                Id = userInfo.getInt("Id", -1);
+                Log.e("REGISTRSHAREDRESULT", name + " " + surname);
+                userName.setText(name + " " + surname);
+                userProf.setText("Водитель");
+
+                set_login();
             }
         }
 

@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -43,11 +44,15 @@ public class EditProfile extends AppCompatActivity {
     Boolean isPasswordShowing = false;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Button save;
-
+    int Id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        Intent intent = getIntent();
+        Id = intent.getIntExtra("Id", -1);
+
         name = findViewById(R.id.name);
         surname = findViewById(R.id.surname);
         carnumber = findViewById(R.id.carnumber);
@@ -73,13 +78,7 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
-        Button save = (Button) findViewById(R.id.save);
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
 
         Calendar calendar = Calendar.getInstance();
 
@@ -106,20 +105,39 @@ public class EditProfile extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                check_for_correctness();
-                Intent intent;
-                intent = new Intent(EditProfile.this,Profile_Registration.class);
-                intent.putExtra("name", name.getText().toString());
-                intent.putExtra("surname", surname.getText().toString());
-                intent.putExtra("carnumber", carnumber.getText().toString());
-                intent.putExtra("cartype", cartype.getText().toString());
-                intent.putExtra("birthdate", birthdate.getText().toString());
-                intent.putExtra("password", password.getText().toString());
-                intent.putExtra("gender", gender.getSelectedItem().toString());
+                if(check()) {
+                    Intent intent;
+                    intent = new Intent(EditProfile.this, Phone_Registration.class);
+                    intent.putExtra("name", name.getText().toString());
+                    intent.putExtra("surname", surname.getText().toString());
+                    intent.putExtra("carnumber", carnumber.getText().toString());
+                    intent.putExtra("cartype", cartype.getText().toString());
+                    intent.putExtra("birthdate", birthdate.getText().toString());
+                    intent.putExtra("password", password.getText().toString());
+                    intent.putExtra("gender", gender.getSelectedItem().toString());
+                    intent.putExtra("Id",Id);
 
-                startActivity(intent);
+                    startActivity(intent);
+                    setResult(3, intent);
+                    finish();
+                }
+                else {
+                    Toast.makeText(EditProfile.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+    public boolean check(){
+        if(name.getText().toString().equals("")
+                || surname.getText().toString().equals("")
+                || carnumber.getText().toString().equals("")
+                || cartype.getText().toString().equals("")
+                || birthdate.getText().toString().equals("")
+                || password.getText().toString().equals("")
+                || gender.getSelectedItem().toString().equals("")
+                )
+            return false;
+        return true;
     }
 
     public void showTimePickerDialog(View view) {

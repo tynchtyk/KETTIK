@@ -87,10 +87,12 @@ public class Login extends AppCompatActivity {
             }
         });
         signup = findViewById(R.id.signup);
-        login.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent();
+                setResult(RESULT_CANCELED, intent);
+                finish();
             }
         });
 
@@ -212,8 +214,6 @@ public class Login extends AppCompatActivity {
                         // Append server response in string
                         sb.append(line + "\n");
                     }
-
-                    urlConnection.connect();
                 } catch (Exception e) {
                     return "";
                 }

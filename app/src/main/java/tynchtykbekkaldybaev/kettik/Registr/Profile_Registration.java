@@ -75,14 +75,6 @@ public class Profile_Registration extends AppCompatActivity {
             }
         });
 
-        Button save = (Button) findViewById(R.id.save);
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
         Calendar calendar = Calendar.getInstance();
 
         birthdate = (TextView) findViewById(R.id.birthday_text);
@@ -120,6 +112,9 @@ public class Profile_Registration extends AppCompatActivity {
                     intent.putExtra("gender", gender.getSelectedItem().toString());
 
                     startActivity(intent);
+                    setResult(RESULT_OK, intent);
+
+                    finish();
                 }
                 else {
                     Toast.makeText(Profile_Registration.this, "Заполните все поля", Toast.LENGTH_SHORT).show();

@@ -3,16 +3,19 @@ package tynchtykbekkaldybaev.kettik.Registr;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,13 +36,17 @@ public class Phone_Registration extends AppCompatActivity {
     private Button register;
     private EditText number;
     private String name, surname, cartype, carnumber, birthdate, password, gender;
+    private String submitURL;
 
+    public int Id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_registration);
 
         Intent intent = getIntent();
+        Id = intent.getIntExtra("Id",-1);
+
         name = intent.getStringExtra("name");
         surname = intent.getStringExtra("surname");
         carnumber = intent.getStringExtra("carnumber");
@@ -47,6 +54,10 @@ public class Phone_Registration extends AppCompatActivity {
         birthdate = intent.getStringExtra("birthdate");
         password = intent.getStringExtra("password");
         gender = intent.getStringExtra("gender");
+
+        submitURL = "http://81.214.24.77:7777/api/users";
+        if(Id != -1)
+            submitURL += "/" + String.valueOf(Id);
 
 
         back = findViewById(R.id.back_button);
@@ -101,8 +112,8 @@ public class Phone_Registration extends AppCompatActivity {
     public class requestThread extends AsyncTask<String,Void,String> {
         ProgressDialog progressDialog;
 
-        private String submitURL =
-                "http://81.214.24.77:7777/api/users";
+
+
 
         @Override
         protected String doInBackground(String... strings) {
@@ -121,11 +132,24 @@ public class Phone_Registration extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-//            Log.e("RESULT", result);
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
 
-            finish();
+            if(result.equals("")) {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        Phone_Registration.this.recreate();
+                    }
+                }, 1000);
+                return ;
+            }
+
+            try {
+                parce_data(result);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             // this is expecting a response code to be sent from your server upon receiving the POST data
 
         }
@@ -141,7 +165,10 @@ public class Phone_Registration extends AppCompatActivity {
 
                     urlConnection = (HttpURLConnection) url.openConnection();
                     urlConnection.setDoOutput(true);
-                    urlConnection.setRequestMethod("POST");
+                    if(Id == -1)
+                        urlConnection.setRequestMethod("POST");
+                    else
+                        urlConnection.setRequestMethod("PUT");
                     urlConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 
                     OutputStream os = urlConnection.getOutputStream();
@@ -158,11 +185,13 @@ public class Phone_Registration extends AppCompatActivity {
                         // Append server response in string
                         sb.append(line + "\n");
                     }
+                    JsonResponse = sb.toString();
 
                     Log.e("PHONEREGISTROTVET", sb.toString());
                     writer.close();
                     os.close();
                     urlConnection.connect();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                     return "";
@@ -173,44 +202,36 @@ public class Phone_Registration extends AppCompatActivity {
                 return "";
             }
         }
-        public String getData(){
-            if ( checkConnection() ) {
-                String JsonResponse = null;
-                HttpURLConnection urlConnection = null;
-                BufferedReader reader = null;
-                StringBuilder sb = new StringBuilder();
-                try {
-                    URL url = new URL(submitURL);
-
-                    urlConnection = (HttpURLConnection) url.openConnection();
-
-                    urlConnection.connect();
-
-                    InputStream is = urlConnection.getInputStream();
-                    BufferedReader breader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-
-
-                    String line = null;
-
-                    // Read Server Response
-                    while ((line = breader.readLine()) != null) {
-                        // Append server response in string
-                        sb.append(line + "\n");
-                    }
-
-                    urlConnection.connect();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-
-                return sb.toString();
-            } else {
-                return "";
-            }
-        }
     }
+    public void parce_data(String JsonResponse) throws JSONException {
+        JSONObject info = new JSONObject(JsonResponse);
+        int Id = info.getInt("id");
+        String name = info.getString("name");
+        String surname = info.getString("surname");
+        String birthDate = info.getString("birthDate");
+        String gender = info.getString("gender");
+        String profilePicture = info.getString("profilePicture");
 
+        //country
+        //countrycode
+
+        String phoneNumber = info.getString("phoneNumber");
+        String getPassword = info.getString("password");
+        boolean driverFlag = info.getBoolean("driverFlag");
+        String vehicleModel = info.getString("vehicleModel");
+        String vehicleNumber = info.getString("vehicleNumber");
+        String driverLicence = info.getString("driverLicense");
+
+
+        SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+        userInfo.edit()
+                .putInt("Id", Id)
+                .putString("name", name)
+                .putString("surname", surname)
+                .putBoolean("islogin", true)
+                .commit();
+        finish();
+    }
     public boolean checkConnection(){
         boolean haveConnectedWifi = false;
         boolean haveConnectedMobile = false;
