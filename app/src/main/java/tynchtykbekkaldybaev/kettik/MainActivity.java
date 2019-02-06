@@ -103,9 +103,9 @@ public class MainActivity extends AppCompatActivity{
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent intent = new Intent(MainActivity.this, EditProfile.class);
-               // intent.putExtra("Id", Id);
-               // startActivityForResult(intent, 3);
+                Intent intent = new Intent(MainActivity.this, EditProfile.class);
+                intent.putExtra("Id", Id);
+                startActivityForResult(intent, 3);
             }
         });
 
@@ -340,7 +340,7 @@ public class MainActivity extends AppCompatActivity{
 
                 set_login();
             }
-            else if(resultCode == RESULT_CANCELED){
+            else if(resultCode == RESULT_FIRST_USER){
                 Intent intent = new Intent(MainActivity.this, Profile_Registration.class);
                 startActivityForResult(intent,4);
 
@@ -391,10 +391,12 @@ public class MainActivity extends AppCompatActivity{
                 String surname = userInfo.getString("surname", null);
                 Id = userInfo.getInt("Id", -1);
                 Log.e("REGISTRSHAREDRESULT", name + " " + surname);
-                userName.setText(name + " " + surname);
-                userProf.setText("Водитель");
+                if(name != null && surname != null) {
+                    userName.setText(name + " " + surname);
+                    userProf.setText("Водитель");
+                    set_login();
+                }
 
-                set_login();
             }
         }
 

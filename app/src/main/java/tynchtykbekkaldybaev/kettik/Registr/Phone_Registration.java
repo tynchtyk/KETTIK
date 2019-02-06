@@ -136,19 +136,21 @@ public class Phone_Registration extends AppCompatActivity {
                 progressDialog.dismiss();
 
             if(result.equals("")) {
+                Toast.makeText(Phone_Registration.this, "Произошла ошибка, попробуйте заново",Toast.LENGTH_SHORT).show();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
                         Phone_Registration.this.recreate();
                     }
                 }, 1000);
-                return ;
             }
+            else {
 
-            try {
-                parce_data(result);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                try {
+                    parce_data(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
             // this is expecting a response code to be sent from your server upon receiving the POST data
 
@@ -157,7 +159,7 @@ public class Phone_Registration extends AppCompatActivity {
         public String sendData(String data){
             if ( checkConnection() ) {
                 String JsonResponse = null;
-                Log.e("SEND", data);
+                Log.e("SENDPHONEREGISTR", data);
                 HttpURLConnection urlConnection = null;
                 BufferedReader reader = null;
                 try {

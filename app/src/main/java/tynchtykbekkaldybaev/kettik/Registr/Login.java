@@ -91,7 +91,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                setResult(RESULT_CANCELED, intent);
+                setResult(RESULT_FIRST_USER, intent);
                 finish();
             }
         });
