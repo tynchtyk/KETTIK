@@ -344,6 +344,10 @@ public class MainActivity extends AppCompatActivity{
                 startActivityForResult(intent,4);
 
             }
+            else if(resultCode == RESULT_CANCELED) {
+                Intent intent = new Intent(MainActivity.this, Description.class);
+                startActivityForResult(intent, 5);
+            }
         }
         if (requestCode == 2) { //Log out
             if (resultCode == RESULT_OK) {
