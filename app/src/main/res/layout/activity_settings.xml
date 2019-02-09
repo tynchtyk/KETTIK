@@ -94,46 +94,6 @@
         android:scaleX="0.5"
         android:src="@drawable/vector"/>
 
-    <LinearLayout
-        android:id="@+id/location_settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:clickable="true"
-        android:onClick="locationSettings"
-        android:layout_below="@+id/language_settings">
-
-        <TextView
-            android:id="@+id/location_info"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Местоположение"
-            android:textStyle="bold"
-            android:textColor="#4CA2CD"
-            android:textSize="18sp"
-            android:fontFamily="@font/rubickregular"/>
-        <TextView
-            android:layout_marginLeft="25dp"
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#4CA2CD"
-            android:textSize="14sp"
-            android:fontFamily="@font/rubiklight"
-            android:text="Кыргызстан, Бишкек"/>
-
-        <View
-            android:layout_marginTop="15dp"
-            android:layout_marginHorizontal="22dp"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/setttings_list_line"
-            />
-
-    </LinearLayout>
-
     <ImageView
         android:layout_below="@+id/language_settings"
         android:layout_width="wrap_content"
@@ -144,37 +104,6 @@
         android:scaleY="0.5"
         android:scaleX="0.5"
         android:src="@drawable/vector"/>
-
-    <LinearLayout
-        android:id="@+id/my_trips"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:clickable="true"
-        android:onClick="myTrips"
-        android:layout_below="@+id/location_settings">
-
-        <TextView
-            android:id="@+id/trips"
-            android:layout_marginTop="21dp"
-            android:layout_marginLeft="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Мои поездки"
-            android:textStyle="bold"
-            android:textColor="#4CA2CD"
-            android:textSize="18sp"
-            android:fontFamily="@font/rubickregular"/>
-
-        <View
-            android:layout_marginTop="25dp"
-            android:layout_marginHorizontal="22dp"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/setttings_list_line"
-            />
-
-    </LinearLayout>
 
     <ImageView
         android:layout_below="@+id/location_settings"
@@ -190,7 +119,7 @@
     <TextView
         android:id="@+id/log_out"
         android:onClick="logOut"
-        android:layout_below="@+id/my_trips"
+        android:layout_below="@+id/language_settings"
         android:layout_marginTop="21dp"
         android:layout_marginLeft="25dp"
         android:layout_width="wrap_content"
