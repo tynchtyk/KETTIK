@@ -401,6 +401,11 @@ public class MainActivity extends AppCompatActivity{
                 }
 
             }
+            else if(resultCode == RESULT_CANCELED) {
+                Intent intent;
+                intent = new Intent(MainActivity.this, Login.class);
+                startActivityForResult(intent,1);
+            }
         }
         if (requestCode == 5) { // Description
             if (resultCode == RESULT_OK) {
