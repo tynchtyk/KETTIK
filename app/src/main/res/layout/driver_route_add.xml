@@ -258,14 +258,13 @@
             android:id="@+id/add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Опубликовать"
-            android:layout_weight="0.4"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:layout_marginBottom="24dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:layout_weight="0.4"
             android:background="@drawable/rectangle"
-            />
+            android:text="Опубликовать"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

@@ -128,15 +128,14 @@
                     android:id="@+id/search"
                     android:layout_width="128dp"
                     android:layout_height="48dp"
-                    android:text="Поиск"
-                    android:layout_weight="0.4"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:layout_marginTop="24dp"
                     android:layout_marginBottom="24dp"
                     android:layout_marginLeft="46dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_weight="0.4"
                     android:background="@drawable/rectangle"
-                    />
+                    android:text="Поиск"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

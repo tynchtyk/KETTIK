@@ -38,6 +38,7 @@
         android:background="@drawable/back"
         android:scaleType="center"
         android:scaleX="0.5"
+        android:visibility="gone"
         android:scaleY="0.5" />
 
     <View

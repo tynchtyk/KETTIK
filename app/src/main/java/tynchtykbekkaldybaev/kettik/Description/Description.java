@@ -57,10 +57,14 @@ public class Description extends AppCompatActivity {
                     viewPager.setCurrentItem(currentFragment + 1);
                 }
                 else {
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
                     finish();
                 }
             }
             else if(v.equals(skip)) {
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
                 finish();
             }
         }

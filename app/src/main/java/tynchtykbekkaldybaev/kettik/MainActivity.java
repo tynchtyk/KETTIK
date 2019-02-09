@@ -86,8 +86,7 @@ public class MainActivity extends AppCompatActivity{
 
         if(!islogin) {
             Intent intent = new Intent(MainActivity.this, Description.class);
-            startActivity(intent);
-            set_unlogined();
+            startActivityForResult(intent, 5);
 
         }
         else{
@@ -397,6 +396,13 @@ public class MainActivity extends AppCompatActivity{
                     set_login();
                 }
 
+            }
+        }
+        if (requestCode == 5) { // Description
+            if (resultCode == RESULT_OK) {
+                Intent intent;
+                intent = new Intent(MainActivity.this, Login.class);
+                startActivityForResult(intent,1);
             }
         }
 
