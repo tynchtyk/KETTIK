@@ -17,26 +17,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import tynchtykbekkaldybaev.kettik.Drivers.Driver;
-import tynchtykbekkaldybaev.kettik.Drivers.DriverListAdapter;
-import tynchtykbekkaldybaev.kettik.Drivers.Driver_Info;
-import tynchtykbekkaldybaev.kettik.Drivers.Driver_Trip_Add;
-import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
-import tynchtykbekkaldybaev.kettik.MainActivity;
 import tynchtykbekkaldybaev.kettik.R;
 
 public class Login extends AppCompatActivity {

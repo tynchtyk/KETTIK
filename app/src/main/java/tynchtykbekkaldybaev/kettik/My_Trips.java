@@ -24,9 +24,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import tynchtykbekkaldybaev.kettik.Drivers.Driver;
-import tynchtykbekkaldybaev.kettik.Drivers.DriverListAdapter;
-import tynchtykbekkaldybaev.kettik.Drivers.Driver_Info;
+import tynchtykbekkaldybaev.kettik.IamPassenger.Driver;
+import tynchtykbekkaldybaev.kettik.IamPassenger.DriverListAdapter;
+import tynchtykbekkaldybaev.kettik.IamPassenger.Driver_Info;
 
 public class My_Trips extends AppCompatActivity {
 

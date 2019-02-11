@@ -1,10 +1,8 @@
-package tynchtykbekkaldybaev.kettik.Drivers;
-
+package tynchtykbekkaldybaev.kettik.IamDriver;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -16,9 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,101 +29,78 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+import tynchtykbekkaldybaev.kettik.IamPassenger.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.MainActivity;
 import tynchtykbekkaldybaev.kettik.R;
 
 import static android.app.Activity.RESULT_OK;
 
+public class Fragment_SearchPassenger extends Fragment {
+    private ArrayList<Passenger> passengers = new ArrayList<>();
+    private ArrayList<Passenger_Info> passengers_info = new ArrayList<>();
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class Fragment_SearchDriver extends Fragment {
-    private ArrayList<Driver> driver = new ArrayList<>();
-    private ArrayList<Driver_Info> driver_info = new ArrayList<>();
+    private RecyclerView passengerRecyclerView;
+    private PassengerListAdapter passengerAdapter;
 
-    private RecyclerView driverRecyclerView;
-    private DriverListAdapter driverAdapter;
+    private Button add_trip;
 
     public String submitURL;
     public requestThread task;
 
-    LinearLayout addition;
-    boolean isUp;
-    Button add_trip;
-    TextView all_drivers,or;
-
-
-    public Fragment_SearchDriver() {
+    public Fragment_SearchPassenger() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState){
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Log.i("DRIVER", "STARTED");
 
-
-        View rootview = inflater.inflate(R.layout.fragment__search_driver, container, false);
+        View rootview = inflater.inflate(R.layout.fragment_search_passenger, container, false);
 
         final MainActivity tmp = (MainActivity) getActivity();
-        add_trip = rootview.findViewById(R.id.add_trip);
-        driverRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewDrivers);
-        addition = rootview.findViewById(R.id.addition_layout);
-        all_drivers = rootview.findViewById(R.id.all_drivers);
-
-
         View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
+
         TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
-        search_in_action_bar.setText("Поиск водителя");
+        search_in_action_bar.setText("Поиск пассажира");
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent;
-                intent = new Intent(tmp, Pop_Up_Search_Driver.class);
-                startActivityForResult(intent, 1);
+                intent = new Intent(tmp, Pop_Up_Search_Passenger.class);
+                startActivityForResult(intent,1);
 
             }
         });
         tmp.actionBar.setCustomView(cView);
 
+        add_trip = rootview.findViewById(R.id.add_trip);
         add_trip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(tmp.Id == -1){
-                    Toast.makeText(tmp, "Чтобы добавить маршрут, войдите в систему", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(tmp, "Чтобы добавить запрос, войдите в систему", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Intent intent;
-                    intent = new Intent(tmp, Driver_Trip_Add.class);
+                    intent = new Intent(tmp,Driver_Trip_Add.class);
                     intent.putExtra("Id", tmp.Id);
                     startActivityForResult(intent, 2);
                 }
             }
         });
 
-//        slideUp(addition);
+        passengerRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewPassengers);
 
-        all_drivers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                // slideDown(addition);
-            }
-        });
-        isUp = false;
+        //Log.d("FragSub", String.valueOf(tmp.menuLayout.getMenuEntries().size()));
+
 
         if(submitURL == null)
-            submitURL = "http://81.214.24.77:7777/api/trips";
-
-
+            submitURL = "http://81.214.24.77:7777/api/passengers";
         task = new requestThread();
         task.execute(submitURL);
-
-
-
 
         return rootview;
     }
@@ -141,14 +114,14 @@ public class Fragment_SearchDriver extends Fragment {
                 String from = data.getStringExtra("from");
                 String to = data.getStringExtra("to");
                 String tripDate = data.getStringExtra("tripDate");
-                URL = "http://81.214.24.77:7777/api/trips?";
+                URL = "http://81.214.24.77:7777/api/passengers?";
                 if(!from.equals(""))
-                        URL += "&from=" + from;
+                    URL += "&from=" + from;
                 if(!to.equals(""))
                     URL += "&to=" + to;
                 if(!tripDate.equals(""))
                     URL += "&tripDate=" + tripDate;
-                Fragment_SearchDriver fragment = (Fragment_SearchDriver)
+                Fragment_SearchPassenger fragment = (Fragment_SearchPassenger)
                         getFragmentManager().findFragmentById(R.id.content_frame);
                 fragment.submitURL = URL;
 
@@ -164,8 +137,8 @@ public class Fragment_SearchDriver extends Fragment {
         if (requestCode == 2) {
             if(resultCode == RESULT_OK) {
 
-                String URL = "http://81.214.24.77:7777/api/trips";
-                Fragment_SearchDriver fragment = (Fragment_SearchDriver)
+                String URL = "http://81.214.24.77:7777/api/passengers";
+                Fragment_SearchPassenger fragment = (Fragment_SearchPassenger)
                         getFragmentManager().findFragmentById(R.id.content_frame);
                 fragment.submitURL = URL;
 
@@ -179,48 +152,11 @@ public class Fragment_SearchDriver extends Fragment {
         }
 
     }
-     public void slideUp(LinearLayout view){
-        /*TranslateAnimation animate = new TranslateAnimation(
-                0,                 // fromXDelta
-                0,                 // toXDelta
-                100,  // fromYDelta
-                view.getHeight()-400);                // toYDelta
-        animate.setDuration(500);
-        animate.setFillAfter(true);
-        view.startAnimation(animate);*/
-        or.setVisibility(View.GONE);
-        add_trip.setVisibility(View.GONE);
-
-    }
-
-    // slide the view from its current position to below itself
-    public void slideDown(LinearLayout view){
-        TranslateAnimation animate = new TranslateAnimation(
-                0,                 // fromXDelta
-                0,                 // toXDelta
-                0,                 // fromYDelta
-                view.getHeight()); // toYDelta
-        animate.setDuration(500);
-        animate.setFillAfter(true);
-        view.startAnimation(animate);
-    }
-
-    public void onSlideViewButtonClick(View view) {
-        if (isUp) {
-            slideDown(addition);
-
-        } else {
-            slideUp(addition);
-        }
-        isUp = !isUp;
-    }
 
     public class requestThread extends AsyncTask<String,Void,String> {
         ProgressDialog progressDialog;
 
-
-
-        @Override
+          @Override
         protected String doInBackground(String... strings) {
 
             String JsonResponse = getData();
@@ -242,10 +178,8 @@ public class Fragment_SearchDriver extends Fragment {
             progressDialog.setMessage("Отправка данных...");
             progressDialog.setCancelable(false);
             progressDialog.show();
-
-            driver.clear();
-            driver_info.clear();
-
+            passengers.clear();
+            passengers_info.clear();
         }
 
         @Override
@@ -254,11 +188,10 @@ public class Fragment_SearchDriver extends Fragment {
                 progressDialog.dismiss();
 
             LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
-            driverRecyclerView.setLayoutManager(mLinearLayoutManager);
+            passengerRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-
-            driverAdapter = new DriverListAdapter(getActivity(), driver, driver_info);
-            driverRecyclerView.setAdapter(driverAdapter);
+            passengerAdapter = new PassengerListAdapter(getActivity(), passengers, passengers_info);
+            passengerRecyclerView.setAdapter(passengerAdapter);
 
             Log.e("RESULT", result);
             // this is expecting a response code to be sent from your server upon receiving the POST data
@@ -269,13 +202,16 @@ public class Fragment_SearchDriver extends Fragment {
             for(int i=0; i<jsonArray.length(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 String from, to, tripDate, tripTime;
-                int price, seats;
+                int price, passenger = 5;
                 from = jsonObject.getString("from");
                 to = jsonObject.getString("to");
                 tripDate= jsonObject.getString("tripDate");
                 tripTime = jsonObject.getString("tripTime");
                 price = jsonObject.getInt("price");
-                seats = jsonObject.getInt("seats");
+                //if(jsonObject.get("passengers") != null)
+                passenger = jsonObject.getInt("passengers");
+
+                Log.e("PASSENGERS", String.valueOf(passenger));
 
                 JSONObject info = jsonObject.getJSONObject("user");
 
@@ -289,9 +225,9 @@ public class Fragment_SearchDriver extends Fragment {
                 String vehicleNumber = info.getString("vehicleNumber");
                 String phoneNumber = info.getString("phoneNumber");
 
-                driver.add(new Driver(from, to, tripDate + ", " + tripTime, seats, 5));
+                passengers.add(new Passenger(from, to, tripDate + ", " + tripTime, passenger));
 
-                driver_info.add(new Driver_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
+                passengers_info.add(new Passenger_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
 
 
             }
@@ -356,5 +292,4 @@ public class Fragment_SearchDriver extends Fragment {
         }
         return (haveConnectedWifi || haveConnectedMobile);
     }
-
 }

@@ -29,15 +29,15 @@
             android:id="@+id/coordinator"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="0.4">
+            android:layout_weight="0.4"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:background="@drawable/mapasset"/>
+                android:background="@drawable/mapasset" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -47,45 +47,45 @@
 
                 <TextView
                     android:id="@+id/from"
-                    android:gravity="top"
-                    android:layout_width="wrap_content"
+                    android:layout_width="145dp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_17ssp"
                     android:fontFamily="@font/rubickregular"
+                    android:gravity="top"
+                    android:text="Жалал - Абад"
                     android:textColor="@color/text_color_light_green"
-                    android:text="Жалал - Абад"/>
+                    android:textSize="@dimen/_17ssp" />
 
                 <View
                     android:id="@+id/divider_big"
-                    android:layout_width="@dimen/_182sdp"
-                    android:layout_marginVertical="@dimen/_4sdp"
+                    android:layout_width="140dp"
                     android:layout_height="@dimen/_1sdp"
-                    android:background="@drawable/divider_big"
-                    />
+                    android:layout_marginVertical="@dimen/_4sdp"
+                    android:background="@drawable/divider_big" />
 
                 <TextView
                     android:id="@+id/to"
-                    android:layout_width="wrap_content"
+                    android:layout_width="145dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/from"
-                    android:textSize="@dimen/_17ssp"
                     android:fontFamily="@font/rubickregular"
+                    android:text="Ыссык - Кол"
                     android:textColor="@color/text_color_light_green"
-                    android:text="Ыссык - Кол"/>
+                    android:textSize="@dimen/_17ssp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center">
+
                 <ImageView
                     android:id="@+id/call"
                     android:layout_width="@dimen/_59sdp"
                     android:layout_height="@dimen/_59sdp"
+                    android:background="@drawable/call_button_unpressed"
                     android:scaleType="center"
                     android:scaleX="1.5"
-                    android:scaleY="1.5"
-                    android:background="@drawable/call_button_unpressed"/>
+                    android:scaleY="1.5" />
             </LinearLayout>
 
 
@@ -94,22 +94,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center|top"
+            android:orientation="horizontal"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_weight="0.6">
 
-            <LinearLayout
+            <ImageView
+                android:layout_marginTop="@dimen/_2sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:background="@drawable/clockicon"
+                android:layout_marginRight="@dimen/_8sdp"/>
 
-                <ImageView
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/clockicon"
-                    android:layout_marginRight="@dimen/_8sdp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -119,16 +118,43 @@
                     android:fontFamily="@font/rubiklight"
                     android:text="Дата и время:"/>
 
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/text_color_light_green"
+                    android:fontFamily="@font/rubikbolditalic"
+                    android:layout_height="wrap_content"
+                    android:text="19/12/2018, 21:00"/>
+
+
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/date"
+            <View
+                android:id="@+id/divider_sma"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:background="@drawable/divider_sma"
+                />
+
+            <ImageView
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/text_color_light_green"
-                android:fontFamily="@font/rubikbolditalic"
                 android:layout_height="wrap_content"
-                android:text="19/12/2018, 21:00"/>
+                android:background="@drawable/passengericon"
+                android:layout_marginHorizontal="@dimen/_8sdp"/>
+
+
+            <TextView
+                android:id="@+id/passenger_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/rubikbolditalic"
+                android:text="5 человек"
+                android:textColor="@color/text_color_light_green"
+                android:textSize="@dimen/_12ssp" />
         </LinearLayout>
 
 

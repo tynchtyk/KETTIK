@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik.Passengers;
+package tynchtykbekkaldybaev.kettik.IamPassenger;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -16,45 +16,49 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import tynchtykbekkaldybaev.kettik.Drivers.Driver_Info;
 import tynchtykbekkaldybaev.kettik.R;
 
-public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdapter.PassengerViewHolder>{
-    private ArrayList<Passenger> passengerList;
-    private ArrayList<Passenger_Info> passengerInfoList;
+/**
+ * Created by tynchtykbekkaldybaev on 20/01/2019.
+ */
+
+public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.DriverViewHolder>{
+    private ArrayList<Driver> driverList;
+    private ArrayList<Driver_Info> driverInfoList;
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public PassengerListAdapter(Context context, ArrayList<Passenger> list, ArrayList<Passenger_Info> passengerinfolist) {
+    public DriverListAdapter(Context context, ArrayList<Driver> driverlist, ArrayList<Driver_Info> driverinfolist) {
         mInflater = LayoutInflater.from(context);
-        passengerList = list;
-        passengerInfoList = passengerinfolist;
+        driverList = driverlist;
+        driverInfoList = driverinfolist;
         mContext = context;
     }
 
 
     @NonNull
     @Override
-    public PassengerListAdapter.PassengerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.passenger_item, parent, false);
-        return new PassengerViewHolder(mItemView, this);
+    public DriverListAdapter.DriverViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View mItemView = mInflater.inflate(R.layout.driver_item, parent, false);
+        return new DriverViewHolder(mItemView, this);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final PassengerListAdapter.PassengerViewHolder holder, final int position) {
-        Passenger item = passengerList.get(position);
+    public void onBindViewHolder(@NonNull final DriverViewHolder holder, final int position) {
+        final Driver item = driverList.get(position);
         holder.itemView.setTag(item);
 
         holder.from.setText(item.from);
         holder.to.setText(item.to);
         holder.date.setText(item.date);
+        holder.available_space.setText(item.free + " свободно");
 
         holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Passenger_Info item_info = passengerInfoList.get(position);
+                Driver_Info item_info = driverInfoList.get(position);
                 final Dialog myDialog = new Dialog(mContext);
-                myDialog.setContentView(R.layout.pop_up_information);
+                myDialog.setContentView(R.layout.pop_up_driver_information);
 
                 TextView name_surname = myDialog.findViewById(R.id.driver_name);
                 name_surname.setText(item_info.name + " " + item_info.surname);
@@ -103,21 +107,21 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
             }
         });
     }
-
     @Override
     public int getItemCount() {
-        return passengerList.size();
+        return driverList.size();
     }
 
 
-    public class PassengerViewHolder extends RecyclerView.ViewHolder{
-        final PassengerListAdapter passengerAdapter;
+    public class DriverViewHolder extends RecyclerView.ViewHolder{
+        final DriverListAdapter driverAdapter;
         public final ImageView call;
         public final TextView from;
         public final TextView to;
         public final TextView date;
+        public final TextView available_space;
 
-        public PassengerViewHolder(View itemView, PassengerListAdapter adapter) {
+        public DriverViewHolder(View itemView, DriverListAdapter adapter) {
 
             super(itemView);
 
@@ -125,8 +129,9 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
             from = (TextView) itemView.findViewById(R.id.from);
             to = (TextView) itemView.findViewById(R.id.to);
             date = (TextView) itemView.findViewById(R.id.date);
+            available_space = (TextView) itemView.findViewById(R.id.available_space);
 
-            this.passengerAdapter = adapter;
+            this.driverAdapter = adapter;
         }
     }
 }

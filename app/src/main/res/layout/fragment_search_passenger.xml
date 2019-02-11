@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/list_background"
-    tools:context="tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver">
+    tools:context="tynchtykbekkaldybaev.kettik.IamPassenger.Fragment_SearchDriver">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -24,13 +24,13 @@
 
 
             <Button
-                android:id="@+id/add_request"
+                android:id="@+id/add_trip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rectangle"
-                android:text="Добавить новый запрос"
-                android:layout_gravity="center_horizontal"
+                android:text="Добавить новый маршрут"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 

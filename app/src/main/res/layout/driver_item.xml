@@ -47,7 +47,7 @@
 
                 <TextView
                     android:id="@+id/from"
-                    android:layout_width="wrap_content"
+                    android:layout_width="145dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubickregular"
                     android:gravity="top"
@@ -57,14 +57,14 @@
 
                 <View
                     android:id="@+id/divider_big"
-                    android:layout_width="@dimen/_182sdp"
+                    android:layout_width="140dp"
                     android:layout_height="@dimen/_1sdp"
                     android:layout_marginVertical="@dimen/_4sdp"
                     android:background="@drawable/divider_big" />
 
                 <TextView
                     android:id="@+id/to"
-                    android:layout_width="wrap_content"
+                    android:layout_width="145dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/from"
                     android:fontFamily="@font/rubickregular"
@@ -139,37 +139,23 @@
                 />
 
             <ImageView
-                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/passengericon"
                 android:layout_marginHorizontal="@dimen/_8sdp"/>
 
-            <LinearLayout
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:id="@+id/available_space"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
-                    android:textColor="@color/text_color_grey"
-                    android:fontFamily="@font/rubiklight"
-                    android:text="Кол-во мест:"/>
-
-                <TextView
-                    android:id="@+id/available_space"
-                    android:layout_width="wrap_content"
-                    android:textSize="@dimen/_12ssp"
-                    android:textColor="@color/text_color_light_green"
-                    android:fontFamily="@font/rubikbolditalic"
-                    android:layout_height="wrap_content"
-                    android:text="5/5 свободно"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/text_color_light_green"
+                android:fontFamily="@font/rubikbolditalic"
+                android:layout_height="wrap_content"
+                android:text="5 свободно"/>
+  </LinearLayout>
 
 
     </LinearLayout>

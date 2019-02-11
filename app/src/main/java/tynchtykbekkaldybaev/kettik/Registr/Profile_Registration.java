@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,6 @@ import java.util.Calendar;
 import de.hdodenhof.circleimageview.CircleImageView;
 import tynchtykbekkaldybaev.kettik.AsteriskPasswordTransformationMethod;
 import tynchtykbekkaldybaev.kettik.DoNothingTransformation;
-import tynchtykbekkaldybaev.kettik.Drivers.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.R;
 
 public class Profile_Registration extends AppCompatActivity {
@@ -39,6 +39,7 @@ public class Profile_Registration extends AppCompatActivity {
     EditText cartype;
     Spinner gender;
 
+    Switch switcher;
 
     ImageView licencePic;
     CircleImageView profilePic;
@@ -55,8 +56,10 @@ public class Profile_Registration extends AppCompatActivity {
         carnumber = findViewById(R.id.carnumber);
         cartype = findViewById(R.id.cartype);
         gender = findViewById(R.id.gender_selection);
+        switcher = findViewById(R.id.switcher);
 
         save = findViewById(R.id.save);
+
 
 
         ImageButton accept = (ImageButton) findViewById(R.id.accept_button);

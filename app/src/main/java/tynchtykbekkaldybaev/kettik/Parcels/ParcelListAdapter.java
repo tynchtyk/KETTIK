@@ -49,7 +49,7 @@ public class ParcelListAdapter extends RecyclerView.Adapter<ParcelListAdapter.Pa
             @Override
             public void onClick(View view) {
                 final Dialog myDialog = new Dialog(mContext);
-                myDialog.setContentView(R.layout.pop_up_information);
+                myDialog.setContentView(R.layout.pop_up_driver_information);
                 ImageButton imageButton = (ImageButton) myDialog.findViewById(R.id.cancel);
                 imageButton.setOnClickListener(new View.OnClickListener() {
                     @Override

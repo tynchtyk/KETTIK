@@ -1,16 +1,8 @@
-package tynchtykbekkaldybaev.kettik.Drivers;
+package tynchtykbekkaldybaev.kettik.IamDriver;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,18 +14,6 @@ import com.applandeo.materialcalendarview.DatePicker;
 import com.applandeo.materialcalendarview.builders.DatePickerBuilder;
 import com.applandeo.materialcalendarview.listeners.OnSelectDateListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Calendar;
 import java.util.List;
 
@@ -43,8 +23,7 @@ import tynchtykbekkaldybaev.kettik.R;
  * Created by tynchtykbekkaldybaev on 24/01/2019.
  */
 
-public class Pop_Up_Search_Driver extends AppCompatActivity {
-
+public class Pop_Up_Search_Passenger extends AppCompatActivity {
     private TextView date;
     private EditText from, where;
     private ImageView back;
@@ -108,16 +87,14 @@ public class Pop_Up_Search_Driver extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 if(from.getText().toString() != null)
-                intent.putExtra("from", from.getText().toString());
+                    intent.putExtra("from", from.getText().toString());
                 if(where.getText().toString() != null)
-                intent.putExtra("to", where.getText().toString());
+                    intent.putExtra("to", where.getText().toString());
                 if(date.getText().toString() != null)
-                intent.putExtra("tripDate", date.getText().toString());
+                    intent.putExtra("tripDate", date.getText().toString());
                 setResult(RESULT_OK, intent);
                 finish();
             }
         });
     }
-
-
 }

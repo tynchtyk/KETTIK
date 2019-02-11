@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik.Passengers;
+package tynchtykbekkaldybaev.kettik.IamPassenger;
 
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
@@ -39,35 +39,31 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.List;
 
-import tynchtykbekkaldybaev.kettik.Drivers.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.R;
 
 /**
  * Created by tynchtykbekkaldybaev on 24/01/2019.
  */
 
-public class Passenger_Request_Add extends AppCompatActivity {
+public class Driver_Trip_Add extends AppCompatActivity {
     private TextView date;
+    private EditText from, where, price, quantity;
     private ImageView cal;
     private TextView time;
-    private EditText from, where, price;
     private Button send;
 
-    private ImageView back;
-    DatePicker datePicker;
     private ImageView timeImage;
-    TimePickerDialog.OnTimeSetListener mTimeSetListener;
-
+    private ImageView back;
+    private DatePicker datePicker;
+    private TimePickerDialog.OnTimeSetListener mTimeSetListener;
     public int Id;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.passenger_request_add);
+        setContentView(R.layout.driver_route_add);
 
         Intent intent = getIntent();
         Id = intent.getIntExtra("Id", -1);
-
 
         back = findViewById(R.id.back);
         date = findViewById(R.id.date);
@@ -75,9 +71,9 @@ public class Passenger_Request_Add extends AppCompatActivity {
         timeImage = findViewById(R.id.timeimage);
         from = findViewById(R.id.from);
         where = findViewById(R.id.where);
+        quantity = findViewById(R.id.quantity);
         price = findViewById(R.id.price);
         send = findViewById(R.id.add);
-
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +99,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
                     strD = "0"+d;
                 }
                 date.setText(strD+"/"+strM+"/"+y);
+                Log.e("Date", date.getText().toString());
             }
         })
                 .selectionColor(R.color.blue_gradient)
@@ -118,6 +115,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
                 datePicker.show();
             }
         });
+
 
 
         mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
@@ -146,17 +144,20 @@ public class Passenger_Request_Add extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(Passenger_Request_Add.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Driver_Trip_Add.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
+
     public boolean check(){
         if(from.getText().toString().equals("")
                 || where.getText().toString().equals("")
                 || date.getText().toString().equals("")
                 || time.getText().toString().equals("")
                 || price.getText().toString().equals("")
+                || quantity.getText().toString().equals("")
                 )
             return false;
         return true;
@@ -169,25 +170,28 @@ public class Passenger_Request_Add extends AppCompatActivity {
         data.put("tripDate", date.getText().toString());
         data.put("tripTime", time.getText().toString());
         data.put("price", Integer.valueOf(price.getText().toString()));
-        data.put("userId", Id);
+        data.put("seats", Integer.valueOf(quantity.getText().toString()));
+         data.put("userId", Id);
         data.put("note", "smth");
 
+        Log.e("Driver_Tripp_add_send", data.toString());
 
         requestThread task = new requestThread();
         task.execute(String.valueOf(data.toString()));
     }
+
     public void showTimePickerDialog(View view) {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
 
         TimePickerDialog dialog = new TimePickerDialog(
-                Passenger_Request_Add.this,
+                Driver_Trip_Add.this,
                 android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 mTimeSetListener,
                 hour,
                 minute,
-                DateFormat.is24HourFormat(Passenger_Request_Add.this)
+                DateFormat.is24HourFormat(Driver_Trip_Add.this)
         );
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -198,7 +202,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
         ProgressDialog progressDialog;
 
         private String submitURL =
-                "http://81.214.24.77:7777/api/passengers";
+                "http://81.214.24.77:7777/api/trips?fbclid=IwAR3cDiiEDJ3nzUcpOD3LkaPxWvwi9232rpHlLNARny1eirQNu4cIYLy0his";
 
         @Override
         protected String doInBackground(String... strings) {
@@ -208,7 +212,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog = new ProgressDialog(Passenger_Request_Add.this);
+            progressDialog = new ProgressDialog(Driver_Trip_Add.this);
             progressDialog.setMessage("Отправка данных...");
             progressDialog.setCancelable(false);
             progressDialog.show();
@@ -275,7 +279,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
         boolean haveConnectedMobile = false;
         try
         {
-            ConnectivityManager cm = (ConnectivityManager) Passenger_Request_Add.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = (ConnectivityManager) Driver_Trip_Add.this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo[] netInfo = cm.getAllNetworkInfo();
             for (NetworkInfo ni : netInfo) {
                 if (ni.getTypeName().equalsIgnoreCase("WIFI"))

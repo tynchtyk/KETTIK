@@ -1,10 +1,10 @@
-package tynchtykbekkaldybaev.kettik.Passengers;
+package tynchtykbekkaldybaev.kettik.IamPassenger;
 
 /**
  * Created by tynchtykbekkaldybaev on 20/01/2019.
  */
 
-public class Passenger_Info {
+public class Driver_Info {
     int Id;
     String name;
     String surname;
@@ -15,11 +15,11 @@ public class Passenger_Info {
     String vehicleNumber;
     String phoneNumber;
 
-    Passenger_Info() {
+    Driver_Info() {
 
     }
 
-    Passenger_Info(String nm, String snm, String bD, String gen, String pr, String vM, String vN, String pN, int id) {
+    public Driver_Info(String nm, String snm, String bD, String gen, String pr, String vM, String vN, String pN, int id) {
         name = nm;
         surname = snm;
         birthDate = bD;

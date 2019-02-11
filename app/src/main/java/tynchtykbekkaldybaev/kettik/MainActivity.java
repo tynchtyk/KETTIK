@@ -25,9 +25,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import tynchtykbekkaldybaev.kettik.Description.Description;
-import tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver;
+import tynchtykbekkaldybaev.kettik.IamPassenger.Fragment_SearchDriver;
 import tynchtykbekkaldybaev.kettik.Parcels.Fragment_SearchParcel;
-import tynchtykbekkaldybaev.kettik.Passengers.Fragment_SearchPassenger;
+import tynchtykbekkaldybaev.kettik.IamDriver.Fragment_SearchPassenger;
 import tynchtykbekkaldybaev.kettik.Registr.EditProfile;
 import tynchtykbekkaldybaev.kettik.Registr.Login;
 import tynchtykbekkaldybaev.kettik.Registr.Profile_Registration;
@@ -133,9 +133,9 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-                Fragment_SearchDriver fragment_searchDriver = new Fragment_SearchDriver();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchDriver).commit();
-                MenuItem menuItem = navigationView.getMenu().getItem(1);
+                Fragment_SearchPassenger fragment_searchPassenger = new Fragment_SearchPassenger();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchPassenger).commit();
+                MenuItem menuItem = navigationView.getMenu().getItem(2);
                 navigationView.setCheckedItem(menuItem);
                 updateNavigationButtons(DRIVERS_FRAGMENT);
             }
@@ -146,9 +146,9 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-                Fragment_SearchPassenger fragment_searchPassenger = new Fragment_SearchPassenger();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchPassenger).commit();
-                MenuItem menuItem = navigationView.getMenu().getItem(2);
+                Fragment_SearchDriver fragment_searchDriver = new Fragment_SearchDriver();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchDriver).commit();
+                MenuItem menuItem = navigationView.getMenu().getItem(1);
                 navigationView.setCheckedItem(menuItem);
                 updateNavigationButtons(PASSENGERS_FRAGMENT);
             }
@@ -212,12 +212,13 @@ public class MainActivity extends AppCompatActivity{
         Class fragmentClass;
         switch(menuItem.getItemId()) {
             case R.id.drivers:
-                fragmentClass = Fragment_SearchDriver.class;
+                fragmentClass = Fragment_SearchPassenger.class;
                 updateNavigationButtons(DRIVERS_FRAGMENT);
                 break;
             case R.id.passengers:
-                fragmentClass = Fragment_SearchPassenger.class;
+                fragmentClass = Fragment_SearchDriver.class;
                 updateNavigationButtons(PASSENGERS_FRAGMENT);
+
                 break;
             case R.id.parcels:
                 fragmentClass = Fragment_SearchParcel.class;

@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik.Drivers;
+package tynchtykbekkaldybaev.kettik.IamPassenger;
 
 /**
  * Created by tynchtykbekkaldybaev on 20/01/2019.

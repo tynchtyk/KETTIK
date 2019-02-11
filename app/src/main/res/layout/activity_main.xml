@@ -74,7 +74,7 @@
                     android:textAllCaps="false"
                     android:background="@null"
                     style="@style/unpressed_button_text"
-                    android:text="Водители"
+                    android:text="Я Водитель"
                     />
 
 
@@ -105,7 +105,7 @@
                     android:background="@null"
                     android:textAllCaps="false"
                     style="@style/unpressed_button_text"
-                    android:text="Пассажиры"
+                    android:text="Я Пассажир"
                     />
 
 
@@ -136,7 +136,7 @@
                     android:background="@null"
                     android:textAllCaps="false"
                     style="@style/unpressed_button_text"
-                    android:text="Посылки"
+                    android:text="Отправить Посылку"
                     />
 
 

@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik.Passengers;
+package tynchtykbekkaldybaev.kettik.IamPassenger;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +23,8 @@ import tynchtykbekkaldybaev.kettik.R;
  * Created by tynchtykbekkaldybaev on 24/01/2019.
  */
 
-public class Pop_Up_Search_Passenger extends AppCompatActivity {
+public class Pop_Up_Search_Driver extends AppCompatActivity {
+
     private TextView date;
     private EditText from, where;
     private ImageView back;
@@ -87,14 +88,16 @@ public class Pop_Up_Search_Passenger extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 if(from.getText().toString() != null)
-                    intent.putExtra("from", from.getText().toString());
+                intent.putExtra("from", from.getText().toString());
                 if(where.getText().toString() != null)
-                    intent.putExtra("to", where.getText().toString());
+                intent.putExtra("to", where.getText().toString());
                 if(date.getText().toString() != null)
-                    intent.putExtra("tripDate", date.getText().toString());
+                intent.putExtra("tripDate", date.getText().toString());
                 setResult(RESULT_OK, intent);
                 finish();
             }
         });
     }
+
+
 }

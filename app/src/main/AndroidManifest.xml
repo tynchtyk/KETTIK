@@ -53,19 +53,19 @@
             android:name=".Registr.Login"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
-            android:name=".Drivers.Pop_Up_Search_Driver"
+            android:name=".IamPassenger.Pop_Up_Search_Driver"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
-            android:name=".Passengers.Pop_Up_Search_Passenger"
+            android:name=".IamDriver.Pop_Up_Search_Passenger"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Parcels.Pop_Up_Search_Parcel"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
-            android:name=".Drivers.Driver_Trip_Add"
+            android:name=".IamPassenger.Driver_Trip_Add"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
-            android:name=".Passengers.Passenger_Request_Add"
+            android:name=".IamDriver.Passenger_Request_Add"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Parcels.Parcel_Request_Add"

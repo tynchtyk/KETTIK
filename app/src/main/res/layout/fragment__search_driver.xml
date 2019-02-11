@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/list_background"
     android:animateLayoutChanges="true"
-    tools:context="tynchtykbekkaldybaev.kettik.Drivers.Fragment_SearchDriver">
+    tools:context="tynchtykbekkaldybaev.kettik.IamPassenger.Fragment_SearchDriver">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -22,15 +22,15 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/add_trip"
+                android:id="@+id/add_request"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                 android:layout_marginTop="10dp"
-                android:background="@drawable/rectangle"
-                android:text="Добавить новый маршрут"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle"
+                android:text="Добавить новый запрос"
                 android:textColor="@color/white"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/all_drivers"
