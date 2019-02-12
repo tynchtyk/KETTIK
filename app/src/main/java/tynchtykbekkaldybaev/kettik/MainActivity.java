@@ -356,10 +356,18 @@ public class MainActivity extends AppCompatActivity{
                 SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
                 String name = userInfo.getString("name", null);
                 String surname = userInfo.getString("surname", null);
+                //country
+                //countrycode
+
+                String vehicleModel = userInfo.getString("cartype","nan");
+                String vehicleNumber = userInfo.getString("carnumber","nan");
+
                 Id = userInfo.getInt("Id", -1);
-                Log.e("LOGINSHAREDRESULT", name + " " + surname);
                 userName.setText(name + " " + surname);
                 userProf.setText("Водитель");
+                driverflag = userInfo.getBoolean("driverFlag",false);
+                Log.e("LOGINRESULT", name + " " + surname + " " + vehicleModel + " " + vehicleNumber + " " + String.valueOf(driverflag));
+
 
                 set_login();
             }
@@ -406,6 +414,7 @@ public class MainActivity extends AppCompatActivity{
                 Log.e("EDITSHAREDRESULT", name + " " + surname);
                 userName.setText(name + " " + surname);
                 userProf.setText("Водитель");
+                driverflag = userInfo.getBoolean("driverFlag",false);
 
                 set_login();
             }
@@ -423,6 +432,7 @@ public class MainActivity extends AppCompatActivity{
                     userProf.setText("Водитель");
                     set_login();
                 }
+                driverflag = userInfo.getBoolean("driverFlag",false);
             }
             else if(resultCode == RESULT_CANCELED) {
                 Intent intent;

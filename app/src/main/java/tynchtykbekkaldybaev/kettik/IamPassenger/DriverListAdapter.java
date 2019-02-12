@@ -46,17 +46,21 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
     @Override
     public void onBindViewHolder(@NonNull final DriverViewHolder holder, final int position) {
         final Driver item = driverList.get(position);
+        final Driver_Info item_info = driverInfoList.get(position);
         holder.itemView.setTag(item);
 
         holder.from.setText(item.from);
         holder.to.setText(item.to);
         holder.date.setText(item.date);
         holder.available_space.setText(item.free + " свободно");
+        holder.price.setText(item_info.price);
+        holder.currency.setText("сом");
+
 
         holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Driver_Info item_info = driverInfoList.get(position);
+
                 final Dialog myDialog = new Dialog(mContext);
                 myDialog.setContentView(R.layout.pop_up_driver_information);
 
@@ -120,6 +124,9 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
         public final TextView to;
         public final TextView date;
         public final TextView available_space;
+        public final TextView price;
+        public final TextView currency;
+
 
         public DriverViewHolder(View itemView, DriverListAdapter adapter) {
 
@@ -130,7 +137,8 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
             to = (TextView) itemView.findViewById(R.id.to);
             date = (TextView) itemView.findViewById(R.id.date);
             available_space = (TextView) itemView.findViewById(R.id.available_space);
-
+            price = (TextView) itemView.findViewById(R.id.price);
+            currency = (TextView) itemView.findViewById(R.id.currency);
             this.driverAdapter = adapter;
         }
     }

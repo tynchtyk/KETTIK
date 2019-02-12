@@ -201,8 +201,6 @@ public class Profile_Additional_Registration extends AppCompatActivity {
         data.put("vehicleNumber", carnumber.getText().toString());
         data.put( "driverLicense","url");
 
-        Log.e("SURNAME", surname);
-
         requestThread task = new requestThread();
         task.execute(String.valueOf(data.toString()));
     }
@@ -319,6 +317,8 @@ public class Profile_Additional_Registration extends AppCompatActivity {
         String vehicleModel = info.getString("vehicleModel");
         String vehicleNumber = info.getString("vehicleNumber");
         String driverLicence = info.getString("driverLicense");
+
+        Log.e("Additionalresult", JsonResponse);
 
 
         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);

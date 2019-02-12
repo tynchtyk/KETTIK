@@ -153,6 +153,7 @@ public class Login extends AppCompatActivity {
         }
         public void parce_data(String JsonResponse) throws JSONException {
             JSONObject info = new JSONObject(JsonResponse);
+            Log.e("LOGINJSONRESULT", JsonResponse);
             int Id = info.getInt("id");
             String name = info.getString("name");
             String surname = info.getString("surname");
@@ -166,6 +167,7 @@ public class Login extends AppCompatActivity {
             String phoneNumber = info.getString("phoneNumber");
             String getPassword = info.getString("password");
             boolean driverFlag = info.getBoolean("driverFlag");
+            Log.e("DRIVERFLAG", String .valueOf(driverFlag));
             String vehicleModel = info.getString("vehicleModel");
             String vehicleNumber = info.getString("vehicleNumber");
             String driverLicence = info.getString("driverLicense");
@@ -177,6 +179,14 @@ public class Login extends AppCompatActivity {
                     .putString("name", name)
                     .putString("surname", surname)
                     .putBoolean("islogin", true)
+                    .putBoolean("driverFlag", driverFlag)
+                    .putString("cartype", vehicleModel)
+                    .putString("carnumber", vehicleNumber)
+                    .putString("driverLicense", driverLicence)
+                    .putString("birthdate", birthDate)
+                    .putString("gender", gender)
+                    .putString("profilePicture", profilePicture)
+                    .putString("phoneNumber", phoneNumber)
                     .commit();
             Intent intent = new Intent();
             setResult(RESULT_OK,intent);
