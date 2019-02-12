@@ -243,6 +243,28 @@ public class MainActivity extends AppCompatActivity{
                 intent = new Intent(MainActivity.this, Help.class);
                 startActivity(intent);
                 return ;
+            case R.id.log_out:
+                SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+                userInfo.edit().clear().commit();
+
+                mDrawerLayout.closeDrawers();
+                final ProgressDialog progressDialog = new ProgressDialog(this,
+                        R.style.Theme_AppCompat_Light_Dialog);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("Разлогинизация...");
+                progressDialog.show();
+                userName = null;
+                userProf = null;
+                clearBackStack();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        progressDialog.dismiss();
+                        MainActivity.this.recreate();
+                    }
+                }, 2000);
+                return ;
             default:
                 fragmentClass = BlankFragment.class;
                 break;

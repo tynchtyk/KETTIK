@@ -9,7 +9,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/my_trips"
-            android:icon="@drawable/check"
+            android:icon="@drawable/moi_poezdki"
             android:title="Мои поездки" />
     </group>
 
@@ -18,15 +18,15 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/drivers"
-            android:icon="@drawable/ic_directions_car_black_24dp"
+            android:icon="@drawable/carfront"
             android:title="Я Водитель" />
         <item
             android:id="@+id/passengers"
-            android:icon="@drawable/ic_people_black_24dp"
+            android:icon="@drawable/passengersicon"
             android:title="Я Пассажир" />
         <item
             android:id="@+id/parcels"
-            android:icon="@drawable/ic_card_giftcard_black_24dp"
+            android:icon="@drawable/parcel"
             android:title="Отправить Посылку" />
     </group>
 
@@ -35,11 +35,15 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_settings_black_24dp"
+            android:icon="@drawable/setting"
             android:title="Настройки" />
         <item
             android:id="@+id/help"
             android:icon="@drawable/ic_help_black_24dp"
             android:title="Помощь" />
+        <item
+            android:id="@+id/log_out"
+            android:icon="@drawable/exit"
+            android:title="Выйти" />
     </group>
 </menu>
