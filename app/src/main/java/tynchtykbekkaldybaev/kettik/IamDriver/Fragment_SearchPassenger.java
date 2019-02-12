@@ -3,6 +3,7 @@ package tynchtykbekkaldybaev.kettik.IamDriver;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -159,7 +160,11 @@ public class Fragment_SearchPassenger extends Fragment {
         }
         if (requestCode == 3) {
             if(resultCode == RESULT_OK) {
+
                 final MainActivity tmp = (MainActivity) getActivity();
+                SharedPreferences userInfo = tmp.getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+                tmp.Id = userInfo.getInt("Id", -1);
+                tmp.driverflag = userInfo.getBoolean("driverFlag", false);
                 Intent intent;
                 intent = new Intent(tmp,Driver_Trip_Add.class);
                 intent.putExtra("Id", tmp.Id);
