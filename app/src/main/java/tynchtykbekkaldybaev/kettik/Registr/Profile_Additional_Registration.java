@@ -1,20 +1,33 @@
 package tynchtykbekkaldybaev.kettik.Registr;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -22,47 +35,66 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Calendar;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import tynchtykbekkaldybaev.kettik.AsteriskPasswordTransformationMethod;
+import tynchtykbekkaldybaev.kettik.DoNothingTransformation;
 import tynchtykbekkaldybaev.kettik.R;
 
-public class Phone_Registration extends AppCompatActivity {
-    private ImageButton back;
-    private Button register;
-    private EditText number;
-    private String name, surname, cartype, carnumber, birthdate, password, gender;
+public class Profile_Additional_Registration extends AppCompatActivity {
+    String  name;
+    String surname;
+    String birthdate;
+    String password;
+    String phoneNumber;
+    EditText carnumber;
+    EditText cartype;
+    String gender;
     private String submitURL;
 
-    public int Id;
+    Button save;
+    ImageView licencePic;
+    int Id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone_registration);
+        setContentView(R.layout.activity_additional_registration);
+
+        SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+        name = userInfo.getString("name", "nan");
+        surname = userInfo.getString("surname", "nan");
+        birthdate = userInfo.getString("birthdate", "nan");
+        password = userInfo.getString("password","nan");
+        phoneNumber = userInfo.getString("phoneNumber","nan");
+        gender = userInfo.getString("gender","nan");
 
         Intent intent = getIntent();
-        Id = intent.getIntExtra("Id",-1);
-
-        name = intent.getStringExtra("name");
-        surname = intent.getStringExtra("surname");
-        //carnumber = intent.getStringExtra("carnumber");
-        //cartype = intent.getStringExtra("cartype");
-        birthdate = intent.getStringExtra("birthdate");
-        password = intent.getStringExtra("password");
-        gender = intent.getStringExtra("gender");
-
+        Id = userInfo.getInt("Id",-1);
         submitURL = "http://81.214.24.77:7777/api/users";
         if(Id != -1)
             submitURL += "/" + String.valueOf(Id);
 
+        carnumber = findViewById(R.id.carnumber);
+        cartype = findViewById(R.id.cartype);
 
-        back = findViewById(R.id.back_button);
-        number = findViewById(R.id.number);
+        save = findViewById(R.id.save);
 
+
+        ImageButton accept = (ImageButton) findViewById(R.id.accept_button);
+        accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        ImageButton back = (ImageButton) findViewById(R.id.back_button);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,23 +102,89 @@ public class Phone_Registration extends AppCompatActivity {
             }
         });
 
-        register = findViewById(R.id.register);
 
-        register.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent;
-                intent = new Intent(Registration.this,Confirmation.class);
-                startActivity(intent);*/
-
-                try {
-                    collect_data();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if(check()) {
+                    try {
+                        collect_data();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    Toast.makeText(Profile_Additional_Registration.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+    public boolean check(){
+        if(     carnumber.getText().toString().equals("")
+                || cartype.getText().toString().equals("")
+
+                )
+            return false;
+        return true;
+    }
+
+
+    public void addLicencePic(View view) {
+        final CharSequence[] items={"Запустить камеру","Выбрать из галереи", "Отмена"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Profile_Additional_Registration.this);
+        builder.setTitle("Добавить снимок вод. прав");
+
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (items[i].equals("Запустить камеру")) {
+
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, 0);
+
+                } else if (items[i].equals("Выбрать из галереи")) {
+
+                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    intent.setType("image/*");
+                    //startActivityForResult(intent.createChooser(intent, "Select File"), SELECT_FILE);
+                    startActivityForResult(intent, 1);
+
+                } else if (items[i].equals("Отмена")) {
+                    dialogInterface.dismiss();
+                }
+            }
+        });
+        builder.show();
+    }
+
+
+
+    @Override
+    public  void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode,data);
+
+        if(resultCode== Activity.RESULT_OK){
+
+            if(requestCode==0){
+
+                Bundle bundle = data.getExtras();
+                final Bitmap bmp = (Bitmap) bundle.get("data");
+                licencePic.setImageBitmap(bmp);
+                licencePic.setVisibility(View.VISIBLE);
+
+            }
+            else if(requestCode==1){
+
+                Uri selectedImageUri = data.getData();
+                licencePic.setImageURI(selectedImageUri);
+                licencePic.setVisibility(View.VISIBLE);
+            }
+
+        }
+    }
+
     public void collect_data() throws JSONException {
         JSONObject data = new JSONObject();
         data.put("name", name);
@@ -96,11 +194,11 @@ public class Phone_Registration extends AppCompatActivity {
         data.put("profilePicture", "url");
         data.put("country", "kyrgyzstan");
         data.put("countryCode", "+996");
-        data.put("phoneNumber", number.getText().toString());
+        data.put("phoneNumber", phoneNumber);
         data.put("password", password);
-        data.put("driverFlag", false);
-        data.put("vehicleModel", "nan");
-        data.put("vehicleNumber", "nan");
+        data.put("driverFlag", true);
+        data.put("vehicleModel", cartype.getText().toString());
+        data.put("vehicleNumber", carnumber.getText().toString());
         data.put( "driverLicense","url");
 
         Log.e("SURNAME", surname);
@@ -124,7 +222,7 @@ public class Phone_Registration extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressDialog = new ProgressDialog(Phone_Registration.this);
+            progressDialog = new ProgressDialog(Profile_Additional_Registration.this);
             progressDialog.setMessage("Отправка данных...");
             progressDialog.setCancelable(false);
             progressDialog.show();
@@ -136,11 +234,11 @@ public class Phone_Registration extends AppCompatActivity {
                 progressDialog.dismiss();
 
             if(result.equals("")) {
-                Toast.makeText(Phone_Registration.this, "Произошла ошибка, попробуйте заново",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Profile_Additional_Registration.this, "Произошла ошибка, попробуйте заново",Toast.LENGTH_SHORT).show();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
-                        Phone_Registration.this.recreate();
+                        Profile_Additional_Registration.this.recreate();
                     }
                 }, 1000);
             }
@@ -168,10 +266,7 @@ public class Phone_Registration extends AppCompatActivity {
 
                     urlConnection = (HttpURLConnection) url.openConnection();
                     urlConnection.setDoOutput(true);
-                    if(Id == -1)
-                        urlConnection.setRequestMethod("POST");
-                    else
-                        urlConnection.setRequestMethod("PUT");
+                    urlConnection.setRequestMethod("PUT");
                     urlConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 
                     OutputStream os = urlConnection.getOutputStream();
@@ -250,7 +345,7 @@ public class Phone_Registration extends AppCompatActivity {
         boolean haveConnectedMobile = false;
         try
         {
-            ConnectivityManager cm = (ConnectivityManager) Phone_Registration.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager cm = (ConnectivityManager) Profile_Additional_Registration.this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo[] netInfo = cm.getAllNetworkInfo();
             for (NetworkInfo ni : netInfo) {
                 if (ni.getTypeName().equalsIgnoreCase("WIFI"))
@@ -266,5 +361,4 @@ public class Phone_Registration extends AppCompatActivity {
         }
         return (haveConnectedWifi || haveConnectedMobile);
     }
-
 }

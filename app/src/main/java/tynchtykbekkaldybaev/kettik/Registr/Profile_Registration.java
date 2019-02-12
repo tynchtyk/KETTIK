@@ -53,10 +53,10 @@ public class Profile_Registration extends AppCompatActivity {
         setContentView(R.layout.activity_profile_registration);
         name = findViewById(R.id.name);
         surname = findViewById(R.id.surname);
-        carnumber = findViewById(R.id.carnumber);
-        cartype = findViewById(R.id.cartype);
+        //carnumber = findViewById(R.id.carnumber);
+        //cartype = findViewById(R.id.cartype);
         gender = findViewById(R.id.gender_selection);
-        switcher = findViewById(R.id.switcher);
+        //switcher = findViewById(R.id.switcher);
 
         save = findViewById(R.id.save);
 
@@ -108,16 +108,13 @@ public class Profile_Registration extends AppCompatActivity {
                     intent = new Intent(Profile_Registration.this, Phone_Registration.class);
                     intent.putExtra("name", name.getText().toString());
                     intent.putExtra("surname", surname.getText().toString());
-                    intent.putExtra("carnumber", carnumber.getText().toString());
-                    intent.putExtra("cartype", cartype.getText().toString());
+                    //intent.putExtra("carnumber", carnumber.getText().toString());
+                    //intent.putExtra("cartype", cartype.getText().toString());
                     intent.putExtra("birthdate", birthdate.getText().toString());
                     intent.putExtra("password", password.getText().toString());
                     intent.putExtra("gender", gender.getSelectedItem().toString());
 
-                    startActivity(intent);
-                    setResult(RESULT_OK, intent);
-
-                    finish();
+                    startActivityForResult(intent,5);
                 }
                 else {
                     Toast.makeText(Profile_Registration.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
@@ -129,8 +126,8 @@ public class Profile_Registration extends AppCompatActivity {
     public boolean check(){
         if(name.getText().toString().equals("")
                 || surname.getText().toString().equals("")
-                || carnumber.getText().toString().equals("")
-                || cartype.getText().toString().equals("")
+                //|| carnumber.getText().toString().equals("")
+                //|| cartype.getText().toString().equals("")
                 || birthdate.getText().toString().equals("")
                 || password.getText().toString().equals("")
                 || gender.getSelectedItem().toString().equals("")
@@ -257,6 +254,16 @@ public class Profile_Registration extends AppCompatActivity {
 
                 Uri selectedImageUri = data.getData();
                 profilePic.setImageURI(selectedImageUri);
+            }
+            else if(requestCode==5){
+                Intent intent = new Intent();
+                    if(resultCode == RESULT_OK) {
+                        setResult(resultCode, intent);
+                    }
+                    else {
+                        setResult(RESULT_CANCELED, intent);
+                    }
+                finish();
             }
 
         }

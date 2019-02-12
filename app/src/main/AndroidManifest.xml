@@ -47,6 +47,9 @@
             android:name=".Registr.Phone_Registration"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
+            android:name=".Registr.Profile_Additional_Registration"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
             android:name=".Registr.Confirmation"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity

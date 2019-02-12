@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import tynchtykbekkaldybaev.kettik.IamPassenger.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.MainActivity;
 import tynchtykbekkaldybaev.kettik.R;
+import tynchtykbekkaldybaev.kettik.Registr.Profile_Additional_Registration;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -81,6 +82,12 @@ public class Fragment_SearchPassenger extends Fragment {
             public void onClick(View view) {
                 if(tmp.Id == -1){
                     Toast.makeText(tmp, "Чтобы добавить запрос, войдите в систему", Toast.LENGTH_SHORT).show();
+                }
+                else  if(tmp.driverflag == false) {
+                    Intent intent;
+                    intent = new Intent(tmp,Profile_Additional_Registration.class);
+                    intent.putExtra("Id", tmp.Id);
+                    startActivityForResult(intent, 3);
                 }
                 else {
                     Intent intent;
@@ -147,6 +154,16 @@ public class Fragment_SearchPassenger extends Fragment {
                         .attach(fragment)
                         .commit();
                 Log.e("SUBMIT2", submitURL);
+
+            }
+        }
+        if (requestCode == 3) {
+            if(resultCode == RESULT_OK) {
+                final MainActivity tmp = (MainActivity) getActivity();
+                Intent intent;
+                intent = new Intent(tmp,Driver_Trip_Add.class);
+                intent.putExtra("Id", tmp.Id);
+                startActivityForResult(intent, 2);
 
             }
         }

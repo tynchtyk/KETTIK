@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity{
     TextView userName, userProf, userGuest;
 
     public int Id;
-
+    public boolean driverflag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity{
         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
         Boolean islogin = userInfo.getBoolean("islogin", false);
         Id = userInfo.getInt("Id", -1);
+        driverflag = userInfo.getBoolean("driverFlag", false);
         Log.e("ISLOGIN", String.valueOf(islogin));
 
         editButton = (ImageButton) headView.findViewById(R.id.edit_button);
@@ -400,7 +401,6 @@ public class MainActivity extends AppCompatActivity{
                     userProf.setText("Водитель");
                     set_login();
                 }
-
             }
             else if(resultCode == RESULT_CANCELED) {
                 Intent intent;
