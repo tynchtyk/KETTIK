@@ -41,18 +41,21 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
 
     @Override
     public void onBindViewHolder(@NonNull final PassengerListAdapter.PassengerViewHolder holder, final int position) {
-        Passenger item = passengerList.get(position);
+        final Passenger item = passengerList.get(position);
+        final Passenger_Info item_info = passengerInfoList.get(position);
         holder.itemView.setTag(item);
 
         holder.from.setText(item.from);
         holder.to.setText(item.to);
         holder.date.setText(item.date);
         holder.passengers_quantity.setText(item.passengers + " человек");
+        holder.price.setText(item_info.price);
+        holder.currency.setText("сом");
 
         holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Passenger_Info item_info = passengerInfoList.get(position);
+
                 final Dialog myDialog = new Dialog(mContext);
                 myDialog.setContentView(R.layout.pop_up_passenger_information);
 
@@ -110,6 +113,8 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
         public final TextView to;
         public final TextView date;
         public final TextView passengers_quantity;
+        public final TextView price;
+        public final TextView currency;
 
         public PassengerViewHolder(View itemView, PassengerListAdapter adapter) {
 
@@ -120,6 +125,8 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
             to = (TextView) itemView.findViewById(R.id.to);
             date = (TextView) itemView.findViewById(R.id.date);
             passengers_quantity = (TextView) itemView.findViewById(R.id.passenger_quantity);
+            price = (TextView) itemView.findViewById(R.id.price);
+            currency = (TextView) itemView.findViewById(R.id.currency);
 
             this.passengerAdapter = adapter;
         }

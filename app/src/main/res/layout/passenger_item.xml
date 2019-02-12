@@ -40,14 +40,14 @@
                 android:background="@drawable/mapasset" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="145dp"
                 android:layout_height="match_parent"
                 android:gravity="center|left"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/from"
-                    android:layout_width="145dp"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubickregular"
                     android:gravity="top"
@@ -64,7 +64,7 @@
 
                 <TextView
                     android:id="@+id/to"
-                    android:layout_width="145dp"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/from"
                     android:fontFamily="@font/rubickregular"
@@ -73,15 +73,47 @@
                     android:textSize="@dimen/_17ssp" />
             </LinearLayout>
 
+            <View
+                android:id="@+id/divider_sma2"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/divider_sma" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="41dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="@dimen/_14ssp"
+                    android:layout_marginLeft="@dimen/_12ssp"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="41dp"
+                        android:layout_height="15dp"
+                        android:text="770"
+                        android:textColor="@color/blue_gradient"
+                        android:textStyle="bold"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:id="@+id/currency"
+                        android:layout_width="41dp"
+                        android:layout_height="15dp"
+                        android:text="сом"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue_gradient"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
                 <ImageView
                     android:id="@+id/call"
                     android:layout_width="@dimen/_59sdp"
                     android:layout_height="@dimen/_59sdp"
+                    android:layout_gravity="right"
                     android:background="@drawable/call_button_unpressed"
                     android:scaleType="center"
                     android:scaleX="1.5"
@@ -106,35 +138,35 @@
                 android:layout_marginRight="@dimen/_8sdp"/>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="145dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
-                    android:textColor="@color/text_color_grey"
                     android:fontFamily="@font/rubiklight"
-                    android:text="Дата и время:"/>
+                    android:text="Дата и время:"
+                    android:textColor="@color/text_color_grey"
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:textSize="@dimen/_12ssp"
-                    android:textColor="@color/text_color_light_green"
-                    android:fontFamily="@font/rubikbolditalic"
+                    android:layout_width="145dp"
                     android:layout_height="wrap_content"
-                    android:text="19/12/2018, 21:00"/>
+                    android:fontFamily="@font/rubikbolditalic"
+                    android:text="19/12/2018, 21:00"
+                    android:textColor="@color/text_color_light_green"
+                    android:textSize="@dimen/_12ssp" />
 
 
             </LinearLayout>
 
             <View
                 android:id="@+id/divider_sma"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_width="@dimen/_1sdp"
                 android:layout_height="@dimen/_32sdp"
+                android:layout_marginLeft="@dimen/_3ssp"
                 android:background="@drawable/divider_sma"
                 />
 
@@ -147,14 +179,14 @@
 
 
             <TextView
+                android:layout_marginTop="16dp"
                 android:id="@+id/passenger_quantity"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/rubikbolditalic"
-                android:text="5 человек"
+                android:textSize="@dimen/_12ssp"
                 android:textColor="@color/text_color_light_green"
-                android:textSize="@dimen/_12ssp" />
+                android:fontFamily="@font/rubikbolditalic"
+                android:layout_height="wrap_content"
+                android:text="5 человек"/>
         </LinearLayout>
 
 
