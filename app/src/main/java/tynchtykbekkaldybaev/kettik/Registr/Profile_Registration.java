@@ -35,6 +35,7 @@ public class Profile_Registration extends AppCompatActivity {
     EditText surname;
     TextView birthdate;
     EditText password;
+    EditText password2;
     EditText carnumber;
     EditText cartype;
     Spinner gender;
@@ -44,6 +45,7 @@ public class Profile_Registration extends AppCompatActivity {
     ImageView licencePic;
     CircleImageView profilePic;
     Boolean isPasswordShowing = false;
+    Boolean isPasswordShowing2 = false;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Button save;
 
@@ -100,21 +102,29 @@ public class Profile_Registration extends AppCompatActivity {
         password = (EditText)findViewById(R.id.password);
         password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
 
+        password2 = (EditText)findViewById(R.id.password2);
+        password2.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(check()) {
-                    Intent intent;
-                    intent = new Intent(Profile_Registration.this, Phone_Registration.class);
-                    intent.putExtra("name", name.getText().toString());
-                    intent.putExtra("surname", surname.getText().toString());
-                    //intent.putExtra("carnumber", carnumber.getText().toString());
-                    //intent.putExtra("cartype", cartype.getText().toString());
-                    intent.putExtra("birthdate", birthdate.getText().toString());
-                    intent.putExtra("password", password.getText().toString());
-                    intent.putExtra("gender", gender.getSelectedItem().toString());
+                    if(check2()) {
+                        Intent intent;
+                        intent = new Intent(Profile_Registration.this, Phone_Registration.class);
+                        intent.putExtra("name", name.getText().toString());
+                        intent.putExtra("surname", surname.getText().toString());
+                        //intent.putExtra("carnumber", carnumber.getText().toString());
+                        //intent.putExtra("cartype", cartype.getText().toString());
+                        intent.putExtra("birthdate", birthdate.getText().toString());
+                        intent.putExtra("password", password.getText().toString());
+                        intent.putExtra("gender", gender.getSelectedItem().toString());
 
-                    startActivityForResult(intent,5);
+                        startActivityForResult(intent,5);
+                    }
+                    else {
+                        Toast.makeText(Profile_Registration.this, "Проверьте что пароли совпадают", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     Toast.makeText(Profile_Registration.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
@@ -130,12 +140,19 @@ public class Profile_Registration extends AppCompatActivity {
                 //|| cartype.getText().toString().equals("")
                 || birthdate.getText().toString().equals("")
                 || password.getText().toString().equals("")
+                || password2.getText().toString().equals("")
                 || gender.getSelectedItem().toString().equals("")
                 )
             return false;
         return true;
     }
 
+    public boolean check2(){
+        if(!password.getText().toString().equals(password2.getText().toString())
+                )
+            return false;
+        return true;
+    }
     public void showTimePickerDialog(View view) {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -160,6 +177,17 @@ public class Profile_Registration extends AppCompatActivity {
         else {
             password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
             isPasswordShowing = false;
+        }
+    }
+
+    public void showPassword2(View view) {
+        if (!isPasswordShowing) {
+            password2.setTransformationMethod(new DoNothingTransformation());
+            isPasswordShowing2 = true;
+        }
+        else {
+            password2.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+            isPasswordShowing2 = false;
         }
     }
 

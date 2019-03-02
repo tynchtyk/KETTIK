@@ -462,6 +462,18 @@ public class MainActivity extends AppCompatActivity{
         editButton.setVisibility(View.VISIBLE);
         userName.setVisibility(View.VISIBLE);
         userProf.setVisibility(View.VISIBLE);
+
+        MenuItem menuItem = navigationView.getMenu().getItem(1);
+        navigationView.setCheckedItem(menuItem);
+        updateNavigationButtons(PASSENGERS_FRAGMENT);
+
+        Fragment_SearchDriver fragment_searchDriver = new Fragment_SearchDriver();
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment_searchDriver);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
     }
 
 }
