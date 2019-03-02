@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -88,6 +89,21 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
                     public void onClick(View view) {
                         String phone = item_info.phoneNumber;
                         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                        view.getContext().startActivity(intent);
+                    }
+                });
+
+                Button sms = myDialog.findViewById(R.id.sms);
+                sms.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String phone = item_info.phoneNumber;
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+phone +"&text="+"text"));
+                        if (intent.resolveActivity(view.getContext().getPackageManager()) == null) {
+                            Toast.makeText(view.getContext(), "Whatsapp not installed.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         view.getContext().startActivity(intent);
                     }
                 });
