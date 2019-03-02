@@ -12,9 +12,12 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -32,10 +35,11 @@ public class Login extends AppCompatActivity {
     private ImageButton back;
     private Button login, signup;
     private EditText number, password;
+    private TextView country_code;
 
     private String name, surname, cartype, carnumber, birthdate, gender;
 
-
+    private Spinner spinner;
 
     public String submitURL;
     public requestThread task;
@@ -44,6 +48,28 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        country_code = findViewById(R.id.country_code);
+        spinner = findViewById(R.id.country_selection);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                if(selectedItem.equals("Кыргызстан"))
+                    country_code.setText("+996");
+                else if(selectedItem.equals("Россия"))
+                    country_code.setText("+7");
+                else
+                    country_code.setText("+7");
+
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
 
         back = findViewById(R.id.back_button);
         number = findViewById(R.id.number);
