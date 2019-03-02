@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="328dp"
+        android:layout_height="128dp"
+        android:orientation="vertical"
+        android:background="@drawable/congratulations">
+
+        <TextView
+            android:layout_width="131dp"
+            android:layout_height="22dp"
+            android:text="Поздравляем!"
+            android:layout_marginTop="24dp"
+            android:textSize="18sp"
+            android:textColor="@color/blue_gradient"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вы успешно добавили новый"
+            android:layout_marginTop="12dp"
+            android:textSize="18sp"
+            android:textColor="@color/blue_gradient"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="маршрут!"
+            android:textSize="18sp"
+            android:textColor="@color/blue_gradient"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

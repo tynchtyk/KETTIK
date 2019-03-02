@@ -1,8 +1,10 @@
 package tynchtykbekkaldybaev.kettik.IamDriver;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,8 +17,10 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -39,6 +43,7 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.List;
 
+import tynchtykbekkaldybaev.kettik.IamPassenger.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.R;
 
 /**
@@ -51,6 +56,9 @@ public class Passenger_Request_Add extends AppCompatActivity {
     private TextView time;
     private EditText from, where, price, quantity;
     private Button send;
+    private Switch Switch;
+    boolean parcelFlag;
+
 
     private ImageView back;
     DatePicker datePicker;
@@ -120,6 +128,16 @@ public class Passenger_Request_Add extends AppCompatActivity {
         });
 
 
+        Switch = findViewById(R.id.switcher);
+        Switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+                parcelFlag = isChecked;
+
+            }
+        });
+
         mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -173,6 +191,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
         data.put("passengers", Integer.valueOf(quantity.getText().toString()));
         data.put("userId", Id);
         data.put("note", "smth");
+        data.put("parcelFlag", parcelFlag);
 
 
         requestThread task = new requestThread();
@@ -222,7 +241,19 @@ public class Passenger_Request_Add extends AppCompatActivity {
                 progressDialog.dismiss();
             Intent intent = new Intent();
             setResult(RESULT_OK, intent);
-            finish();
+            final Dialog myDialog = new Dialog(Passenger_Request_Add.this);
+            myDialog.setContentView(R.layout.congratulations_request);
+            myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            myDialog.show();
+
+            myDialog.setCanceledOnTouchOutside(true);
+            myDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    finish();
+                }
+            });
             // this is expecting a response code to be sent from your server upon receiving the POST data
 
         }
