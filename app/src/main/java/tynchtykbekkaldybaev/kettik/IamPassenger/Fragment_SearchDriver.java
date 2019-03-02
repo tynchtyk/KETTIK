@@ -287,7 +287,7 @@ public class Fragment_SearchDriver extends Fragment {
 
                 String vehicleModel = info.getString("vehicleModel");
                 String vehicleNumber = info.getString("vehicleNumber");
-                String phoneNumber = info.getString("phoneNumber");
+                String phoneNumber = info.getString("countryCode") + info.getString("phoneNumber");
 
                 driver.add(new Driver(from, to, tripDate + ", " + tripTime, seats, 5));
 

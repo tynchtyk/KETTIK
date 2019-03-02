@@ -233,7 +233,7 @@ public class Fragment_SearchPassenger extends Fragment {
                 //if(jsonObject.get("passengers") != null)
                 passenger = jsonObject.getInt("passengers");
 
-                Log.e("PASSENGERS", String.valueOf(passenger));
+
 
                 JSONObject info = jsonObject.getJSONObject("user");
 
@@ -245,7 +245,11 @@ public class Fragment_SearchPassenger extends Fragment {
 
                 String vehicleModel = info.getString("vehicleModel");
                 String vehicleNumber = info.getString("vehicleNumber");
-                String phoneNumber = info.getString("phoneNumber");
+                String phoneNumber = info.getString("countryCode") + info.getString("phoneNumber");
+
+                Log.e("PHONE", String.valueOf(phoneNumber));
+
+
 
                 passengers.add(new Passenger(from, to, tripDate + ", " + tripTime, passenger));
 

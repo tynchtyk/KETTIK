@@ -2,14 +2,17 @@ package tynchtykbekkaldybaev.kettik.IamPassenger;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -79,7 +82,15 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
                 TextView autotype = myDialog.findViewById(R.id.autotype);
                 autotype.setText(item_info.vehicleModel);
 
-
+                Button call = myDialog.findViewById(R.id.call);
+                call.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String phone = item_info.phoneNumber;
+                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                        view.getContext().startActivity(intent);
+                    }
+                });
 
                 ImageButton imageButton = (ImageButton) myDialog.findViewById(R.id.cancel);
                 imageButton.setOnClickListener(new View.OnClickListener() {
