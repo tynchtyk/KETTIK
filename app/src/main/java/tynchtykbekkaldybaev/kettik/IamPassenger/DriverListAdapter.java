@@ -108,8 +108,8 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
                     }
                 });
 
-                ImageButton imageButton = (ImageButton) myDialog.findViewById(R.id.cancel);
-                imageButton.setOnClickListener(new View.OnClickListener() {
+                Button ibutton = (Button) myDialog.findViewById(R.id.cancel);
+                ibutton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         myDialog.dismiss();

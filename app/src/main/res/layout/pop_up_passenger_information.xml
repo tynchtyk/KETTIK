@@ -122,13 +122,51 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:background="@drawable/pop_up_photo_shape" />
 
-    <ImageButton
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/after_agree"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/cancel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="361dp"
+        android:text="*если вы договорились с этим пассажиром о поездке,
+тогда нажмите “Подобрал””"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_below="@+id/group"
-        android:layout_centerHorizontal="true"
-        android:scaleType="center" />
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/after_agree">
+
+        <Button
+            android:id="@+id/agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Подобрал"
+            android:textSize="@dimen/_15ssp"
+            android:textAllCaps="false"
+            android:background="@drawable/pop_up_button_shape2"
+            android:fontFamily="@font/rubickregular"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отмена"
+            android:textSize="@dimen/_15ssp"
+            android:textAllCaps="false"
+            android:background="@drawable/pop_up_button_shape2"
+            android:fontFamily="@font/rubickregular"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -98,8 +98,8 @@ public class ParcelListAdapter extends RecyclerView.Adapter<ParcelListAdapter.Pa
                     }
                 });
 
-                ImageButton imageButton = (ImageButton) myDialog.findViewById(R.id.cancel);
-                imageButton.setOnClickListener(new View.OnClickListener() {
+                Button iButton = (Button) myDialog.findViewById(R.id.cancel);
+                iButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         myDialog.dismiss();
