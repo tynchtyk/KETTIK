@@ -80,7 +80,7 @@
 
         </activity>
         <activity
-            android:name=".My_Trips"
+            android:name=".MyTrips.My_Trips"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".Help"

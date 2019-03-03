@@ -1,4 +1,4 @@
-package tynchtykbekkaldybaev.kettik;
+package tynchtykbekkaldybaev.kettik.MyTrips;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -24,17 +24,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import tynchtykbekkaldybaev.kettik.IamPassenger.Driver;
-import tynchtykbekkaldybaev.kettik.IamPassenger.DriverListAdapter;
-import tynchtykbekkaldybaev.kettik.IamPassenger.Driver_Info;
+import tynchtykbekkaldybaev.kettik.R;
 
 public class My_Trips extends AppCompatActivity {
 
-    private ArrayList<Driver> driver = new ArrayList<>();
-    private ArrayList<Driver_Info> driver_info = new ArrayList<>();
+    private ArrayList<MyTrip> mytrip = new ArrayList<>();
+    private ArrayList<MyTrip_Info> mytrip_info = new ArrayList<>();
 
-    private RecyclerView driverRecyclerView;
-    private DriverListAdapter driverAdapter;
+    private RecyclerView mytripRecyclerView;
+    private MyTripListAdapter mytripAdapter;
 
     public String submitURL;
     public requestThread task;
@@ -46,7 +44,7 @@ public class My_Trips extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mytrips);
 
-        driverRecyclerView = findViewById(R.id.recyclerviewTrips);
+        mytripRecyclerView = findViewById(R.id.recyclerviewTrips);
 
         Intent intent = getIntent();
         Id = intent.getIntExtra("Id", -1);
@@ -89,8 +87,8 @@ public class My_Trips extends AppCompatActivity {
             progressDialog.setCancelable(false);
             progressDialog.show();
 
-            driver.clear();
-            driver_info.clear();
+            mytrip.clear();
+            mytrip_info.clear();
 
         }
 
@@ -100,11 +98,11 @@ public class My_Trips extends AppCompatActivity {
                 progressDialog.dismiss();
 
             LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(My_Trips.this);
-            driverRecyclerView.setLayoutManager(mLinearLayoutManager);
+            mytripRecyclerView.setLayoutManager(mLinearLayoutManager);
 
 
-            driverAdapter = new DriverListAdapter(My_Trips.this, driver, driver_info);
-            driverRecyclerView.setAdapter(driverAdapter);
+            mytripAdapter = new MyTripListAdapter(My_Trips.this, mytrip, mytrip_info);
+            mytripRecyclerView.setAdapter(mytripAdapter);
 
             Log.e("RESULT", result);
             // this is expecting a response code to be sent from your server upon receiving the POST data
@@ -135,9 +133,9 @@ public class My_Trips extends AppCompatActivity {
                 String vehicleNumber = info.getString("vehicleNumber");
                 String phoneNumber = info.getString("phoneNumber");
 
-                driver.add(new Driver(from, to, tripDate + ", " + tripTime, seats, 5));
+                mytrip.add(new MyTrip(from, to, tripDate + ", " + tripTime));
 
-                driver_info.add(new Driver_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
+                mytrip_info.add(new MyTrip_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
 
 
             }
