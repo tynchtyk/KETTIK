@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity{
     ImageButton editButton;
     TextView userName, userProf, userGuest;
 
+    public TextView toolbarTitle;
+
     public int Id;
     public boolean driverflag;
     @Override
@@ -71,6 +73,8 @@ public class MainActivity extends AppCompatActivity{
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+
+        toolbarTitle = findViewById(R.id.toolbarTitle);
 
         View headView = navigationView.getHeaderView(0);
 

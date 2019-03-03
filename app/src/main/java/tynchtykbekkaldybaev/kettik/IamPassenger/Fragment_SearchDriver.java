@@ -79,8 +79,9 @@ public class Fragment_SearchDriver extends Fragment {
         all_drivers = rootview.findViewById(R.id.all_drivers);
 
 
-        View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
-        TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
+        /*View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);*/
+
+        TextView search_in_action_bar = (TextView)  tmp.toolbarTitle;
         search_in_action_bar.setText("Поиск водителя");
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +92,6 @@ public class Fragment_SearchDriver extends Fragment {
 
             }
         });
-        tmp.actionBar.setCustomView(cView);
 
         add_request.setOnClickListener(new View.OnClickListener() {
             @Override

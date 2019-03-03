@@ -64,7 +64,7 @@ public class Fragment_SearchPassenger extends Fragment {
         final MainActivity tmp = (MainActivity) getActivity();
         View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
 
-        TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
+        TextView search_in_action_bar = (TextView)  tmp.toolbarTitle;
         search_in_action_bar.setText("Поиск пассажира");
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +75,6 @@ public class Fragment_SearchPassenger extends Fragment {
 
             }
         });
-        tmp.actionBar.setCustomView(cView);
 
         add_trip = rootview.findViewById(R.id.add_trip);
         add_trip.setOnClickListener(new View.OnClickListener() {

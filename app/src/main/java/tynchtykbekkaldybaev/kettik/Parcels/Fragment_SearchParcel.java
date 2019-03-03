@@ -68,7 +68,7 @@ public class Fragment_SearchParcel extends Fragment {
 
 
 
-        TextView search_in_action_bar = (TextView)  cView.findViewById(R.id.search);
+        TextView search_in_action_bar = (TextView)  tmp.toolbarTitle;
         search_in_action_bar.setText("Поиск маршрута");
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +78,6 @@ public class Fragment_SearchParcel extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
-        tmp.actionBar.setCustomView(cView);
 
         parcelRecyclerView = (RecyclerView) rootview.findViewById(R.id.recyclerviewParcels);
 
@@ -261,7 +260,7 @@ public class Fragment_SearchParcel extends Fragment {
                     URL += "&to=" + to;
                 if(!tripDate.equals(""))
                     URL += "&tripDate=" + tripDate;
-                Fragment_SearchDriver fragment = (Fragment_SearchDriver)
+                Fragment_SearchParcel fragment = (Fragment_SearchParcel)
                         getFragmentManager().findFragmentById(R.id.content_frame);
                 fragment.submitURL = URL;
 

@@ -26,7 +26,20 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/rectangle2"></android.support.v7.widget.Toolbar>
+                android:background="@drawable/rectangle2">
+
+                <TextView
+                    android:id="@+id/toolbarTitle"
+                    style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                    android:background="?attr/selectableItemBackground"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:textSize="16sp"
+                    android:textColor="@color/blue_gradient_light"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            </android.support.v7.widget.Toolbar>
 
         </LinearLayout>
 
