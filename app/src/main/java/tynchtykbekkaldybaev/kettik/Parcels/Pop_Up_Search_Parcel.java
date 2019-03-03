@@ -1,9 +1,11 @@
 package tynchtykbekkaldybaev.kettik.Parcels;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +25,7 @@ import tynchtykbekkaldybaev.kettik.R;
 
 public class Pop_Up_Search_Parcel extends AppCompatActivity {
     private TextView date;
+    private EditText from, where;
     private ImageView back;
     private ImageView cal;
     private Button search;
@@ -33,6 +36,8 @@ public class Pop_Up_Search_Parcel extends AppCompatActivity {
         setContentView(R.layout.pop_up_driver_search);
 
         back = findViewById(R.id.back);
+        from = findViewById(R.id.from);
+        where = findViewById(R.id.where);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +85,14 @@ public class Pop_Up_Search_Parcel extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent();
+                if(from.getText().toString() != null)
+                    intent.putExtra("from", from.getText().toString());
+                if(where.getText().toString() != null)
+                    intent.putExtra("to", where.getText().toString());
+                if(date.getText().toString() != null)
+                    intent.putExtra("tripDate", date.getText().toString());
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });

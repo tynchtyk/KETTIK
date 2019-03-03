@@ -17,20 +17,9 @@
         <LinearLayout
             android:id="@+id/addition_layout"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:background="@drawable/header_backround"
             android:orientation="vertical">
-
-            <Button
-                android:id="@+id/add_parcel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rectangle"
-                android:text="Добавить новую посылку"
-                android:textColor="@color/white"
-                android:textSize="14sp"/>
             <TextView
                 android:id="@+id/all_drivers"
                 android:layout_width="wrap_content"
