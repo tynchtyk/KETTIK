@@ -269,6 +269,7 @@ public class Fragment_SearchDriver extends Fragment {
             for(int i=0; i<jsonArray.length(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 String from, to, tripDate, tripTime;
+                int tripID;
                 int price, seats;
                 from = jsonObject.getString("from");
                 to = jsonObject.getString("to");
@@ -276,10 +277,13 @@ public class Fragment_SearchDriver extends Fragment {
                 tripTime = jsonObject.getString("tripTime");
                 price = jsonObject.getInt("price");
                 seats = jsonObject.getInt("seats");
+                boolean parcelFlag = jsonObject.getBoolean("parcelFlag");
+                tripID = jsonObject.getInt("id");
+
 
                 JSONObject info = jsonObject.getJSONObject("user");
 
-                int Id = info.getInt("id");
+                int userId = info.getInt("id");
                 String name = info.getString("name");
                 String surname = info.getString("surname");
                 String birthDate = info.getString("birthDate");
@@ -289,9 +293,9 @@ public class Fragment_SearchDriver extends Fragment {
                 String vehicleNumber = info.getString("vehicleNumber");
                 String phoneNumber = info.getString("countryCode") + info.getString("phoneNumber");
 
-                driver.add(new Driver(from, to, tripDate + ", " + tripTime, seats, 5));
+                driver.add(new Driver(tripID, from, to, tripDate, seats, tripTime));
 
-                driver_info.add(new Driver_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
+                driver_info.add(new Driver_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, userId, parcelFlag));
 
 
             }

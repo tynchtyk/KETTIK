@@ -5,9 +5,11 @@ package tynchtykbekkaldybaev.kettik.IamPassenger;
  */
 
 public class Driver {
+    int tripId;
     String from;
     String to;
     String date;
+    String time;
     int free, maxspace;
 
 
@@ -16,11 +18,12 @@ public class Driver {
         free = maxspace = 0;
     }
 
-    public Driver(String f, String t, String d, int fr, int mx) {
+    public Driver(int id, String f, String t, String d, int fr, String tm) {
+        tripId = id;
         from = f;
         to = t;
         date = d;
         free = fr;
-        maxspace = mx;
+        time = tm;
     }
 }

@@ -223,20 +223,27 @@ public class Fragment_SearchPassenger extends Fragment {
             for(int i=0; i<jsonArray.length(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 String from, to, tripDate, tripTime;
+                int requestID;
                 int price, passenger = 5;
                 from = jsonObject.getString("from");
                 to = jsonObject.getString("to");
                 tripDate= jsonObject.getString("tripDate");
                 tripTime = jsonObject.getString("tripTime");
                 price = jsonObject.getInt("price");
-                //if(jsonObject.get("passengers") != null)
-                passenger = jsonObject.getInt("passengers");
+
+                if(jsonObject.isNull("passengers"))
+                    passenger = 0;
+                else
+                    passenger = jsonObject.getInt("passengers");
+
+                boolean parcelFlag = jsonObject.getBoolean("parcelFlag");
+                requestID = jsonObject.getInt("id");
 
 
 
                 JSONObject info = jsonObject.getJSONObject("user");
 
-                int Id = info.getInt("id");
+                int userId = info.getInt("id");
                 String name = info.getString("name");
                 String surname = info.getString("surname");
                 String birthDate = info.getString("birthDate");
@@ -250,9 +257,9 @@ public class Fragment_SearchPassenger extends Fragment {
 
 
 
-                passengers.add(new Passenger(from, to, tripDate + ", " + tripTime, passenger));
+                passengers.add(new Passenger(requestID, from, to, tripDate, tripTime, passenger));
 
-                passengers_info.add(new Passenger_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
+                passengers_info.add(new Passenger_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, userId, parcelFlag));
 
 
             }
