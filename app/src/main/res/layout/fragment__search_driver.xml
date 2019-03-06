@@ -28,7 +28,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rectangle"
-                android:text="Добавить новый запрос"
+                android:text="@string/addnewrequest"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -39,7 +39,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="Все водители:"
+                android:text="@string/alldrivers"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
         </LinearLayout>

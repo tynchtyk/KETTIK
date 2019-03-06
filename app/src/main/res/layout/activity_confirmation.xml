@@ -27,7 +27,7 @@
         android:fontFamily="@font/rubickregular"
         android:textStyle="bold"
         android:textColor="#4CA2CD"
-        android:text="Код подтверждения"/>
+        android:text="@string/confirmation_code"/>
 
     <ImageButton
         android:id="@+id/back_button"
@@ -52,7 +52,7 @@
         android:fontFamily="@font/rubickregular"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:hint="Код"
+        android:hint="@string/code"
         android:textColor="#4CA2CD"
         android:textSize="16sp" />
 
@@ -68,7 +68,7 @@
         android:textAlignment="center"
         android:gravity="center_vertical"
         android:textStyle="bold"
-        android:text="Мы отправили SMS с кодом проверки на Ваш телефон: +996 555 000000"
+        android:text="@string/we_sent"
         android:textColor="#FFFFFF"
         android:textSize="14sp" />
 
@@ -84,7 +84,7 @@
         android:fontFamily="@font/rubickregular"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
-        android:text="Регистрация"/>
+        android:text="@string/registration"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -97,6 +97,6 @@
         android:textStyle="bold"
         android:textSize="14sp"
         android:layout_below="@+id/register"
-        android:text="Не получили?"/>
+        android:text="@string/didnotget"/>
 
 </RelativeLayout>

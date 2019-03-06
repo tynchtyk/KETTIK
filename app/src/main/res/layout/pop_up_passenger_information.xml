@@ -25,7 +25,7 @@
             android:fontFamily="@font/rubickregular"
             android:textSize="@dimen/_13ssp"
             android:textAllCaps="true"
-            android:text="Водитель"/>
+            android:text="@string/driver"/>
 
         <TextView
             android:id="@+id/driver_name"
@@ -57,7 +57,7 @@
                 android:layout_weight="4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Цена поездки:   "
+                android:text="@string/tripprice"
                 android:textSize="@dimen/_13ssp"
                 android:fontFamily="@font/rubiklight"
                 android:textColor="#378243"/>
@@ -86,7 +86,7 @@
                 android:id="@+id/call"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Позвонить"
+                android:text="@string/call"
                 android:textSize="@dimen/_15ssp"
                 android:textAllCaps="false"
                 android:background="@drawable/pop_up_button_shape"
@@ -98,7 +98,7 @@
                 android:id="@+id/sms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Написать"
+                android:text="@string/sms"
                 android:textSize="@dimen/_15ssp"
                 android:textAllCaps="false"
                 android:background="@drawable/pop_up_button_shape"
@@ -128,8 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="361dp"
-        android:text="*если вы договорились с этим пассажиром о поездке,
-тогда нажмите “Подобрал””"
+        android:text="@string/afteragreement2"
         android:textSize="12sp"
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
@@ -148,7 +147,7 @@
             android:id="@+id/agree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Подобрал"
+            android:text="@string/podobral"
             android:textSize="@dimen/_15ssp"
             android:textAllCaps="false"
             android:background="@drawable/pop_up_button_shape2"
@@ -160,7 +159,7 @@
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Отмена"
+            android:text="@string/cancel"
             android:textSize="@dimen/_15ssp"
             android:textAllCaps="false"
             android:background="@drawable/pop_up_button_shape2"

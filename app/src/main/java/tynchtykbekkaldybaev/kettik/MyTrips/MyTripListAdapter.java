@@ -99,7 +99,6 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
                                     e.printStackTrace();
                                 }
 
-                                holder.itemView.setClickable(true);
                                 submitURL =  "http://81.214.24.77:7777/api/trips" + "/" + String.valueOf(item.tripId);
                                 try {
                                     collect_data(item_info, item);

@@ -23,7 +23,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_marginTop="258dp"
-        android:text="Пассажирам:"
+        android:text="@string/for_passengers"
         android:textAppearance="@style/for_passegers_style"
         android:gravity="center_horizontal"
         />
@@ -35,7 +35,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_marginTop="311dp"
-        android:text="Низкие цены и удобства"
+        android:text="@string/for_passengers_description"
         android:textSize="18sp"
         android:textColor="@color/white"
         android:gravity="center_horizontal"

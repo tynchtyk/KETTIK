@@ -30,7 +30,7 @@
             android:fontFamily="@font/rubickregular"
             android:textStyle="bold"
             android:textColor="#4CA2CD"
-            android:text="Редактировать профиль"/>
+            android:text="@string/edit_profile"/>
 
         <ImageButton
             android:layout_marginTop="10dp"
@@ -65,7 +65,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/rubickregular"
             android:textSize="18sp"
-            android:text="Персональная информация"/>
+            android:text="@string/personal_information"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/photo"
@@ -97,7 +97,7 @@
             android:layout_alignStart="@+id/birthday_text"
             android:background="@drawable/edit_text_shape"
             android:fontFamily="@font/rubickregular"
-            android:hint="Имя"
+            android:hint="@string/name"
             android:paddingLeft="30dp"
             android:singleLine="true"
             android:textColor="#4CA2CD"
@@ -116,7 +116,7 @@
             android:singleLine="true"
             android:fontFamily="@font/rubickregular"
             android:paddingLeft="30dp"
-            android:hint="Фамилия"
+            android:hint="@string/surname"
             android:textSize="15sp"
             android:textColor="#4CA2CD"
             android:background="@drawable/edit_text_shape"/>
@@ -130,7 +130,7 @@
             android:background="@drawable/edit_text_shape"
             android:fontFamily="@font/rubickregular"
             android:gravity="center_vertical"
-            android:hint="Дата рождения"
+            android:hint="@string/birthdate"
             android:paddingLeft="30dp"
             android:textColor="#4CA2CD"
             android:textSize="15sp" />
@@ -187,7 +187,7 @@
             android:paddingLeft="30dp"
             android:fontFamily="@font/rubickregular"
             android:singleLine="true"
-            android:hint="Пароль"
+            android:hint="@string/password_number_hint"
             android:inputType="textPassword"
             android:gravity="center_vertical"
             android:textSize="15sp"
@@ -219,7 +219,7 @@
             android:paddingLeft="30dp"
             android:singleLine="true"
             android:fontFamily="@font/rubickregular"
-            android:hint="Номер автомобиля"
+            android:hint="@string/carnumber"
             android:gravity="center_vertical"
             android:textSize="15sp"
             android:textColor="#4CA2CD"
@@ -234,7 +234,7 @@
             android:layout_below="@id/password"
             android:fontFamily="@font/rubickregular"
             android:textColor="#ffffff"
-            android:text="*Например"
+            android:text="@string/example1"
             android:layout_toEndOf="@+id/carnumber"/>
 
         <TextView
@@ -258,7 +258,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
             android:fontFamily="@font/rubickregular"
-            android:hint="Марка автомобиля"
+            android:hint="@string/cartype"
             android:gravity="center_vertical"
             android:textSize="15sp"
             android:singleLine="true"
@@ -274,7 +274,7 @@
             android:layout_below="@id/carnumber"
             android:fontFamily="@font/rubickregular"
             android:textColor="#ffffff"
-            android:text="*Например"
+            android:text="@string/example1"
             android:layout_toEndOf="@+id/carnumber"/>
 
         <TextView
@@ -298,7 +298,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
             android:fontFamily="@font/rubickregular"
-            android:hint="Фото водт. прав"
+            android:hint="@string/driverlicencephoto"
             android:singleLine="true"
             android:gravity="center_vertical"
             android:textSize="15sp"
@@ -342,7 +342,7 @@
             android:fontFamily="@font/rubickregular"
             android:layout_centerHorizontal="true"
             android:textAllCaps="false"
-            android:text="Сохранить"/>
+            android:text="@string/save"/>
 
 
 

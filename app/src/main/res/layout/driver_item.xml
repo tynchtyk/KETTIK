@@ -51,7 +51,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubickregular"
                     android:gravity="top"
-                    android:text="Жалал - Абад"
                     android:textColor="@color/text_color_light_green"
                     android:textSize="@dimen/_17ssp" />
 
@@ -68,7 +67,6 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/from"
                     android:fontFamily="@font/rubickregular"
-                    android:text="Ыссык - Кол"
                     android:textColor="@color/text_color_light_green"
                     android:textSize="@dimen/_17ssp" />
             </LinearLayout>
@@ -103,7 +101,7 @@
                         android:id="@+id/currency"
                         android:layout_width="41dp"
                         android:layout_height="15dp"
-                        android:text="сом"
+                        android:text="@string/som"
                         android:textStyle="bold"
                         android:textColor="@color/blue_gradient"
                         android:textSize="14sp"/>
@@ -146,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubiklight"
-                    android:text="Дата и время:"
+                    android:text="@string/dateandtime"
                     android:textColor="@color/text_color_grey"
                     android:textSize="@dimen/_10ssp" />
 
@@ -155,7 +153,6 @@
                     android:layout_width="145dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubikbolditalic"
-                    android:text="19/12/2018, 21:00"
                     android:textColor="@color/text_color_light_green"
                     android:textSize="@dimen/_12ssp" />
 
@@ -185,8 +182,7 @@
                 android:textSize="@dimen/_12ssp"
                 android:textColor="@color/text_color_light_green"
                 android:fontFamily="@font/rubikbolditalic"
-                android:layout_height="wrap_content"
-                android:text="5 свободно"/>
+                android:layout_height="wrap_content"/>
   </LinearLayout>
 
 

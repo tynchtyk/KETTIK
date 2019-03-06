@@ -27,7 +27,7 @@
         android:fontFamily="@font/rubickregular"
         android:textStyle="bold"
         android:textColor="#4CA2CD"
-        android:text="Добавить аккаунт"/>
+        android:text="@string/add_accaunt"/>
 
     <ImageButton
         android:id="@+id/back_button"
@@ -89,7 +89,7 @@
         android:background="@drawable/ellipse_shape"
         android:fontFamily="@font/rubickregular"
         android:gravity="center_vertical"
-        android:hint="Номер телефона"
+        android:hint="@string/phone_number_hint"
         android:inputType="number"
         android:paddingLeft="15dp"
         android:textColor="#4CA2CD"
@@ -105,7 +105,7 @@
         android:layout_below="@+id/country_code"
         android:fontFamily="@font/rubickregular"
         android:gravity="center_vertical"
-        android:text="SMS с кодом подтверждения придет на Ваш номер телефона"
+        android:text="@string/sms_code"
         android:paddingLeft="15dp"
         android:textColor="#FFFFFF"
         android:textSize="15sp" />
@@ -122,7 +122,7 @@
         android:fontFamily="@font/rubickregular"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
-        android:text="Отправить код"/>
+        android:text="@string/send_code"/>
 
 
 </RelativeLayout>

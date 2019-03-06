@@ -27,7 +27,7 @@
         android:fontFamily="@font/rubickregular"
         android:textStyle="bold"
         android:textColor="#4CA2CD"
-        android:text="Логин"/>
+        android:text="@string/login"/>
 
     <ImageButton
         android:id="@+id/back_button"
@@ -89,7 +89,7 @@
         android:background="@drawable/ellipse_shape"
         android:fontFamily="@font/rubickregular"
         android:gravity="center_vertical"
-        android:hint="Номер телефона"
+        android:hint="@string/phone_number_hint"
         android:inputType="number"
         android:paddingLeft="15dp"
         android:textColor="#4CA2CD"
@@ -106,7 +106,7 @@
         android:fontFamily="@font/rubickregular"
         android:singleLine="true"
         android:gravity="center_vertical"
-        android:hint="Пароль"
+        android:hint="@string/password_number_hint"
         android:paddingLeft="30dp"
         android:textSize="15sp"
         android:textColor="#4CA2CD"
@@ -125,7 +125,7 @@
         android:fontFamily="@font/rubickregular"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
-        android:text="Логин"/>
+        android:text="@string/login"/>
 
     <Button
         android:id="@+id/signup"
@@ -139,7 +139,7 @@
         android:fontFamily="@font/rubickregular"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
-        android:text="Создать новый аккаунт"/>
+        android:text="@string/create_new_accaunt"/>
 
 
 </RelativeLayout>

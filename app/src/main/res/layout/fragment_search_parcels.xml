@@ -27,7 +27,7 @@
                  android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="Все посылки:"
+                android:text="@string/allparcels"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
         </LinearLayout>

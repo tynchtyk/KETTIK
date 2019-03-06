@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Вы успешно добавили новый"
+            android:text="@string/congrats"
             android:layout_marginTop="12dp"
             android:textSize="18sp"
             android:textColor="@color/blue_gradient"
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="запрос!"
+            android:text="@string/request"
             android:textSize="18sp"
             android:textColor="@color/blue_gradient"
             android:layout_gravity="center_horizontal"

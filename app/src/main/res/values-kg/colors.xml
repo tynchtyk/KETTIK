@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="mine_shaft">#303030</color>
+    <color name="white_selector_pf">#dfdfdf</color>
+    <color name="black">#000000</color>
+    <color name="green">#43A106</color>
+    <color name="text_color_light_green">#378243</color>
+    <color name="text_color_grey">#80000000</color>
+    <color name="list_background">#F1F0F2</color>
+    <color name="blue_gradient">#4ca2cd</color>
+    <color name="blue_gradient_light">#82d3ff</color>
+</resources>

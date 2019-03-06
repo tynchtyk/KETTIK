@@ -24,7 +24,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_marginTop="258dp"
-        android:text="Водителям:"
+        android:text="@string/for_drivers"
         android:textAppearance="@style/for_passegers_style"
         android:gravity="center_horizontal"
         />
@@ -36,8 +36,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_marginTop="311dp"
-        android:text="Оплата топлива и приятные
-собеседники"
+        android:text="@string/for_passengers_description"
         android:textSize="18sp"
         android:textColor="@color/white"
         android:gravity="center_horizontal"

@@ -27,7 +27,7 @@
         android:fontFamily="@font/rubickregular"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:text="Настройки"/>
+        android:text="@string/settings"/>
 
     <ImageView
         android:layout_marginTop="16dp"
@@ -57,7 +57,7 @@
             android:layout_marginLeft="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Язык / Тил / Language"
+            android:text="@string/language"
             android:textStyle="bold"
             android:textColor="#4CA2CD"
             android:textSize="18sp"
@@ -70,7 +70,7 @@
             android:textColor="#4CA2CD"
             android:textSize="14sp"
             android:fontFamily="@font/rubiklight"
-            android:text="Русский"/>
+            android:text="@string/russian"/>
 
         <View
             android:id="@+id/line"
@@ -124,7 +124,7 @@
         android:layout_marginLeft="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Выйти из аккаунта"
+        android:text="@string/logout"
         android:textStyle="bold"
         android:textColor="#4CA2CD"
         android:textSize="18sp"

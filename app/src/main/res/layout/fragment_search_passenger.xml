@@ -30,7 +30,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rectangle"
-                android:text="Добавить новый маршрут"
+                android:text="@string/addnewtrip"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -41,7 +41,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="Все пассажиры:"
+                android:text="@string/allpassengers"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
         </LinearLayout>

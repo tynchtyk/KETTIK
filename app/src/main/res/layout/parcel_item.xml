@@ -52,8 +52,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_17ssp"
                     android:fontFamily="@font/rubickregular"
-                    android:textColor="@color/text_color_light_green"
-                    android:text="Жалал - Абад"/>
+                    android:textColor="@color/text_color_light_green"/>
 
                 <View
                     android:id="@+id/divider_big"
@@ -70,8 +69,7 @@
                     android:layout_below="@+id/from"
                     android:textSize="@dimen/_17ssp"
                     android:fontFamily="@font/rubickregular"
-                    android:textColor="@color/text_color_light_green"
-                    android:text="Ыссык - Кол"/>
+                    android:textColor="@color/text_color_light_green"/>
             </LinearLayout>
 
             <LinearLayout
@@ -117,7 +115,7 @@
                     android:textSize="@dimen/_10ssp"
                     android:textColor="@color/text_color_grey"
                     android:fontFamily="@font/rubiklight"
-                    android:text="Дата и время:"/>
+                    android:text="@string/dateandtime"/>
 
             </LinearLayout>
 
@@ -127,8 +125,7 @@
                 android:textSize="@dimen/_12ssp"
                 android:textColor="@color/text_color_light_green"
                 android:fontFamily="@font/rubikbolditalic"
-                android:layout_height="wrap_content"
-                android:text="19/12/2018, 21:00"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
 

@@ -28,7 +28,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="Мои поездки"
+                android:text="@string/mytrips"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
         </LinearLayout>

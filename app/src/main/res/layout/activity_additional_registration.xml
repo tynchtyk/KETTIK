@@ -30,7 +30,7 @@
             android:fontFamily="@font/rubickregular"
             android:textStyle="bold"
             android:textColor="#4CA2CD"
-            android:text="Регистрация профиля"/>
+            android:text="@string/registration_profile"/>
 
         <ImageButton
             android:layout_marginTop="22dp"
@@ -65,7 +65,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/rubickregular"
             android:textSize="18sp"
-            android:text="Информация о водителе"/>
+            android:text="@string/information_about_driver"/>
 
 
 
@@ -79,7 +79,7 @@
             android:paddingLeft="30dp"
             android:singleLine="true"
             android:fontFamily="@font/rubickregular"
-            android:hint="Номер автомобиля"
+            android:hint="@string/carnumber"
             android:gravity="center_vertical"
             android:textSize="15sp"
             android:textColor="#4CA2CD"
@@ -94,7 +94,7 @@
             android:layout_below="@id/info"
             android:fontFamily="@font/rubickregular"
             android:textColor="#ffffff"
-            android:text="*Например"
+            android:text="@string/example1"
             android:layout_toEndOf="@+id/carnumber"/>
 
         <TextView
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
             android:fontFamily="@font/rubickregular"
-            android:hint="Марка автомобиля"
+            android:hint="@string/cartype"
             android:gravity="center_vertical"
             android:textSize="15sp"
             android:singleLine="true"
@@ -134,7 +134,7 @@
             android:layout_below="@id/carnumber"
             android:fontFamily="@font/rubickregular"
             android:textColor="#ffffff"
-            android:text="*Например"
+            android:text="@string/example1"
             android:layout_toEndOf="@+id/carnumber"/>
 
         <TextView
@@ -158,7 +158,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
             android:fontFamily="@font/rubickregular"
-            android:hint="Фото водт. прав"
+            android:hint="@string/driverlicencephoto"
             android:singleLine="true"
             android:gravity="center_vertical"
             android:textSize="15sp"
@@ -202,7 +202,7 @@
             android:fontFamily="@font/rubickregular"
             android:layout_centerHorizontal="true"
             android:textAllCaps="false"
-            android:text="Сохранить"/>
+            android:text="@string/save"/>
 
         <TextView
             android:id="@+id/info2"
@@ -211,8 +211,7 @@
             android:layout_below="@+id/save"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/rubickregular"
-            android:text="Нажимая кнопку Сохранить,
-вы соглашаетесь с нашими Условиями."
+            android:text="@string/agreement"
             android:textColor="#ffffff"
             android:textSize="14sp"
             android:textStyle="bold" />
