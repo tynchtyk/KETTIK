@@ -88,6 +88,18 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
                 builder.setMessage("Вы уверены что хотите Удалить этот заказ?")
                         .setPositiveButton("ДА", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                try {
+                                    mytripList.remove(position);
+                                    mytripInfoList.remove(position);
+                                    notifyItemRemoved(position);
+                                    notifyItemRangeChanged(position, mytripInfoList.size());
+                                    notifyItemRangeChanged(position, mytripList.size());
+
+                                } catch (IndexOutOfBoundsException e){
+                                    e.printStackTrace();
+                                }
+
+                                holder.itemView.setClickable(true);
                                 submitURL =  "http://81.214.24.77:7777/api/trips" + "/" + String.valueOf(item.tripId);
                                 try {
                                     collect_data(item_info, item);
@@ -138,8 +150,8 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
 
     public void collect_data(MyTrip_Info mytrip_info, MyTrip mytrip) throws JSONException {
         JSONObject data = new JSONObject();
-        data.put("id", mytrip.tripId);
-        data.put("from", "DELETE");
+        /*data.put("id", mytrip.tripId);
+        data.put("from", "DDDD");
         data.put("to", mytrip.to);
         data.put("tripDate", mytrip.date);
         data.put("tripTime", mytrip.time);
@@ -149,7 +161,7 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
         data.put("statusFlag", true);
         data.put("parcelFlag", mytrip_info.parcelFlag);
 
-        Log.e("ADAPTEREDITSEND", data.toString());
+        Log.e("ADAPTEREDITSEND", data.toString());*/
 
         requestThread task = new requestThread();
         task.execute(String.valueOf(data.toString()));
@@ -193,11 +205,11 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
                     URL url = new URL(submitURL);
 
                     urlConnection = (HttpURLConnection) url.openConnection();
-                    urlConnection.setDoOutput(true);
-                    urlConnection.setRequestMethod("PUT");
-                    urlConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+                    //urlConnection.setDoOutput(true);
+                    urlConnection.setRequestMethod("DELETE");
+ //                   urlConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 
-                    OutputStream os = urlConnection.getOutputStream();
+/*utputStream os = urlConnection.getOutputStream();
                     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
                     writer.write(data);
                     writer.flush();
@@ -206,15 +218,15 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
                     StringBuilder sb = new StringBuilder();
                     String line = null;
 
-                    // Read Server Response
                     while ((line = reader.readLine()) != null) {
-                        // Append server response in string
                         sb.append(line + "\n");
                     }
 
                     Log.e("ADAPTEROTVET", sb.toString());
                     writer.close();
-                    os.close();
+                    os.close();*/
+                    int responseCode = urlConnection.getResponseCode();
+                    Log.e("DELETEANSWER", String.valueOf(responseCode));
                     urlConnection.connect();
                 } catch (Exception e) {
                     e.printStackTrace();
