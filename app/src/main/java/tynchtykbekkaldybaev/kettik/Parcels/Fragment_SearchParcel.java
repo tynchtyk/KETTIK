@@ -48,8 +48,9 @@ public class Fragment_SearchParcel extends Fragment {
     private RecyclerView parcelRecyclerView;
     private ParcelListAdapter parcelAdapter;
 
-    public String submitURL;
-    public requestThread task;
+    public String submitURLTrip;
+    public String submitURLPassenger;
+    public requestThread taskTrip, taskPassenger;
     public Fragment_SearchParcel() {
         // Required empty public constructor
     }
@@ -73,6 +74,8 @@ public class Fragment_SearchParcel extends Fragment {
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                parcels.clear();
+                parcels_info.clear();
                 Intent intent;
                 intent = new Intent(tmp, Pop_Up_Search_Parcel.class);
                 startActivityForResult(intent, 1);
@@ -88,12 +91,20 @@ public class Fragment_SearchParcel extends Fragment {
 
 
 
-        if(submitURL == null)
-        submitURL = "http://81.214.24.77:7777/api/trips?parcelFlag=true";
+        if(submitURLTrip == null)
+            submitURLTrip = "http://81.214.24.77:7777/api/trips?parcelFlag=true";
 
 
-        task = new requestThread();
-        task.execute(submitURL);
+        taskTrip = new requestThread();
+        taskTrip.execute(submitURLTrip);
+
+        if(submitURLPassenger == null)
+            submitURLPassenger = "http://81.214.24.77:7777/api/passengers?parcelFlag=true";
+
+
+        taskPassenger = new requestThread();
+        taskPassenger.execute(submitURLPassenger);
+
 
 
         return rootview;
@@ -107,7 +118,7 @@ public class Fragment_SearchParcel extends Fragment {
         @Override
         protected String doInBackground(String... strings) {
 
-            String JsonResponse = getData();
+            String JsonResponse = getData(strings[0]);
 
             try {
                 parce_data(JsonResponse);
@@ -127,8 +138,7 @@ public class Fragment_SearchParcel extends Fragment {
             progressDialog.setCancelable(false);
             progressDialog.show();
 
-            parcels.clear();
-            parcels_info.clear();
+
 
         }
 
@@ -155,14 +165,10 @@ public class Fragment_SearchParcel extends Fragment {
             for(int i=0; i<jsonArray.length(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 String from, to, tripDate, tripTime;
-                int price, seats;
                 from = jsonObject.getString("from");
                 to = jsonObject.getString("to");
                 tripDate= jsonObject.getString("tripDate");
                 tripTime = jsonObject.getString("tripTime");
-                price = jsonObject.getInt("price");
-                seats = jsonObject.getInt("seats");
-
                 JSONObject info = jsonObject.getJSONObject("user");
 
                 int Id = info.getInt("id");
@@ -171,19 +177,17 @@ public class Fragment_SearchParcel extends Fragment {
                 String birthDate = info.getString("birthDate");
                 String gender = info.getString("gender");
 
-                String vehicleModel = info.getString("vehicleModel");
-                String vehicleNumber = info.getString("vehicleNumber");
                 String phoneNumber = info.getString("countryCode") + info.getString("phoneNumber");
 
                 parcels.add(new Parcel(from, to, tripDate + ", " + tripTime));
 
-                parcels_info.add(new Parcel_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
+                parcels_info.add(new Parcel_Info(name, surname, birthDate, gender, phoneNumber, Id));
 
 
             }
 
         }
-        public String getData(){
+        public String getData(String submitURL){
             if ( checkConnection() ) {
                 String JsonResponse = null;
                 HttpURLConnection urlConnection = null;
@@ -249,27 +253,37 @@ public class Fragment_SearchParcel extends Fragment {
 
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                String URL;
+                String URLTrip, URLPassenger;
                 String from = data.getStringExtra("from");
                 String to = data.getStringExtra("to");
                 String tripDate = data.getStringExtra("tripDate");
-                URL = "http://81.214.24.77:7777/api/trips?parcelFlag=true";
-                if(!from.equals(""))
-                    URL += "&from=" + from;
-                if(!to.equals(""))
-                    URL += "&to=" + to;
-                if(!tripDate.equals(""))
-                    URL += "&tripDate=" + tripDate;
+                URLTrip = "http://81.214.24.77:7777/api/trips?parcelFlag=true";
+                URLPassenger = "http://81.214.24.77:7777/api/passengers?parcelFlag=true";
+                if(!from.equals("")) {
+                    URLTrip += "&from=" + from;
+                    URLPassenger += "&from=" + from;
+                }
+
+                if(!to.equals("")) {
+                    URLTrip += "&to=" + to;
+                    URLPassenger += "&to=" + to;
+                }
+                if(!tripDate.equals("")) {
+                    URLTrip += "&tripDate=" + tripDate;
+                    URLPassenger += "&to=" + to;
+                }
+
                 Fragment_SearchParcel fragment = (Fragment_SearchParcel)
                         getFragmentManager().findFragmentById(R.id.content_frame);
-                fragment.submitURL = URL;
+                fragment.submitURLTrip =URLTrip;
+                fragment.submitURLPassenger =URLPassenger;
 
                 getFragmentManager().beginTransaction()
                         .detach(fragment)
                         .attach(fragment)
                         .commit();
                 Log.e("FROMTOTRIPDATE", from + to + tripDate);
-                Log.e("SUBMIT1", submitURL);
+                Log.e("SUBMIT1", submitURLTrip);
 
             }
         }

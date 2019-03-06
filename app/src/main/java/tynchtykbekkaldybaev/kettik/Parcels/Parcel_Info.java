@@ -10,23 +10,17 @@ public class Parcel_Info {
     String surname;
     String birthDate;
     String gender;
-    String price;
-    String vehicleModel;
-    String vehicleNumber;
     String phoneNumber;
 
     Parcel_Info() {
 
     }
 
-    public Parcel_Info(String nm, String snm, String bD, String gen, String pr, String vM, String vN, String pN, int id) {
+    public Parcel_Info(String nm, String snm, String bD, String gen, String pN, int id) {
         name = nm;
         surname = snm;
         birthDate = bD;
         gender = gen;
-        price = pr;
-        vehicleModel = vM;
-        vehicleNumber = vN;
         phoneNumber = pN;
         Id = id;
     }

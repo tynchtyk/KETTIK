@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:paddingBottom="@dimen/_15sdp"
+        android:id="@+id/group"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pop_up_shape"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_marginTop="@dimen/_45sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4CA2CD"
+            android:fontFamily="@font/rubickregular"
+            android:textSize="@dimen/_13ssp"
+            android:textAllCaps="true"
+            android:text="Водитель"/>
+
+        <TextView
+            android:id="@+id/driver_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/rubickregular"
+            android:textColor="#378243"
+            android:textSize="@dimen/_17ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/driver_age_and_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rubiklight"
+            android:textColor="#378243"
+            android:textSize="@dimen/_13ssp" />
+
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Позвонить"
+                android:textSize="@dimen/_15ssp"
+                android:textAllCaps="false"
+                android:background="@drawable/pop_up_button_shape"
+                android:fontFamily="@font/rubickregular"
+                android:textColor="#4CA2CD"/>
+
+            <Button
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/sms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Написать"
+                android:textSize="@dimen/_15ssp"
+                android:textAllCaps="false"
+                android:background="@drawable/pop_up_button_shape"
+                android:fontFamily="@font/rubickregular"
+                android:textColor="#4CA2CD"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_alignTop="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/user3"
+        android:scaleType="fitCenter"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/pop_up_photo_shape" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/group">
+
+        <Button
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отмена"
+            android:textSize="@dimen/_15ssp"
+            android:textAllCaps="false"
+            android:background="@drawable/pop_up_button_shape2"
+            android:fontFamily="@font/rubickregular"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
