@@ -114,12 +114,15 @@ public class My_Trips extends AppCompatActivity {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 String from, to, tripDate, tripTime;
                 int price, seats;
+                int ID;
                 from = jsonObject.getString("from");
                 to = jsonObject.getString("to");
                 tripDate= jsonObject.getString("tripDate");
                 tripTime = jsonObject.getString("tripTime");
                 price = jsonObject.getInt("price");
                 seats = jsonObject.getInt("seats");
+                ID = jsonObject.getInt("id");
+                boolean parcelFlag = jsonObject.getBoolean("parcelFlag");
 
                 JSONObject info = jsonObject.getJSONObject("user");
 
@@ -133,9 +136,9 @@ public class My_Trips extends AppCompatActivity {
                 String vehicleNumber = info.getString("vehicleNumber");
                 String phoneNumber = info.getString("phoneNumber");
 
-                mytrip.add(new MyTrip(from, to, tripDate + ", " + tripTime));
+                mytrip.add(new MyTrip(ID, from, to, tripDate, seats, tripTime));
 
-                mytrip_info.add(new MyTrip_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id));
+                mytrip_info.add(new MyTrip_Info(name, surname, birthDate, gender, String.valueOf(price), vehicleModel, vehicleNumber, phoneNumber, Id,parcelFlag));
 
 
             }

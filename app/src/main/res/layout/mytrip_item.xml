@@ -79,13 +79,10 @@
                 android:layout_height="match_parent"
                 android:gravity="center">
                 <ImageView
-                    android:id="@+id/call"
-                    android:layout_width="@dimen/_59sdp"
-                    android:layout_height="@dimen/_59sdp"
-                    android:scaleType="center"
-                    android:scaleX="1.5"
-                    android:scaleY="1.5"
-                    android:background="@drawable/call_button_unpressed"/>
+                    android:id="@+id/delete"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/delete"/>
             </LinearLayout>
 
 

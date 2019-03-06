@@ -5,17 +5,18 @@ package tynchtykbekkaldybaev.kettik.MyTrips;
  */
 
 public class MyTrip_Info {
-    int Id;
-    String name;
-    String surname;
-    String birthDate;
-    String gender;
-    String price;
-    String vehicleModel;
-    String vehicleNumber;
-    String phoneNumber;
+    public int Id;
+    public String name;
+    public String surname;
+    public String birthDate;
+    public String gender;
+    public String price;
+    public String vehicleModel;
+    public String vehicleNumber;
+    public String phoneNumber;
+    public boolean parcelFlag;
 
-    public MyTrip_Info(String nm, String snm, String bD, String gen, String pr, String vM, String vN, String pN, int id) {
+    public MyTrip_Info(String nm, String snm, String bD, String gen, String pr, String vM, String vN, String pN, int id, boolean pf) {
         name = nm;
         surname = snm;
         birthDate = bD;
@@ -25,5 +26,6 @@ public class MyTrip_Info {
         vehicleNumber = vN;
         phoneNumber = pN;
         Id = id;
+        parcelFlag = pf;
     }
 }
