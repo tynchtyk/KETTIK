@@ -89,7 +89,7 @@ public class Fragment_SearchParcel extends Fragment {
 
 
         if(submitURL == null)
-        submitURL = "http://81.214.24.77:7777/api/trips";
+        submitURL = "http://81.214.24.77:7777/api/trips?parcelFlag=true";
 
 
         task = new requestThread();
@@ -253,7 +253,7 @@ public class Fragment_SearchParcel extends Fragment {
                 String from = data.getStringExtra("from");
                 String to = data.getStringExtra("to");
                 String tripDate = data.getStringExtra("tripDate");
-                URL = "http://81.214.24.77:7777/api/trips?";
+                URL = "http://81.214.24.77:7777/api/trips?parcelFlag=true";
                 if(!from.equals(""))
                     URL += "&from=" + from;
                 if(!to.equals(""))
