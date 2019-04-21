@@ -138,7 +138,7 @@ public class EditProfile extends AppCompatActivity {
                     finish();
                 }
                 else {
-                    Toast.makeText(EditProfile.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfile.this, R.string.zapolnitevsepolya, Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -65,7 +65,7 @@ public class Fragment_SearchPassenger extends Fragment {
         View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);
 
         TextView search_in_action_bar = (TextView)  tmp.toolbarTitle;
-        search_in_action_bar.setText("Поиск пассажира");
+        search_in_action_bar.setText(R.string.poiskpassajira);
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +81,7 @@ public class Fragment_SearchPassenger extends Fragment {
             @Override
             public void onClick(View view) {
                 if(tmp.Id == -1){
-                    Toast.makeText(tmp, "Чтобы добавить запрос, войдите в систему", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(tmp, R.string.chtobydobavitzapros, Toast.LENGTH_SHORT).show();
                 }
                 else  if(tmp.driverflag == false) {
                     Intent intent;
@@ -105,7 +105,7 @@ public class Fragment_SearchPassenger extends Fragment {
 
 
         if(submitURL == null)
-            submitURL = "http://81.214.24.77:7777/api/passengers";
+            submitURL = "http://kettik.kundoluk.kg/api/passengers";
         task = new requestThread();
         task.execute(submitURL);
 
@@ -121,7 +121,7 @@ public class Fragment_SearchPassenger extends Fragment {
                 String from = data.getStringExtra("from");
                 String to = data.getStringExtra("to");
                 String tripDate = data.getStringExtra("tripDate");
-                URL = "http://81.214.24.77:7777/api/passengers?";
+                URL = "http://kettik.kundoluk.kg/api/passengers?";
                 if(!from.equals(""))
                     URL += "&from=" + from;
                 if(!to.equals(""))
@@ -144,7 +144,7 @@ public class Fragment_SearchPassenger extends Fragment {
         if (requestCode == 2) {
             if(resultCode == RESULT_OK) {
 
-                String URL = "http://81.214.24.77:7777/api/passengers";
+                String URL = "http://kettik.kundoluk.kg/api/passengers";
                 Fragment_SearchPassenger fragment = (Fragment_SearchPassenger)
                         getFragmentManager().findFragmentById(R.id.content_frame);
                 fragment.submitURL = URL;

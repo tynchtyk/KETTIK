@@ -92,7 +92,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if(check()) {
                     if (submitURL == null) {
-                        submitURL = "http://81.214.24.77:7777/api/users/params?countryCode=%2B996";
+                        submitURL = "http://kettik.kundoluk.kg/api/users/params?countryCode=%2B996";
                         submitURL += "&phoneNumber=" + number.getText().toString() + "&password=" + password.getText().toString();
                     }
                     Log.e("SUBMITLOGIN", submitURL);
@@ -100,7 +100,7 @@ public class Login extends AppCompatActivity {
                     task.execute(submitURL);
                 }
                 else {
-                    Toast.makeText(Login.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, R.string.zapolnitevsepolya, Toast.LENGTH_SHORT).show();
                 }
             }
         });

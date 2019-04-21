@@ -82,7 +82,7 @@ public class Fragment_SearchDriver extends Fragment {
         /*View cView = getLayoutInflater().inflate(R.layout.actionbar_header, null);*/
 
         TextView search_in_action_bar = (TextView)  tmp.toolbarTitle;
-        search_in_action_bar.setText("Поиск водителя");
+        search_in_action_bar.setText(R.string.poiskvoditelya);
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +97,7 @@ public class Fragment_SearchDriver extends Fragment {
             @Override
             public void onClick(View view) {
                 if(tmp.Id == -1){
-                    Toast.makeText(tmp, "Чтобы добавить маршрут, войдите в систему", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(tmp, R.string.chtobydobavitmarwrut, Toast.LENGTH_SHORT).show();
                 }
                else {
                     Intent intent;
@@ -120,7 +120,7 @@ public class Fragment_SearchDriver extends Fragment {
         isUp = false;
 
         if(submitURL == null)
-            submitURL = "http://81.214.24.77:7777/api/trips";
+            submitURL = "http://kettik.kundoluk.kg/api/trips";
 
 
         task = new requestThread();
@@ -141,7 +141,7 @@ public class Fragment_SearchDriver extends Fragment {
                 String from = data.getStringExtra("from");
                 String to = data.getStringExtra("to");
                 String tripDate = data.getStringExtra("tripDate");
-                URL = "http://81.214.24.77:7777/api/trips?";
+                URL = "http://kettik.kundoluk.kg/api/trips?";
                 if(!from.equals(""))
                         URL += "&from=" + from;
                 if(!to.equals(""))
@@ -164,7 +164,7 @@ public class Fragment_SearchDriver extends Fragment {
         if (requestCode == 2) {
             if(resultCode == RESULT_OK) {
 
-                String URL = "http://81.214.24.77:7777/api/trips";
+                String URL = "http://kettik.kundoluk.kg/api/trips";
                 Fragment_SearchDriver fragment = (Fragment_SearchDriver)
                         getFragmentManager().findFragmentById(R.id.content_frame);
                 fragment.submitURL = URL;

@@ -70,7 +70,7 @@ public class Fragment_SearchParcel extends Fragment {
 
 
         TextView search_in_action_bar = (TextView)  tmp.toolbarTitle;
-        search_in_action_bar.setText("Поиск маршрута");
+        search_in_action_bar.setText(R.string.poiskmarwruta);
         search_in_action_bar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,14 +92,14 @@ public class Fragment_SearchParcel extends Fragment {
 
 
         if(submitURLTrip == null)
-            submitURLTrip = "http://81.214.24.77:7777/api/trips?parcelFlag=true";
+            submitURLTrip = "http://kettik.kundoluk.kg/api/trips?parcelFlag=true";
 
 
         taskTrip = new requestThread();
         taskTrip.execute(submitURLTrip);
 
         if(submitURLPassenger == null)
-            submitURLPassenger = "http://81.214.24.77:7777/api/passengers?parcelFlag=true";
+            submitURLPassenger = "http://kettik.kundoluk.kg/api/passengers?parcelFlag=true";
 
 
         taskPassenger = new requestThread();
@@ -257,8 +257,8 @@ public class Fragment_SearchParcel extends Fragment {
                 String from = data.getStringExtra("from");
                 String to = data.getStringExtra("to");
                 String tripDate = data.getStringExtra("tripDate");
-                URLTrip = "http://81.214.24.77:7777/api/trips?parcelFlag=true";
-                URLPassenger = "http://81.214.24.77:7777/api/passengers?parcelFlag=true";
+                URLTrip = "http://kettik.kundoluk.kg/api/trips?parcelFlag=true";
+                URLPassenger = "http://kettik.kundoluk.kg/api/passengers?parcelFlag=true";
                 if(!from.equals("")) {
                     URLTrip += "&from=" + from;
                     URLPassenger += "&from=" + from;

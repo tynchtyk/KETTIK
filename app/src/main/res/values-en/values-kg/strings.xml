@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">KETTIK</string>
+    <string name="search_title">Search</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="kettik_eto">КЕТТИК- бул бүтүндөй Кыргызстанды чогу  айлануу үчүн айдоочуларды жана жүргүнчүлөрдү издөөчү жай.
+</string>
+    <string name="title_activity_edit_profile">EditProfile</string>
+
+    <string-array name="genderlist">
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+
+    <string-array name="countryList">
+        <item>Кыргызстан</item>
+        <item>Россия</item>
+        <item>Казакстан</item>
+    </string-array>
+    <string name="skip">откоруу</string>
+
+</resources>

@@ -164,7 +164,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(Passenger_Request_Add.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Passenger_Request_Add.this, R.string.zapolnitevsepolya, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -219,7 +219,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
         ProgressDialog progressDialog;
 
         private String submitURL =
-                "http://81.214.24.77:7777/api/passengers";
+                "http://kettik.kundoluk.kg/api/passengers";
 
         @Override
         protected String doInBackground(String... strings) {

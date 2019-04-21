@@ -160,7 +160,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(Driver_Trip_Add.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Driver_Trip_Add.this, R.string.zapolnitevsepolya, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -219,7 +219,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
         ProgressDialog progressDialog;
 
         private String submitURL =
-                "http://81.214.24.77:7777/api/trips";
+                "http://kettik.kundoluk.kg/api/trips";
 
         @Override
         protected String doInBackground(String... strings) {

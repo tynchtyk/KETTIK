@@ -55,7 +55,7 @@ public class Phone_Registration extends AppCompatActivity {
         password = intent.getStringExtra("password");
         gender = intent.getStringExtra("gender");
 
-        submitURL = "http://81.214.24.77:7777/api/users";
+        submitURL = "http://kettik.kundoluk.kg/api/users";
         if(Id != -1)
             submitURL += "/" + String.valueOf(Id);
 

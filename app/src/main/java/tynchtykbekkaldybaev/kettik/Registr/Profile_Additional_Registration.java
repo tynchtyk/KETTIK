@@ -76,7 +76,7 @@ public class Profile_Additional_Registration extends AppCompatActivity {
 
         Intent intent = getIntent();
         Id = userInfo.getInt("Id",-1);
-        submitURL = "http://81.214.24.77:7777/api/users";
+        submitURL = "http://kettik.kundoluk.kg/api/users";
         if(Id != -1)
             submitURL += "/" + String.valueOf(Id);
 
@@ -114,7 +114,7 @@ public class Profile_Additional_Registration extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(Profile_Additional_Registration.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Profile_Additional_Registration.this, R.string.zapolnitevsepolya, Toast.LENGTH_SHORT).show();
                 }
             }
         });

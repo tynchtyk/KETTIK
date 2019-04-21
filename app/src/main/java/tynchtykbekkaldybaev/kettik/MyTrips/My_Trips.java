@@ -50,7 +50,7 @@ public class My_Trips extends AppCompatActivity {
         Id = intent.getIntExtra("Id", -1);
 
            if(submitURL == null)
-            submitURL = "http://81.214.24.77:7777/api/trips?userId=" + String.valueOf(Id);
+            submitURL = "http://kettik.kundoluk.kg/api/trips?userId=" + String.valueOf(Id);
         task = new requestThread();
         task.execute(submitURL);
     }

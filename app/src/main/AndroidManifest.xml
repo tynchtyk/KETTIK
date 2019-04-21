@@ -77,7 +77,6 @@
         <activity
             android:name=".Description.Description"
             android:theme="@style/Theme.Design.Light.NoActionBar">
-
         </activity>
         <activity
             android:name=".MyTrips.My_Trips"
@@ -89,6 +88,10 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity android:name=".LanguageSelection"
             android:theme="@style/Theme.Design.Light.NoActionBar" ></activity>
+
+        <activity
+            android:name=".Choose_Language"
+            android:theme="@style/Theme.Design.Light.NoActionBar"/>
 
     </application>
 

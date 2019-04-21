@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -23,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 import tynchtykbekkaldybaev.kettik.Description.Description;
 import tynchtykbekkaldybaev.kettik.IamPassenger.Fragment_SearchDriver;
@@ -62,6 +65,11 @@ public class MainActivity extends AppCompatActivity{
 
 
 
+        /*Locale locale = new Locale("kg");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());*/
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -91,7 +99,7 @@ public class MainActivity extends AppCompatActivity{
         userProf = headView.findViewById(R.id.userProf);
 
         if(!islogin) {
-            Intent intent = new Intent(MainActivity.this, Description.class);
+            Intent intent = new Intent(MainActivity.this, Choose_Language.class);
             startActivityForResult(intent, 5);
 
         }
@@ -445,7 +453,7 @@ public class MainActivity extends AppCompatActivity{
                 startActivityForResult(intent,1);
             }
         }
-        if (requestCode == 5) { // Description
+        if (requestCode == 5) { // Choose Language
             if (resultCode == RESULT_OK) {
                 Intent intent;
                 intent = new Intent(MainActivity.this, Login.class);

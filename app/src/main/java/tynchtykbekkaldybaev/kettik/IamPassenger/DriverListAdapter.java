@@ -75,7 +75,7 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
         holder.from.setText(item.from);
         holder.to.setText(item.to);
         holder.date.setText(item.date + " " + item.time);
-        holder.available_space.setText(item.free + " свободно");
+        holder.available_space.setText(item.free + R.string.svobodno);
         holder.price.setText(item_info.price);
         holder.currency.setText("сом");
 
@@ -139,10 +139,10 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
                     @Override
                     public void onClick(View view) {
                         if(item.free - 1 >= 0)
-                            holder.available_space.setText(item.free - 1 + " свободно");
+                            holder.available_space.setText(item.free - 1 + R.string.svobodno);
                         else
-                            holder.available_space.setText(0 + " свободно");
-                        submitURL =  "http://81.214.24.77:7777/api/trips" + "/" + String.valueOf(item.tripId);
+                            holder.available_space.setText(0 + R.string.svobodno);
+                        submitURL =  "http://kettik.kundoluk.kg/api/trips" + "/" + String.valueOf(item.tripId);
                         try {
                             collect_data(item_info, item);
                         } catch (JSONException e) {

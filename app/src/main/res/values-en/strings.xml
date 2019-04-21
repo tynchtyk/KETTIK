@@ -1,0 +1,180 @@
+<resources>
+    <string name="app_name">KETTIK</string>
+    <string name="search_title">Search</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Description -->
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="for_passengers">Passengers:</string>
+    <string name="for_passengers_description">Affordable and Convenient</string>
+    <string name="for_drivers">Drivers:</string>
+
+    <!-- Mainactivity -->
+    <string name="IamDriver">I am driver</string>
+    <string name="IamPassenger">I am passenger</string>
+    <string name="SendParcel">Parceling</string>
+
+    <!-- Login -->
+    <string name="phone_number_hint">Phone number</string>
+    <string name="password_number_hint">Password</string>
+    <string name="create_new_accaunt">Create an account</string>
+
+    <!-- Profile Registration -->
+    <string name="registration_profile">Registration профиля</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="name">Name</string>
+    <string name="surname">Last name</string>
+    <string name="birthdate">Date of Birth</string>
+    <string name="save">Save</string>
+
+    <!-- Phone Registration -->
+    <string name="add_accaunt">Create Account</string>
+    <string name="sms_code">A text message with a verification code will be sent to your phone number</string>
+    <string name="send_code">Send a code</string>
+
+    <!-- Edit Profile -->
+    <string name="edit_profile">Edit profile</string>
+    <string name="carnumber">License Plate</string>
+    <string name="example1">*Example</string>
+    <string name="cartype">Car Model</string>
+    <string name="driverlicencephoto">Driver License photo</string>
+
+    <!-- additional information -->
+    <string name="information_about_driver">Driver Information</string>
+
+    <!-- Confirmation -->
+    <string name="confirmation_code">Verification code</string>
+    <string name="code">Code</string>
+    <string name="we_sent">A text message with a verification code was just sent</string>
+    <string name="registration">Registration</string>
+    <string name="didnotget">Didn’t received?</string>
+
+    <!--Help -->
+    <string name="help">Help</string>
+    <string name="writeus">Let us know your concern and we will get back to you shortly</string>
+    <string name="youremail">Insert your email</string>
+    <string name="yourquestion">Your feedback/concern</string>
+    <string name="sendtext">Send</string>
+
+    <!--Mytrips -->
+    <string name="mytrips">My trips</string>
+
+    <!--Settings -->
+    <string name="settings">Settings</string>
+    <string name="language">Язык / Тил / Language</string>
+    <string name="russian">Русский</string>
+    <string name="logout">Log out</string>
+
+    <!--Congrats -->
+    <string name="congrats">Congratulations!</string>
+    <string name="successadd">Вы успешно добавили новый</string>
+    <string name="trip">trip!</string>
+    <string name="request">request!</string>
+
+    <!--driveritem-->
+    <string name="dateandtime">Date and time</string>
+
+    <!--driverrouteadd-->
+    <string name="fromhint">From...</string>
+    <string name="tohint">To...</string>
+    <string name="date">Departure time</string>
+    <string name="price">Price...</string>
+    <string name="freeseat">*Number of available seats</string>
+    <string name="cantakeparcel">Can grab parcels</string>
+    <string name="post">Add</string>
+
+    <!--Fragmentsearchdriver-->
+    <string name="addnewrequest">Add an inquiry</string>
+    <string name="alldrivers">All drivers:</string>
+
+    <!--Fragmentsearchparcel-->
+    <string name="allparcels">All Parcels:</string>
+
+    <!--Fragmentsearchpassengers-->
+    <string name="addnewtrip">Offer a ride</string>
+    <string name="allpassengers">All passengers</string>
+
+    <!--navheader-->
+    <string name="signin">Sign in</string>
+    <string name="yourareguest">You have signed in as a guest</string>
+
+    <!--parcelrequestadd-->
+    <string name="add">Add</string>
+
+
+    <string name="peoplequantity">*Number of Passengers</string>
+
+    <!--popupdriverinformation-->
+    <string name="driver">Driver</string>
+    <string name="tripprice">Price:</string>
+    <string name="call">Call</string>
+    <string name="sms">Text</string>
+    <string name="yaedu">Agreed</string>
+    <string name="cancel">Search more</string>
+
+    <string name="search">Search</string>
+
+    <string name="podobral">Agreed</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="title_activity_edit_profile">EditProfile</string>
+
+    <string-array name="genderlist">
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+
+    <string-array name="countryList">
+        <item>Кыргызстан</item>
+        <item>Россия</item>
+        <item>Казакстан</item>
+    </string-array>
+    <string name="for_drivers_description">Skip</string>
+    <string name="login">Login</string>
+    <string name="agreement">By clicking Save you are agreeing to the Terms and Conditions</string>
+    <string name="som">som</string>
+    <string name="afteragreement">*If you have agreed on your trip, please press “Agreed”</string>
+    <string name="afteragreement2">"*If you have agreed on your trip, please press “Agreed” "</string>
+    <string name="kettik_eto">KETTIK is a carpooling platform for drivers and passengers all over the Kyrgyzstan</string>
+
+</resources>

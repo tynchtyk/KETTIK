@@ -85,7 +85,7 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
             public void onClick(View view) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                builder.setMessage("Вы уверены что хотите Удалить этот заказ?")
+                builder.setMessage(R.string.vyuvereny)
                         .setPositiveButton("ДА", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 try {
@@ -99,7 +99,7 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
                                     e.printStackTrace();
                                 }
 
-                                submitURL =  "http://81.214.24.77:7777/api/trips" + "/" + String.valueOf(item.tripId);
+                                submitURL =  "http://kettik.kundoluk.kg/api/trips" + "/" + String.valueOf(item.tripId);
                                 try {
                                     collect_data(item_info, item);
                                 } catch (JSONException e) {
