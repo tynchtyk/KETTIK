@@ -123,11 +123,11 @@ public class Profile_Registration extends AppCompatActivity {
                         startActivityForResult(intent,5);
                     }
                     else {
-                        Toast.makeText(Profile_Registration.this, "Проверьте что пароли совпадают", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Profile_Registration.this, R.string.proverteparoli, Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {
-                    Toast.makeText(Profile_Registration.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Profile_Registration.this, R.string.zapolnitevsepolya, Toast.LENGTH_SHORT).show();
                 }
             }
         });

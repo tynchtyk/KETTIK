@@ -133,7 +133,7 @@ public class Profile_Additional_Registration extends AppCompatActivity {
         final CharSequence[] items={"Запустить камеру","Выбрать из галереи", "Отмена"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Profile_Additional_Registration.this);
-        builder.setTitle("Добавить снимок вод. прав");
+        builder.setTitle(R.string.dobavitsnimokvodprav);
 
         builder.setItems(items, new DialogInterface.OnClickListener() {
 
@@ -232,7 +232,7 @@ public class Profile_Additional_Registration extends AppCompatActivity {
                 progressDialog.dismiss();
 
             if(result.equals("")) {
-                Toast.makeText(Profile_Additional_Registration.this, "Произошла ошибка, попробуйте заново",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Profile_Additional_Registration.this, R.string.proizowlaowibka,Toast.LENGTH_SHORT).show();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {

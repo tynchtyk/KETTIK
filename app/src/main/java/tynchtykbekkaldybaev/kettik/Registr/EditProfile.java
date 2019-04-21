@@ -187,7 +187,7 @@ public class EditProfile extends AppCompatActivity {
         final CharSequence[] items={"Запустить камеру","Выбрать из галереи", "Отмена"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(EditProfile.this);
-        builder.setTitle("Добавить снимок вод. прав");
+        builder.setTitle(R.string.dobavitsnimokvodprav);
 
         builder.setItems(items, new DialogInterface.OnClickListener() {
 

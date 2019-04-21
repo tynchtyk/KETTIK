@@ -134,20 +134,34 @@
 
     <string name="podobral">Договорились</string>
 
+
+
     <string name="poiskpassajira">Поиск пассажира</string>
     <string name="poiskvoditelya">Поиск водителя</string>
     <string name="poiskmarwruta">Поиск маршрута</string>
-
     <string name="zapolnitevsepolya">Заполните все поля jjj</string>
 
     <string name="chtobydobavitzapros">Чтобы добавить запрос, войдите в систему</string>
     <string name="chtobydobavitmarwrut">Чтобы добавить маршрут, войдите в систему</string>
+    <string name="chtobyuvidet">Чтобы увидеть ваши поездки, войдите в систему</string>
 
     <string name="chelovek">  человек</string>
 
     <string name="svobodno"> свободно</string>
 
     <string name="vyuvereny">Вы уверены что хотите Удалить этот заказ?</string>
+
+    <string name="dobavitsnimokvodprav">Добавить снимок вод. прав"</string>
+    <string name="neverniyloginiliparol">Неверный номер или пароль"</string>
+    <string name="proizowlaowibka">Произошла ошибка, попробуйте заново"</string>
+    <string name="proverteparoli">Проверьте что пароли совпадают"</string>
+    <string name="voditel">Водитель"</string>
+
+
+
+
+
+
 
 
 

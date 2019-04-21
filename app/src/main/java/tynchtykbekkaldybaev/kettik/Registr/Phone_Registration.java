@@ -136,7 +136,7 @@ public class Phone_Registration extends AppCompatActivity {
                 progressDialog.dismiss();
 
             if(result.equals("")) {
-                Toast.makeText(Phone_Registration.this, "Произошла ошибка, попробуйте заново",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Phone_Registration.this, R.string.proizowlaowibka,Toast.LENGTH_SHORT).show();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {

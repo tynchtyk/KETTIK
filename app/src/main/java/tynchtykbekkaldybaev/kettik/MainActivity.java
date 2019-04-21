@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity{
             String name = userInfo.getString("name", null);
             String surname = userInfo.getString("surname", null);
             userName.setText(name + " " + surname);
-            userProf.setText("Водитель");
+            userProf.setText(R.string.voditel);
 
             set_login();
 
@@ -241,7 +241,7 @@ public class MainActivity extends AppCompatActivity{
             case R.id.my_trips:
                 Intent intent = new Intent(MainActivity.this, My_Trips.class);
                 if(Id == -1) {
-                    Toast.makeText(MainActivity.this, "Чтобы увидеть ваши поездки, войдите в систему", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.chtobyuvidet, Toast.LENGTH_SHORT).show();
                 }
                 else {
                     intent.putExtra("Id", Id);
@@ -453,7 +453,7 @@ public class MainActivity extends AppCompatActivity{
                 startActivityForResult(intent,1);
             }
         }
-        if (requestCode == 5) { // Choose Language
+        if (requestCode == 5) { // Description
             if (resultCode == RESULT_OK) {
                 Intent intent;
                 intent = new Intent(MainActivity.this, Login.class);

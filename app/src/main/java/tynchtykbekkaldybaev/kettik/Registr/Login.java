@@ -157,7 +157,7 @@ public class Login extends AppCompatActivity {
                 progressDialog.dismiss();
 
             if(result.equals("")) {
-                Toast.makeText(Login.this, "Неверный номер или пароль",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, R.string.neverniyloginiliparol,Toast.LENGTH_SHORT).show();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
