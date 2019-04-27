@@ -86,6 +86,8 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity android:name=".Settings"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+
         <activity android:name=".LanguageSelection"
             android:theme="@style/Theme.Design.Light.NoActionBar" ></activity>
 

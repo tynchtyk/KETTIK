@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-        /*Locale locale = new Locale("kg");
+       /* Locale locale = new Locale("kg");
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;

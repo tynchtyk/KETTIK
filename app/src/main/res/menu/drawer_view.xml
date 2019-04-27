@@ -10,7 +10,7 @@
         <item
             android:id="@+id/my_trips"
             android:icon="@drawable/moi_poezdki"
-            android:title="Мои поездки" />
+            android:title="@string/mytrips" />
     </group>
 
     <group
@@ -19,15 +19,15 @@
         <item
             android:id="@+id/drivers"
             android:icon="@drawable/carfront"
-            android:title="Я Водитель" />
+            android:title="@string/IamDriver" />
         <item
             android:id="@+id/passengers"
             android:icon="@drawable/passengersicon"
-            android:title="Я Пассажир" />
+            android:title="@string/IamPassenger" />
         <item
             android:id="@+id/parcels"
             android:icon="@drawable/parcel"
-            android:title="Отправить Посылку" />
+            android:title="@string/SendParcel" />
     </group>
 
     <group
@@ -36,14 +36,14 @@
         <item
             android:id="@+id/settings"
             android:icon="@drawable/setting"
-            android:title="Настройки" />
+            android:title="@string/settings" />
         <item
             android:id="@+id/help"
             android:icon="@drawable/ic_help_black_24dp"
-            android:title="Помощь" />
+            android:title="@string/help" />
         <item
             android:id="@+id/log_out"
             android:icon="@drawable/exit"
-            android:title="Выйти" />
+            android:title="@string/logout" />
     </group>
 </menu>

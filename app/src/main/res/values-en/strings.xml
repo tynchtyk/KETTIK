@@ -65,12 +65,12 @@
     <!--Settings -->
     <string name="settings">Settings</string>
     <string name="language">Язык / Тил / Language</string>
-    <string name="russian">Русский</string>
+    <string name="russian">Russian</string>
     <string name="logout">Log out</string>
 
     <!--Congrats -->
     <string name="congrats">Congratulations!</string>
-    <string name="successadd">Вы успешно добавили новый</string>
+    <string name="successadd">You have sucessfully added new request</string>
     <string name="trip">trip!</string>
     <string name="request">request!</string>
 
@@ -176,5 +176,20 @@
     <string name="afteragreement">*If you have agreed on your trip, please press “Agreed”</string>
     <string name="afteragreement2">"*If you have agreed on your trip, please press “Agreed” "</string>
     <string name="kettik_eto">KETTIK is a carpooling platform for drivers and passengers all over the Kyrgyzstan</string>
+    <string name="poiskpassajira">Find a passenger</string>
+    <string name="poiskvoditelya">Find a driver</string>
+    <string name="poiskmarwruta">Find a trip</string>
+    <string name="zapolnitevsepolya">Fill out everything</string>
+    <string name="chtobydobavitzapros">In order to add inquiry please log in</string>
+    <string name="chtobydobavitmarwrut">In order to trip please log in</string>
+    <string name="chtobyuvidet">In order to see your trips please log in</string>
+    <string name="chelovek">people</string>
+    <string name="svobodno">available</string>
+    <string name="vyuvereny">Are you sure you want delete this request?</string>
+    <string name="dobavitsnimokvodprav">Add a  driver license photo</string>
+    <string name="neverniyloginiliparol">Incorrect number or password</string>
+    <string name="proizowlaowibka">Something went wrong, try again</string>
+    <string name="proverteparoli">Check whether passwords are same</string>
+    <string name="voditel">driver</string>
 
 </resources>
