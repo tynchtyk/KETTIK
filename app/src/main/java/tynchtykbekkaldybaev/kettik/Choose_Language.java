@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -40,12 +42,21 @@ public class Choose_Language extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(Choose_Language.this, Description.class);
-                Locale locale = new Locale("kg");
+
+                Locale myLocale = new Locale("kg");
+                Resources res = getResources();
+                DisplayMetrics dm = res.getDisplayMetrics();
+                Configuration conf = res.getConfiguration();
+                conf.locale = myLocale;
+                res.updateConfiguration(conf, dm);
+                startActivityForResult(intent, 1);
+
+                /*Locale locale = new Locale("kg");
                 Locale.setDefault(locale);
                 Configuration config = new Configuration();
                 config.locale = locale;
                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, 1);*/
                 //startActivity(intent);
             }
         });

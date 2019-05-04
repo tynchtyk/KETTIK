@@ -1,11 +1,14 @@
 package tynchtykbekkaldybaev.kettik.Registr;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,6 +32,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import tynchtykbekkaldybaev.kettik.Description.Description;
+import tynchtykbekkaldybaev.kettik.MainActivity;
 import tynchtykbekkaldybaev.kettik.R;
 
 public class Phone_Registration extends AppCompatActivity {
@@ -209,6 +214,15 @@ public class Phone_Registration extends AppCompatActivity {
     public void parce_data(String JsonResponse) throws JSONException {
         JSONObject info = new JSONObject(JsonResponse);
         int Id = info.getInt("id");
+        if(Id == -1) {
+            Toast.makeText(Phone_Registration.this, "USER ALREADY EXIST",Toast.LENGTH_SHORT).show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    Phone_Registration.this.recreate();
+                }
+            }, 1000);
+        }
         String name = info.getString("name");
         String surname = info.getString("surname");
         String birthDate = info.getString("birthDate");
@@ -221,6 +235,7 @@ public class Phone_Registration extends AppCompatActivity {
         String phoneNumber = info.getString("phoneNumber");
         String getPassword = info.getString("password");
         boolean driverFlag = info.getBoolean("driverFlag");
+        boolean activeFlag = info.getBoolean("activeFlag");
         String vehicleModel = info.getString("vehicleModel");
         String vehicleNumber = info.getString("vehicleNumber");
         String driverLicence = info.getString("driverLicense");
@@ -231,8 +246,9 @@ public class Phone_Registration extends AppCompatActivity {
                 .putInt("Id", Id)
                 .putString("name", name)
                 .putString("surname", surname)
-                .putBoolean("islogin", true)
+                .putBoolean("islogin", false)
                 .putBoolean("driverFlag", driverFlag)
+                .putBoolean("activeFlag", activeFlag)
                 .putString("cartype", vehicleModel)
                 .putString("carnumber", vehicleNumber)
                 .putString("driverLicense", driverLicence)
@@ -241,10 +257,34 @@ public class Phone_Registration extends AppCompatActivity {
                 .putString("profilePicture", profilePicture)
                 .putString("phoneNumber", phoneNumber)
                 .commit();
-        Intent intent = new Intent();
-        setResult(RESULT_OK, intent);
-        finish();
+
+        Intent intent;
+        intent = new Intent(Phone_Registration.this,Confirmation.class);
+        startActivityForResult(intent,1);
+
     }
+    @Override
+    public  void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode,data);
+
+        if (requestCode == 1) { // Confirmation
+            if (resultCode == RESULT_OK) {
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+            else if(resultCode == RESULT_FIRST_USER){
+
+
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                //Intent intent = new Intent();
+                //setResult(RESULT_CANCELED, intent);
+                //finish();
+            }
+        }
+    }
+
     public boolean checkConnection(){
         boolean haveConnectedWifi = false;
         boolean haveConnectedMobile = false;
@@ -266,5 +306,7 @@ public class Phone_Registration extends AppCompatActivity {
         }
         return (haveConnectedWifi || haveConnectedMobile);
     }
+
+
 
 }

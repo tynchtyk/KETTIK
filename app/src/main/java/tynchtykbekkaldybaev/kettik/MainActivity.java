@@ -32,6 +32,7 @@ import tynchtykbekkaldybaev.kettik.IamPassenger.Fragment_SearchDriver;
 import tynchtykbekkaldybaev.kettik.MyTrips.My_Trips;
 import tynchtykbekkaldybaev.kettik.Parcels.Fragment_SearchParcel;
 import tynchtykbekkaldybaev.kettik.IamDriver.Fragment_SearchPassenger;
+import tynchtykbekkaldybaev.kettik.Registr.Confirmation;
 import tynchtykbekkaldybaev.kettik.Registr.EditProfile;
 import tynchtykbekkaldybaev.kettik.Registr.Login;
 import tynchtykbekkaldybaev.kettik.Registr.Profile_Registration;
@@ -98,19 +99,18 @@ public class MainActivity extends AppCompatActivity{
         userGuest = headView.findViewById(R.id.guest);
         userProf = headView.findViewById(R.id.userProf);
 
-        if(!islogin) {
+        if(islogin == false) {
             Intent intent = new Intent(MainActivity.this, Choose_Language.class);
             startActivityForResult(intent, 5);
-
         }
         else{
-            String name = userInfo.getString("name", null);
-            String surname = userInfo.getString("surname", null);
-            userName.setText(name + " " + surname);
-            userProf.setText(R.string.voditel);
+            boolean activeFlag = userInfo.getBoolean("activeFlag", false);
+                String name = userInfo.getString("name", null);
+                String surname = userInfo.getString("surname", null);
+                userName.setText(name + " " + surname);
+                userProf.setText(R.string.voditel);
 
-            set_login();
-
+                set_login();
         }
 
         editButton.setOnClickListener(new View.OnClickListener() {
@@ -393,6 +393,10 @@ public class MainActivity extends AppCompatActivity{
                 Intent intent = new Intent(MainActivity.this, Description.class);
                 startActivityForResult(intent, 5);
             }
+            else if(resultCode == 2){ //activeflag = false
+                Intent intent = new Intent(MainActivity.this, Confirmation.class);
+                startActivityForResult(intent, 6);
+            }
         }
         if (requestCode == 2) { //Log out
             if (resultCode == RESULT_OK) {
@@ -440,12 +444,18 @@ public class MainActivity extends AppCompatActivity{
                 String surname = userInfo.getString("surname", null);
                 Id = userInfo.getInt("Id", -1);
                 Log.e("REGISTRSHAREDRESULT", name + " " + surname);
+
                 if(name != null && surname != null) {
                     userName.setText(name + " " + surname);
                     userProf.setText("Водитель");
                     set_login();
+                    userInfo.edit()
+                            .putBoolean("islogin", true)
+                            .commit();
+
                 }
                 driverflag = userInfo.getBoolean("driverFlag",false);
+
             }
             else if(resultCode == RESULT_CANCELED) {
                 Intent intent;
@@ -459,6 +469,28 @@ public class MainActivity extends AppCompatActivity{
                 intent = new Intent(MainActivity.this, Login.class);
                 startActivityForResult(intent,1);
             }
+
+        }
+        if (requestCode == 6) { // Confirmation
+            if (resultCode == RESULT_OK) {
+                SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+                String name = userInfo.getString("name", null);
+                String surname = userInfo.getString("surname", null);
+                Id = userInfo.getInt("Id", -1);
+                Log.e("REGISTRSHAREDRESULT", name + " " + surname);
+
+                if(name != null && surname != null) {
+                    userName.setText(name + " " + surname);
+                    userProf.setText("Водитель");
+                    set_login();
+                    userInfo.edit()
+                            .putBoolean("islogin", true)
+                            .commit();
+
+                }
+                driverflag = userInfo.getBoolean("driverFlag",false);
+            }
+
         }
 
     }

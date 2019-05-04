@@ -94,40 +94,4 @@
         android:scaleX="0.5"
         android:src="@drawable/vector"/>
 
-    <ImageView
-        android:layout_below="@+id/language_settings"
-        android:layout_width="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="30dp"
-        android:layout_height="wrap_content"
-        android:scaleY="0.5"
-        android:scaleX="0.5"
-        android:src="@drawable/vector"/>
-
-    <ImageView
-        android:layout_below="@+id/language_settings"
-        android:layout_width="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="30dp"
-        android:layout_height="wrap_content"
-        android:scaleY="0.5"
-        android:scaleX="0.5"
-        android:src="@drawable/vector"/>
-
-    <TextView
-        android:id="@+id/log_out"
-        android:onClick="logOut"
-        android:layout_below="@+id/language_settings"
-        android:layout_marginTop="21dp"
-        android:layout_marginLeft="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:textStyle="bold"
-        android:textColor="#4CA2CD"
-        android:textSize="18sp"
-        android:fontFamily="@font/rubickregular"/>
-
 </RelativeLayout>

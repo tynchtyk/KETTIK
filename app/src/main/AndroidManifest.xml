@@ -22,7 +22,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:configChanges="locale">
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"

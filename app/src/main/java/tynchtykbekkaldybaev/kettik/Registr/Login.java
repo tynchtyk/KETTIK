@@ -193,6 +193,7 @@ public class Login extends AppCompatActivity {
             String phoneNumber = info.getString("phoneNumber");
             String getPassword = info.getString("password");
             boolean driverFlag = info.getBoolean("driverFlag");
+            boolean activeFlag = info.getBoolean("activeFlag");
             Log.e("DRIVERFLAG", String .valueOf(driverFlag));
             String vehicleModel = info.getString("vehicleModel");
             String vehicleNumber = info.getString("vehicleNumber");
@@ -206,6 +207,7 @@ public class Login extends AppCompatActivity {
                     .putString("surname", surname)
                     .putBoolean("islogin", true)
                     .putBoolean("driverFlag", driverFlag)
+                    .putBoolean("activeFlag", driverFlag)
                     .putString("cartype", vehicleModel)
                     .putString("carnumber", vehicleNumber)
                     .putString("driverLicense", driverLicence)
@@ -214,8 +216,13 @@ public class Login extends AppCompatActivity {
                     .putString("profilePicture", profilePicture)
                     .putString("phoneNumber", phoneNumber)
                     .commit();
+
+
             Intent intent = new Intent();
-            setResult(RESULT_OK,intent);
+            if(activeFlag)
+                setResult(RESULT_OK,intent);
+            else
+                setResult(2, intent);
             finish();
         }
         public String getData(){

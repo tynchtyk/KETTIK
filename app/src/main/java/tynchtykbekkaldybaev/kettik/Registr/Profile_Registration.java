@@ -283,11 +283,13 @@ public class Profile_Registration extends AppCompatActivity {
                 Uri selectedImageUri = data.getData();
                 profilePic.setImageURI(selectedImageUri);
             }
-            else if(requestCode==5){
+            else if(requestCode==5){ // PHONE registration
                 Intent intent = new Intent();
                     if(resultCode == RESULT_OK) {
                         setResult(resultCode, intent);
                     }
+                    else if(resultCode == RESULT_FIRST_USER)
+                        setResult(resultCode, intent);
                     else {
                         setResult(RESULT_CANCELED, intent);
                     }
