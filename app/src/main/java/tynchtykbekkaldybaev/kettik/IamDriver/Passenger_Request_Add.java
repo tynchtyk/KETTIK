@@ -16,6 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -40,9 +42,11 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import tynchtykbekkaldybaev.kettik.City_List;
 import tynchtykbekkaldybaev.kettik.IamPassenger.Driver_Trip_Add;
 import tynchtykbekkaldybaev.kettik.R;
 
@@ -54,11 +58,11 @@ public class Passenger_Request_Add extends AppCompatActivity {
     private TextView date;
     private ImageView cal;
     private TextView time;
-    private EditText from, where, price, quantity;
+    private EditText   price, quantity;
     private Button send;
     private Switch Switch;
     boolean parcelFlag;
-
+    private AutoCompleteTextView from,where;
 
     private ImageView back;
     DatePicker datePicker;
@@ -74,14 +78,24 @@ public class Passenger_Request_Add extends AppCompatActivity {
 
         Intent intent = getIntent();
         Id = intent.getIntExtra("Id", -1);
+        City_List ct = new City_List();
+
+        String[] cities = ct.get_cities();
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cities);
+        from = (AutoCompleteTextView)findViewById(R.id.from);
+        from.setThreshold(3);
+        from.setAdapter(adapter);
+
+        where = (AutoCompleteTextView)findViewById(R.id.where);
+        where.setThreshold(3);
+        where.setAdapter(adapter);
 
 
         back = findViewById(R.id.back);
         date = findViewById(R.id.date);
         time = findViewById(R.id.time);
         timeImage = findViewById(R.id.timeimage);
-        from = findViewById(R.id.from);
-        where = findViewById(R.id.where);
+
         quantity = findViewById(R.id.quantity);
         price = findViewById(R.id.price);
         send = findViewById(R.id.add);

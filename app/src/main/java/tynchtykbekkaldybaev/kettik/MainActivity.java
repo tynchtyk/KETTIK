@@ -102,6 +102,32 @@ public class MainActivity extends AppCompatActivity{
                 set_login();
         }
 
+
+
+    }
+
+    public void set_View(){
+        setContentView(R.layout.activity_main);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+
+        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+
+        toolbarTitle = findViewById(R.id.toolbarTitle);
+
+        View headView = navigationView.getHeaderView(0);
+        editButton = (ImageButton) headView.findViewById(R.id.edit_button);
+        login = headView.findViewById(R.id.signup);
+        userName = headView.findViewById(R.id.userName);
+        userGuest = headView.findViewById(R.id.guest);
+        userProf = headView.findViewById(R.id.userProf);
+
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,31 +195,6 @@ public class MainActivity extends AppCompatActivity{
                 updateNavigationButtons(PARCELS_FRAGMENT);
             }
         });
-
-
-    }
-
-    public void set_View(){
-        setContentView(R.layout.activity_main);
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-
-        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-
-        toolbarTitle = findViewById(R.id.toolbarTitle);
-
-        View headView = navigationView.getHeaderView(0);
-        editButton = (ImageButton) headView.findViewById(R.id.edit_button);
-        login = headView.findViewById(R.id.signup);
-        userName = headView.findViewById(R.id.userName);
-        userGuest = headView.findViewById(R.id.guest);
-        userProf = headView.findViewById(R.id.userProf);
     }
 
     @Override

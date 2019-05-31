@@ -100,8 +100,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.75"
                 android:orientation="vertical">
-
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/from"
                     android:layout_width="232dp"
                     android:layout_height="48dp"
@@ -113,10 +112,9 @@
                     android:layout_marginRight="26dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="12dp"
-                    android:background="@drawable/rectangle2"
+                    android:background="@drawable/rectangle2"/>
 
-                    />
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/where"
                     android:layout_width="232dp"
                     android:layout_height="48dp"
