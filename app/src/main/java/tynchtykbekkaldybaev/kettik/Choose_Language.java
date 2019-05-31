@@ -37,7 +37,6 @@ public class Choose_Language extends AppCompatActivity {
         kg = findViewById(R.id.kyrgyz);
         ru = findViewById(R.id.russian);
         en = findViewById(R.id.english);
-
         kg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +48,10 @@ public class Choose_Language extends AppCompatActivity {
                 Configuration conf = res.getConfiguration();
                 conf.locale = myLocale;
                 res.updateConfiguration(conf, dm);
+                SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+                userInfo.edit()
+                        .putString("language", "kg")
+                        .commit();
                 startActivityForResult(intent, 1);
 
                 /*Locale locale = new Locale("kg");
@@ -70,6 +73,10 @@ public class Choose_Language extends AppCompatActivity {
                 Configuration config = new Configuration();
                 config.locale = locale;
                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+                userInfo.edit()
+                        .putString("language", "ru")
+                        .commit();
                 startActivityForResult(intent, 1);
                 //startActivity(intent);
             }
@@ -83,6 +90,10 @@ public class Choose_Language extends AppCompatActivity {
                 Configuration config = new Configuration();
                 config.locale = locale;
                 getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+                userInfo.edit()
+                        .putString("language", "en")
+                        .commit();
                 startActivityForResult(intent, 1);
                 //startActivity(intent);
             }

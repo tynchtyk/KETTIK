@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -14,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,46 +64,33 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
-
-       /* Locale locale = new Locale("kg");
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());*/
-
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-
-        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-
-        toolbarTitle = findViewById(R.id.toolbarTitle);
-
-        View headView = navigationView.getHeaderView(0);
 
         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+        String lan = userInfo.getString("language", "ru");
         Boolean islogin = userInfo.getBoolean("islogin", false);
+
+        // language
+        Locale myLocale = new Locale(lan);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        //id
         Id = userInfo.getInt("Id", -1);
         driverflag = userInfo.getBoolean("driverFlag", false);
         Log.e("ISLOGIN", String.valueOf(islogin));
 
-        editButton = (ImageButton) headView.findViewById(R.id.edit_button);
-        login = headView.findViewById(R.id.signup);
-        userName = headView.findViewById(R.id.userName);
-        userGuest = headView.findViewById(R.id.guest);
-        userProf = headView.findViewById(R.id.userProf);
+        set_View();
+
+
+
+
 
         if(islogin == false) {
             Intent intent = new Intent(MainActivity.this, Choose_Language.class);
             startActivityForResult(intent, 5);
+
         }
         else{
             boolean activeFlag = userInfo.getBoolean("activeFlag", false);
@@ -184,6 +173,28 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    public void set_View(){
+        setContentView(R.layout.activity_main);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+
+        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+
+        toolbarTitle = findViewById(R.id.toolbarTitle);
+
+        View headView = navigationView.getHeaderView(0);
+        editButton = (ImageButton) headView.findViewById(R.id.edit_button);
+        login = headView.findViewById(R.id.signup);
+        userName = headView.findViewById(R.id.userName);
+        userGuest = headView.findViewById(R.id.guest);
+        userProf = headView.findViewById(R.id.userProf);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -464,6 +475,7 @@ public class MainActivity extends AppCompatActivity{
             }
         }
         if (requestCode == 5) { // Description
+            set_View();
             if (resultCode == RESULT_OK) {
                 Intent intent;
                 intent = new Intent(MainActivity.this, Login.class);
