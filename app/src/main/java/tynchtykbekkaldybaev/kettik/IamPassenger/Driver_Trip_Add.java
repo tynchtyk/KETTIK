@@ -78,11 +78,11 @@ public class Driver_Trip_Add extends AppCompatActivity {
         String[] cities = ct.get_cities();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cities);
         from = (AutoCompleteTextView)findViewById(R.id.from);
-        from.setThreshold(3);
+        from.setThreshold(1);
         from.setAdapter(adapter);
 
         where = (AutoCompleteTextView)findViewById(R.id.where);
-        where.setThreshold(3);
+        where.setThreshold(1);
         where.setAdapter(adapter);
         Intent intent = getIntent();
 

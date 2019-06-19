@@ -23,12 +23,14 @@ public class LanguageSelection extends AppCompatActivity {
     public AlertDialog.Builder builder;
     public ImageView kyrgyz, russian, english;
     public Intent intent = null;
-
+    public String message, yes, no;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_selection);
-
+        message = getResources().getString(R.string.areyousuretochange);
+        yes = getResources().getString(R.string.yes);
+        no = getResources().getString(R.string.no);
         kyrgyz = (ImageView) findViewById(R.id.kyrgyz_check);
         russian = (ImageView) findViewById(R.id.russian_check);
         english = (ImageView) findViewById(R.id.english_check);
@@ -43,8 +45,8 @@ public class LanguageSelection extends AppCompatActivity {
     }
 
     public void Russian(View view) {
-        builder.setMessage("Вы уверены что хотите Выбрать этот язык?")
-                .setPositiveButton("ДА", new DialogInterface.OnClickListener() {
+        builder.setMessage(message)
+                .setPositiveButton(yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Locale locale = new Locale("ru");
                         Locale.setDefault(locale);
@@ -61,7 +63,7 @@ public class LanguageSelection extends AppCompatActivity {
 
                     }
                 })
-                .setNegativeButton("НЕТ", new DialogInterface.OnClickListener() {
+                .setNegativeButton(no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User cancelled the dialog
                     }
@@ -73,8 +75,8 @@ public class LanguageSelection extends AppCompatActivity {
     }
 
     public void Kyrgyz(View view) {
-        builder.setMessage("Вы уверены что хотите Выбрать этот язык?")
-                .setPositiveButton("ДА", new DialogInterface.OnClickListener() {
+        builder.setMessage(message)
+                .setPositiveButton(yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Locale myLocale = new Locale("kg");
                         Resources res = getResources();
@@ -91,7 +93,7 @@ public class LanguageSelection extends AppCompatActivity {
                         finish();
                     }
                 })
-                .setNegativeButton("НЕТ", new DialogInterface.OnClickListener() {
+                .setNegativeButton(no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User cancelled the dialog
                     }
@@ -103,8 +105,8 @@ public class LanguageSelection extends AppCompatActivity {
     }
 
     public void English(View view) {
-        builder.setMessage("Вы уверены что хотите Выбрать этот язык?")
-                .setPositiveButton("ДА", new DialogInterface.OnClickListener() {
+        builder.setMessage(message)
+                .setPositiveButton(yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Locale locale = new Locale("en");
                         Locale.setDefault(locale);
@@ -120,7 +122,7 @@ public class LanguageSelection extends AppCompatActivity {
                         finish();
                     }
                 })
-                .setNegativeButton("НЕТ", new DialogInterface.OnClickListener() {
+                .setNegativeButton(no  , new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User cancelled the dialog
                     }

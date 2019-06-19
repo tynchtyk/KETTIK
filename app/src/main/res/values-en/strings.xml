@@ -191,5 +191,8 @@
     <string name="proizowlaowibka">Something went wrong, try again</string>
     <string name="proverteparoli">Check whether passwords are same</string>
     <string name="voditel">driver</string>
+    <string name="areyousuretochange">Are you sure to choose this language?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
 
 </resources>

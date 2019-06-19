@@ -156,6 +156,10 @@
     <string name="proizowlaowibka">Произошла ошибка, попробуйте заново"</string>
     <string name="proverteparoli">Проверьте что пароли совпадают"</string>
     <string name="voditel">Водитель"</string>
+    <string name="areyousuretochange">Вы уверены что хотите Выбрать этот язык?"</string>
+    <string name="yes">ДА</string>
+    <string name="no">НЕТ</string>
+
 
 
 

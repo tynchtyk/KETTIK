@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,6 +19,7 @@ import com.applandeo.materialcalendarview.listeners.OnSelectDateListener;
 import java.util.Calendar;
 import java.util.List;
 
+import tynchtykbekkaldybaev.kettik.City_List;
 import tynchtykbekkaldybaev.kettik.R;
 
 /**
@@ -26,7 +29,7 @@ import tynchtykbekkaldybaev.kettik.R;
 public class Pop_Up_Search_Driver extends AppCompatActivity {
 
     private TextView date;
-    private EditText from, where;
+    private AutoCompleteTextView from, where;
     private ImageView back;
     private ImageView cal;
     private Button search;
@@ -37,8 +40,17 @@ public class Pop_Up_Search_Driver extends AppCompatActivity {
         setContentView(R.layout.pop_up_driver_search);
 
         back = findViewById(R.id.back);
-        from = findViewById(R.id.from);
-        where = findViewById(R.id.where);
+        City_List ct = new City_List();
+
+        String[] cities = ct.get_cities();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,cities);
+        from = (AutoCompleteTextView)findViewById(R.id.from);
+        from.setThreshold(1);
+        from.setAdapter(adapter);
+
+        where = (AutoCompleteTextView)findViewById(R.id.where);
+        where.setThreshold(1);
+        where.setAdapter(adapter);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

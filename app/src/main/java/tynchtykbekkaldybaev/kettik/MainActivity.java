@@ -281,7 +281,7 @@ public class MainActivity extends AppCompatActivity{
                 final ProgressDialog progressDialog = new ProgressDialog(this,
                         R.style.Theme_AppCompat_Light_Dialog);
                 progressDialog.setIndeterminate(true);
-//                progressDialog.setMessage("Разлогинизация...");
+                progressDialog.setMessage("...");
                 progressDialog.show();
                 userName = null;
                 userProf = null;
@@ -417,10 +417,15 @@ public class MainActivity extends AppCompatActivity{
         }
         if (requestCode == 2) { //Settings
             if (resultCode == RESULT_OK) {
-
+                final ProgressDialog progressDialog = new ProgressDialog(this,
+                        R.style.Theme_AppCompat_Light_Dialog);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("...");
+                progressDialog.show();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
+                        progressDialog.dismiss();
                         MainActivity.this.recreate();
                     }
                 }, 2000);

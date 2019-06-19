@@ -110,5 +110,8 @@
     <string name="proizowlaowibka">Ката кетти, кайра аракет кылып корунуз</string>
     <string name="proverteparoli">Парольдор окшош болуусу зарыл</string>
     <string name="voditel">Айдоочу</string>
+    <string name="areyousuretochange">Ушул тилди тандоого макулсузбу?</string>
+    <string name="yes">ООБА</string>
+    <string name="no">ЖОК</string>
 
 </resources>
