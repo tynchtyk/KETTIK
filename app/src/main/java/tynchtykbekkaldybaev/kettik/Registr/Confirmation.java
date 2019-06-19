@@ -100,7 +100,7 @@ public class Confirmation extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(Confirmation.this);
-            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setMessage("...");
             progressDialog.setCancelable(false);
             progressDialog.show();
         }

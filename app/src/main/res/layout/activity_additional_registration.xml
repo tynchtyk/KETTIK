@@ -33,15 +33,15 @@
             android:text="@string/registration_profile"/>
 
         <ImageButton
-            android:layout_marginTop="22dp"
-            android:layout_marginLeft="15dp"
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/carnumber"
+            android:layout_alignTop="@+id/accept_button"
             android:background="@drawable/back"
             android:scaleType="center"
-            android:scaleY="0.5"
-            android:scaleX="0.5"/>
+            android:scaleX="0.5"
+            android:scaleY="0.5" />
 
         <ImageButton
             android:layout_alignParentRight="true"
@@ -203,18 +203,6 @@
             android:layout_centerHorizontal="true"
             android:textAllCaps="false"
             android:text="@string/save"/>
-
-        <TextView
-            android:id="@+id/info2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/save"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="@font/rubickregular"
-            android:text="@string/agreement"
-            android:textColor="#ffffff"
-            android:textSize="14sp"
-            android:textStyle="bold" />
 
 
     </RelativeLayout>

@@ -130,7 +130,7 @@ public class Phone_Registration extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(Phone_Registration.this);
-            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setMessage("...");
             progressDialog.setCancelable(false);
             progressDialog.show();
         }

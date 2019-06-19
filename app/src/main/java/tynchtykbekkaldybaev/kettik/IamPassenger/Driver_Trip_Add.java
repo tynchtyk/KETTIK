@@ -245,7 +245,7 @@ public class Driver_Trip_Add extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(Driver_Trip_Add.this);
-            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setMessage("...");
             progressDialog.setCancelable(false);
             progressDialog.show();
         }

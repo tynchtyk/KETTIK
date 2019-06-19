@@ -244,7 +244,7 @@ public class Passenger_Request_Add extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(Passenger_Request_Add.this);
-            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setMessage("...");
             progressDialog.setCancelable(false);
             progressDialog.show();
         }

@@ -75,7 +75,8 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
         holder.from.setText(item.from);
         holder.to.setText(item.to);
         holder.date.setText(item.date + " " + item.time);
-        holder.available_space.setText(item.free + R.string.svobodno);
+        final String s = " " + mContext.getString(R.string.chelovek);
+        holder.available_space.setText(item.free + s);
         holder.price.setText(item_info.price);
         holder.currency.setText("сом");
 
@@ -139,9 +140,9 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
                     @Override
                     public void onClick(View view) {
                         if(item.free - 1 >= 0)
-                            holder.available_space.setText(item.free - 1 + R.string.svobodno);
+                            holder.available_space.setText(item.free - 1 +s);
                         else
-                            holder.available_space.setText(0 + R.string.svobodno);
+                            holder.available_space.setText(0 + s);
                         submitURL =  "http://kettik.kundoluk.kg/api/trips" + "/" + String.valueOf(item.tripId);
                         try {
                             collect_data(item_info, item);
@@ -244,7 +245,7 @@ public class DriverListAdapter extends RecyclerView.Adapter<DriverListAdapter.Dr
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(mContext);
-            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setMessage("...");
             progressDialog.setCancelable(false);
             progressDialog.show();
         }

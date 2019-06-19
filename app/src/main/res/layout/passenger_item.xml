@@ -169,7 +169,7 @@
                 />
 
             <ImageView
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/passengericon"
@@ -177,7 +177,7 @@
 
 
             <TextView
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/passenger_quantity"
                 android:layout_width="wrap_content"
                 android:textSize="@dimen/_12ssp"

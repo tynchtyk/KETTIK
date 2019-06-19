@@ -196,7 +196,7 @@ public class Fragment_SearchPassenger extends Fragment {
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setMessage("...");
             progressDialog.setCancelable(false);
             progressDialog.show();
             passengers.clear();

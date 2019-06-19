@@ -46,12 +46,11 @@ public class LanguageSelection extends AppCompatActivity {
         builder.setMessage("Вы уверены что хотите Выбрать этот язык?")
                 .setPositiveButton("ДА", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Locale myLocale = new Locale("ru");
-                        Resources res = getResources();
-                        DisplayMetrics dm = res.getDisplayMetrics();
-                        Configuration conf = res.getConfiguration();
-                        conf.locale = myLocale;
-                        res.updateConfiguration(conf, dm);
+                        Locale locale = new Locale("ru");
+                        Locale.setDefault(locale);
+                        Configuration config = new Configuration();
+                        config.locale = locale;
+                        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
                         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
                         userInfo.edit()
                                 .putString("language", "ru")
@@ -107,12 +106,11 @@ public class LanguageSelection extends AppCompatActivity {
         builder.setMessage("Вы уверены что хотите Выбрать этот язык?")
                 .setPositiveButton("ДА", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Locale myLocale = new Locale("en");
-                        Resources res = getResources();
-                        DisplayMetrics dm = res.getDisplayMetrics();
-                        Configuration conf = res.getConfiguration();
-                        conf.locale = myLocale;
-                        res.updateConfiguration(conf, dm);
+                        Locale locale = new Locale("en");
+                        Locale.setDefault(locale);
+                        Configuration config = new Configuration();
+                        config.locale = locale;
+                        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
                         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
                         userInfo.edit()
                                 .putString("language", "en")

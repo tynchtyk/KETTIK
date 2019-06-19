@@ -74,7 +74,8 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
         holder.from.setText(item.from);
         holder.to.setText(item.to);
         holder.date.setText(item.date + " " + item.time);
-        holder.passengers_quantity.setText(item.passengers + R.string.chelovek);
+        final String s = " " + mContext.getString(R.string.chelovek);
+        holder.passengers_quantity.setText(item.passengers + s);
         holder.price.setText(item_info.price);
         holder.currency.setText("сом");
 
@@ -134,9 +135,9 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
                     @Override
                     public void onClick(View view) {
                         if(item.passengers - 1 >= 0)
-                            holder.passengers_quantity.setText(item.passengers - 1 + R.string.chelovek);
+                            holder.passengers_quantity.setText(item.passengers - 1  + s);
                         else
-                            holder.passengers_quantity.setText(0 + R.string.chelovek);
+                            holder.passengers_quantity.setText(0  + s);
                         submitURL =  "http://kettik.kundoluk.kg/api/passengers" + "/" + String.valueOf(item.requestId);
                         try {
                             collect_data(item_info, item);
@@ -238,7 +239,7 @@ public class PassengerListAdapter extends RecyclerView.Adapter<PassengerListAdap
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(mContext);
-            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setMessage("...");
             progressDialog.setCancelable(false);
             progressDialog.show();
         }

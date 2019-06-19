@@ -23,7 +23,7 @@
     <string name="create_new_accaunt">Create an account</string>
 
     <!-- Profile Registration -->
-    <string name="registration_profile">Registration профиля</string>
+    <string name="registration_profile">Profile Registration</string>
     <string name="personal_information">Personal Information</string>
     <string name="name">Name</string>
     <string name="surname">Last name</string>
@@ -70,7 +70,7 @@
 
     <!--Congrats -->
     <string name="congrats">Congratulations!</string>
-    <string name="successadd">You have sucessfully added new request</string>
+    <string name="successadd">You have sucessfully added new</string>
     <string name="trip">trip!</string>
     <string name="request">request!</string>
 

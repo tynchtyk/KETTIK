@@ -61,29 +61,16 @@ public class MainActivity extends AppCompatActivity{
 
     public int Id;
     public boolean driverflag;
+    Boolean islogin;
+    SharedPreferences userInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
-        String lan = userInfo.getString("language", "ru");
-        Boolean islogin = userInfo.getBoolean("islogin", false);
-
-        // language
-        Locale myLocale = new Locale(lan);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-        //id
-        Id = userInfo.getInt("Id", -1);
-        driverflag = userInfo.getBoolean("driverFlag", false);
-        Log.e("ISLOGIN", String.valueOf(islogin));
+        set_locale();
 
         set_View();
-
-
 
 
 
@@ -103,6 +90,24 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
+
+    }
+    public void set_locale(){
+        userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
+        String lan = userInfo.getString("language", "ru");
+        islogin = userInfo.getBoolean("islogin", false);
+
+        // language
+        Locale myLocale = new Locale(lan);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        //id
+        Id = userInfo.getInt("Id", -1);
+        driverflag = userInfo.getBoolean("driverFlag", false);
+        Log.e("ISLOGIN", String.valueOf(islogin));
 
     }
 

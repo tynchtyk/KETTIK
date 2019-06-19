@@ -180,7 +180,7 @@ public class MyTripListAdapter extends RecyclerView.Adapter<MyTripListAdapter.My
         @Override
         protected void onPreExecute() {
             progressDialog = new ProgressDialog(mContext);
-            progressDialog.setMessage("Отправка данных...");
+            progressDialog.setMessage("...");
             progressDialog.setCancelable(false);
             progressDialog.show();
         }

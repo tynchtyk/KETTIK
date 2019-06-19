@@ -79,7 +79,7 @@
 
     <!--Congrats -->
     <string name="congrats">Поздравляем!</string>
-    <string name="successadd">Вы успешно добавили новый запрос</string>
+    <string name="successadd">Вы успешно добавили новый</string>
     <string name="trip">маршрут!</string>
     <string name="request">запрос!</string>
 
