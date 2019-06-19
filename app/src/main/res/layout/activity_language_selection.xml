@@ -64,6 +64,7 @@
         android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
         android:scaleY="0.5"
+        android:visibility="invisible"
         android:scaleX="0.5"
         android:src="@drawable/check"/>
 

@@ -52,6 +52,7 @@ public class Choose_Language extends AppCompatActivity {
                 userInfo.edit()
                         .putString("language", "kg")
                         .commit();
+
                 startActivityForResult(intent, 1);
 
                 /*Locale locale = new Locale("kg");

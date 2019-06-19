@@ -12,7 +12,7 @@ import android.view.View;
 import tynchtykbekkaldybaev.kettik.R;
 
 public class Settings extends AppCompatActivity {
-
+    public Intent intent = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +21,7 @@ public class Settings extends AppCompatActivity {
 
     public void languageSettings(View view) {
         Intent intent = new Intent(this, LanguageSelection.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
 
     public void locationSettings(View view) {
@@ -30,13 +30,20 @@ public class Settings extends AppCompatActivity {
     public void myTrips(View view) {
     }
 
-    public void logOut(View view) {
-        Intent intent = new Intent();
-        setResult(RESULT_OK, intent);
-        finish();
-    }
 
     public void Back(View view) {
         finish();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) { //select language
+            if(resultCode == RESULT_OK) {
+                intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        }
+    }
+
 }

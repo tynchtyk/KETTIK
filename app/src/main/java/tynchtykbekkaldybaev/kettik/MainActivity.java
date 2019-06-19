@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity{
                 final ProgressDialog progressDialog = new ProgressDialog(this,
                         R.style.Theme_AppCompat_Light_Dialog);
                 progressDialog.setIndeterminate(true);
-                progressDialog.setMessage("Разлогинизация...");
+//                progressDialog.setMessage("Разлогинизация...");
                 progressDialog.show();
                 userName = null;
                 userProf = null;
@@ -410,25 +410,12 @@ public class MainActivity extends AppCompatActivity{
                 startActivityForResult(intent, 6);
             }
         }
-        if (requestCode == 2) { //Log out
+        if (requestCode == 2) { //Settings
             if (resultCode == RESULT_OK) {
-                SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_MULTI_PROCESS);
-                userInfo.edit().clear().commit();
-
-                mDrawerLayout.closeDrawers();
-                final ProgressDialog progressDialog = new ProgressDialog(this,
-                        R.style.Theme_AppCompat_Light_Dialog);
-                progressDialog.setIndeterminate(true);
-                progressDialog.setMessage("Разлогинизация...");
-                progressDialog.show();
-                userName = null;
-                userProf = null;
-                clearBackStack();
 
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
-                        progressDialog.dismiss();
                         MainActivity.this.recreate();
                     }
                 }, 2000);
