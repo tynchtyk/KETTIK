@@ -59,7 +59,6 @@ public class Profile_Additional_Registration extends AppCompatActivity {
     private String submitURL;
 
     Button save;
-    ImageView licencePic;
     int Id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +128,7 @@ public class Profile_Additional_Registration extends AppCompatActivity {
     }
 
 
-    public void addLicencePic(View view) {
+    /*public void addLicencePic(View view) {
         final CharSequence[] items={"Запустить камеру","Выбрать из галереи", "Отмена"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Profile_Additional_Registration.this);
@@ -157,7 +156,7 @@ public class Profile_Additional_Registration extends AppCompatActivity {
             }
         });
         builder.show();
-    }
+    }*/
 
 
 
@@ -167,7 +166,7 @@ public class Profile_Additional_Registration extends AppCompatActivity {
 
         if(resultCode== Activity.RESULT_OK){
 
-            if(requestCode==0){
+           /* if(requestCode==0){
 
                 Bundle bundle = data.getExtras();
                 final Bitmap bmp = (Bitmap) bundle.get("data");
@@ -180,7 +179,7 @@ public class Profile_Additional_Registration extends AppCompatActivity {
                 Uri selectedImageUri = data.getData();
                 licencePic.setImageURI(selectedImageUri);
                 licencePic.setVisibility(View.VISIBLE);
-            }
+            }*/
 
         }
     }

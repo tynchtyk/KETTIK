@@ -83,7 +83,6 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/photo"
             android:layout_alignEnd="@+id/photo"
-            android:onClick="addProfilePic"
             android:background="@null"
             android:elevation="5dp"
             android:src="@drawable/addphoto"/>

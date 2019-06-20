@@ -42,9 +42,9 @@
     <string name="sms_code">Код жазылган смс сиздин телефон номериңизге жөнөтүлөт.</string>
     <string name="send_code">Код жөнөтүү</string>
     <string name="edit_profile">Профильди озгортуу</string>
-    <string name="carnumber">Автомобиль номери</string>
+    <string name="carnumber">"Автомобиль номери:  "</string>
     <string name="example1">*Мисалы</string>
-    <string name="cartype">Автомобиль маркасы</string>
+    <string name="cartype">"Автомобиль маркасы:  "</string>
     <string name="driverlicencephoto">Айдоочу куболугунун суроту</string>
     <string name="information_about_driver">Айдоочу маалыматы</string>
     <string name="agreement">Сактоо баскычын басып, биздин шарттарга макулдук берип жатасыз</string>
@@ -86,7 +86,7 @@
     <string name="add">Кошуу</string>
     <string name="peoplequantity">*Жургунчулордун саны</string>
     <string name="driver">Айдоочу</string>
-    <string name="tripprice">Жол кире:</string>
+    <string name="tripprice">"Жол кире:  "</string>
     <string name="call">Чалуу</string>
     <string name="sms">Жазуу</string>
     <string name="afteragreement">*эгер айдоочу менен келишкен болсонуз, «Келиштик» баскычын басыныз.</string>
@@ -102,8 +102,8 @@
     <string name="chtobydobavitzapros">Кошуу учун системага кириниз</string>
     <string name="chtobydobavitmarwrut">Маршрут кошуу учун системага кириниз</string>
     <string name="chtobyuvidet">Озунуздун сапарынызды текшеруу учун системага кириниз</string>
-    <string name="chelovek">жургунчу</string>
-    <string name="svobodno">бош оорун</string>
+    <string name="chelovek">" жургунчу"</string>
+    <string name="svobodno">" бош оорун"</string>
     <string name="vyuvereny">Чындыгында очургунуз келип жатабы?</string>
     <string name="dobavitsnimokvodprav">Айдоочу куболуктун суротун кошуу</string>
     <string name="neverniyloginiliparol">Номер же пароль туура эмес</string>

@@ -37,9 +37,9 @@
 
     <!-- Edit Profile -->
     <string name="edit_profile">Edit profile</string>
-    <string name="carnumber">License Plate</string>
+    <string name="carnumber">"Car Number:  "</string>
     <string name="example1">*Example</string>
-    <string name="cartype">Car Model</string>
+    <string name="cartype">"Car Model:  "</string>
     <string name="driverlicencephoto">Driver License photo</string>
 
     <!-- additional information -->
@@ -109,7 +109,7 @@
 
     <!--popupdriverinformation-->
     <string name="driver">Driver</string>
-    <string name="tripprice">Price:</string>
+    <string name="tripprice">"Price:  "</string>
     <string name="call">Call</string>
     <string name="sms">Text</string>
     <string name="yaedu">Agreed</string>
@@ -183,14 +183,14 @@
     <string name="chtobydobavitzapros">In order to add inquiry please log in</string>
     <string name="chtobydobavitmarwrut">In order to trip please log in</string>
     <string name="chtobyuvidet">In order to see your trips please log in</string>
-    <string name="chelovek">people</string>
-    <string name="svobodno">available</string>
+    <string name="chelovek">"  people"</string>
+    <string name="svobodno">"  available"</string>
     <string name="vyuvereny">Are you sure you want delete this request?</string>
     <string name="dobavitsnimokvodprav">Add a  driver license photo</string>
     <string name="neverniyloginiliparol">Incorrect number or password</string>
     <string name="proizowlaowibka">Something went wrong, try again</string>
     <string name="proverteparoli">Check whether passwords are same</string>
-    <string name="voditel">driver</string>
+    <string name="voditel">Driver</string>
     <string name="areyousuretochange">Are you sure to choose this language?</string>
     <string name="yes">YES</string>
     <string name="no">NO</string>

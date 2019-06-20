@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity{
     Button login;
     ImageButton editButton;
     TextView userName, userProf, userGuest;
+    CardView avatar_man, avatar_woman;
 
     public TextView toolbarTitle;
 
@@ -133,6 +135,20 @@ public class MainActivity extends AppCompatActivity{
         userGuest = headView.findViewById(R.id.guest);
         userProf = headView.findViewById(R.id.userProf);
 
+        String s = userInfo.getString("gender", "");
+        Log.e("GENDER", s);
+        avatar_man = headView.findViewById(R.id.card_avatar_man);
+        avatar_woman = headView.findViewById(R.id.card_avatar_woman);
+
+        if(s.equals("Мужской")) {
+            avatar_man.setVisibility(View.VISIBLE);
+            avatar_woman.setVisibility(View.INVISIBLE);
+        }
+        else {
+            avatar_man.setVisibility(View.INVISIBLE);
+            avatar_woman.setVisibility(View.VISIBLE);
+
+        }
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -396,6 +412,18 @@ public class MainActivity extends AppCompatActivity{
                 userName.setText(name + " " + surname);
                 userProf.setText("Водитель");
                 driverflag = userInfo.getBoolean("driverFlag",false);
+                String s = userInfo.getString("gender", "");
+                Log.e("GENDER", s);
+
+                if(s.equals("Мужской")) {
+                    avatar_man.setVisibility(View.VISIBLE);
+                    avatar_woman.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    avatar_man.setVisibility(View.INVISIBLE);
+                    avatar_woman.setVisibility(View.VISIBLE);
+
+                }
                 Log.e("LOGINRESULT", name + " " + surname + " " + vehicleModel + " " + vehicleNumber + " " + String.valueOf(driverflag));
 
 
@@ -441,6 +469,19 @@ public class MainActivity extends AppCompatActivity{
                 userName.setText(name + " " + surname);
                 userProf.setText("Водитель");
                 driverflag = userInfo.getBoolean("driverFlag",false);
+
+                String s = userInfo.getString("gender", "");
+                Log.e("GENDER", s);
+
+                if(s.equals("Мужской")) {
+                    avatar_man.setVisibility(View.VISIBLE);
+                    avatar_woman.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    avatar_man.setVisibility(View.INVISIBLE);
+                    avatar_woman.setVisibility(View.VISIBLE);
+
+                }
 
                 set_login();
             }

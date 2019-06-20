@@ -36,10 +36,11 @@ public class EditProfile extends AppCompatActivity {
     EditText name;
     EditText surname;
     TextView birthdate;
-    EditText password;
+   // EditText password;
     EditText carnumber;
     EditText cartype;
     Spinner gender;
+    String password;
 
 
     ImageView licencePic;
@@ -76,6 +77,7 @@ public class EditProfile extends AppCompatActivity {
 
         save = findViewById(R.id.save);
 
+        password = userInfo.getString("password", "");
 
         ImageButton accept = (ImageButton) findViewById(R.id.accept_button);
         accept.setOnClickListener(new View.OnClickListener() {
@@ -113,10 +115,10 @@ public class EditProfile extends AppCompatActivity {
             }
         };
 
-        licencePic = (ImageView) findViewById(R.id.licence_pic);
+        //licencePic = (ImageView) findViewById(R.id.licence_pic);
         profilePic = (CircleImageView) findViewById(R.id.photo);
-        password = (EditText)findViewById(R.id.password);
-        password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+        //password = (EditText)findViewById(R.id.password);
+       // password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,7 +131,7 @@ public class EditProfile extends AppCompatActivity {
                     intent.putExtra("carnumber", carnumber.getText().toString());
                     intent.putExtra("cartype", cartype.getText().toString());
                     intent.putExtra("birthdate", birthdate.getText().toString());
-                    intent.putExtra("password", password.getText().toString());
+                    intent.putExtra("password", password);
                     intent.putExtra("gender", gender.getSelectedItem().toString());
                     intent.putExtra("Id",Id);
 
@@ -149,7 +151,6 @@ public class EditProfile extends AppCompatActivity {
                 || carnumber.getText().toString().equals("")
                 || cartype.getText().toString().equals("")
                 || birthdate.getText().toString().equals("")
-                || password.getText().toString().equals("")
                 || gender.getSelectedItem().toString().equals("")
                 )
             return false;
@@ -172,16 +173,7 @@ public class EditProfile extends AppCompatActivity {
         dialog.show();
     }
 
-    public void showPassword(View view) {
-        if (!isPasswordShowing) {
-            password.setTransformationMethod(new DoNothingTransformation());
-            isPasswordShowing = true;
-        }
-        else {
-            password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
-            isPasswordShowing = false;
-        }
-    }
+
 
     public void addLicencePic(View view) {
         final CharSequence[] items={"Запустить камеру","Выбрать из галереи", "Отмена"};

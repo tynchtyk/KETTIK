@@ -44,9 +44,9 @@
 
     <!-- Edit Profile -->
     <string name="edit_profile">Редактировать профиль</string>
-    <string name="carnumber">Номер автомобиля</string>
+    <string name="carnumber">"Номер автомобиля:  "</string>
     <string name="example1">*Например</string>
-    <string name="cartype">Марка автомобиля</string>
+    <string name="cartype">"Марка автомобиля:  "</string>
     <string name="driverlicencephoto">Фото водт. прав</string>
 
     <!-- additional information -->

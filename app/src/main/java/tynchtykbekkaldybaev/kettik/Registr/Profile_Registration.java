@@ -97,7 +97,7 @@ public class Profile_Registration extends AppCompatActivity {
             }
         };
 
-        licencePic = (ImageView) findViewById(R.id.licence_pic);
+       // licencePic = (ImageView) findViewById(R.id.licence_pic);
         profilePic = (CircleImageView) findViewById(R.id.photo);
         password = (EditText)findViewById(R.id.password);
         password.setTransformationMethod(new AsteriskPasswordTransformationMethod());
