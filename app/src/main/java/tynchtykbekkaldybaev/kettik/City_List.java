@@ -15,6 +15,7 @@ public class City_List {
             "Чаувай",
             "Пʏлгɵн",
             "Исфана",
+            "Бишкек",
 
             "Жалал-Абад",
             "Кара-Кɵл",
@@ -92,16 +93,7 @@ public class City_List {
             "Сокулук",
             "Кант",
             "Чон-Арык",
-            "Bishkek",
-            "Hello, Android - Ed Burnette",
-            "Professional Android 2 App Dev - Reto Meier",
-            "Unlocking Android - Frank Ableson",
-            "Android App Development - Blake Meike",
-            "Pro Android 2 - Dave MacLean",
-            "Beginning Android 2 - Mark Murphy",
-            "Android Programming Tutorials - Mark Murphy",
-            "Android Wireless App Development - Lauren Darcey",
-            "Pro Android Games - Vladimir Silva",
+
     };
     public String[] get_cities(){
         return cities;

@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity{
                 Fragment_SearchPassenger fragment_searchPassenger = new Fragment_SearchPassenger();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchPassenger).commit();
                 MenuItem menuItem = navigationView.getMenu().getItem(2);
-                navigationView.setCheckedItem(menuItem);
+                navigationView.setCheckedItem(2);
                 updateNavigationButtons(DRIVERS_FRAGMENT);
             }
         });
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity{
                 Fragment_SearchDriver fragment_searchDriver = new Fragment_SearchDriver();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchDriver).commit();
                 MenuItem menuItem = navigationView.getMenu().getItem(1);
-                navigationView.setCheckedItem(menuItem);
+                navigationView.setCheckedItem(1);
                 updateNavigationButtons(PASSENGERS_FRAGMENT);
             }
         });
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity{
                 Fragment_SearchParcel fragment_searchParcel = new Fragment_SearchParcel();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, fragment_searchParcel).commit();
                 MenuItem menuItem = navigationView.getMenu().getItem(3);
-                navigationView.setCheckedItem(menuItem);
+                navigationView.setCheckedItem(3);
                 updateNavigationButtons(PARCELS_FRAGMENT);
             }
         });
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate(R.menu.action_bar_menu, menu);
-        MenuCompat.setGroupDividerEnabled(menu, true);
+       // MenuCompat.setGroupDividerEnabled(menu, true);
         globalMenu = menu;
 
 ///        MenuInflater menuInflater = getMenuInflater();
@@ -560,7 +560,7 @@ public class MainActivity extends AppCompatActivity{
         userProf.setVisibility(View.VISIBLE);
 
         MenuItem menuItem = navigationView.getMenu().getItem(1);
-        navigationView.setCheckedItem(menuItem);
+        navigationView.setCheckedItem(1);
         updateNavigationButtons(PASSENGERS_FRAGMENT);
 
         Fragment_SearchDriver fragment_searchDriver = new Fragment_SearchDriver();

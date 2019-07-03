@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubikbolditalic"
                     android:textColor="@color/text_color_light_green"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_10ssp" />
 
 
             </LinearLayout>
